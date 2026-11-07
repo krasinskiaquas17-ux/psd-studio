@@ -109,26 +109,47 @@ footer{position:relative;z-index:5;background:#d9d9d9;color-scheme:light;padding
 footer .logo{display:block;margin:0 0 16px;filter:invert(.6);opacity:.8}
 footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
 
-/* Р”С‹РјРѕРІС‹Рµ РїРµСЂРµС…РѕРґС‹ РјРµР¶РґСѓ СЌРєСЂР°РЅР°РјРё РїРѕ РјР°РєРµС‚Сѓ */
+/* Переходы между экранами */
 .smoke-trans { display: none; }
 .smoke-top { display: none; }
 
-/* РџР°РЅРµР»СЊ РїРµСЂРµРєР»СЋС‡РµРЅРёСЏ СЂРµР¶РёРјРѕРІ Р”РµСЃРєС‚РѕРї / РњРѕР±РёР»СЊРЅС‹Р№ */
 /* ========================================================
-   MOBILE STYLING (Pixel-perfect by User Reference JPEGs)
+   МОБИЛЬНАЯ АДАПТАЦИЯ (100% по компонентам и референсам PSD)
    ======================================================== */
 @media (max-width: 899px) {
   html, body {
-    scroll-snap-type: y mandatory;
     overflow-x: hidden !important;
-    background: #090a0f !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
+
+  /* 1. Нативный стеклянный хедер поверх экранов */
   header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(10px, 3.2vw, 22px) !important;
+    font-size: clamp(8.5px, 2.3vw, 11px) !important;
+    letter-spacing: 0.06em !important;
+    padding: calc(10px + env(safe-area-inset-top, 0px)) 3vw 10px !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(140%) !important;
+    backdrop-filter: blur(18px) saturate(140%) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.28) !important;
+    z-index: 30 !important;
+  }
+  header .logo {
+    height: 21px !important;
+    width: auto !important;
+    margin-right: 4px !important;
+  }
+
+  /* Скрываем старый десктопный WebGL-канвас на мобилке, чтобы он не рисовал монитор поверх чашки */
+  .blk.b1 .layer.bgimg canvas {
     display: none !important;
   }
-  .view-toggle {
-    display: none !important;
-  }
+
+  /* 2. Стек экранов с наездом (sticky-параллакс) */
   .stack {
     position: relative !important;
     width: 100% !important;
@@ -138,56 +159,63 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     display: block !important;
   }
   .blk {
+    position: sticky !important;
+    top: 0 !important;
+    width: 100% !important;
     height: 100svh !important;
     min-height: 100svh !important;
     max-height: 100svh !important;
-    scroll-snap-align: start !important;
-    scroll-snap-stop: always !important;
-    position: relative !important;
     overflow: hidden !important;
     display: block !important;
     grid-template-columns: 1fr !important;
     isolation: isolate !important;
-    transform: none !important;
+    box-shadow: 0 -14px 34px rgba(25, 45, 80, 0.18) !important;
+    will-change: transform, filter !important;
   }
 
-  /* Block 1 (Hero - 100% match to ref_mob_1.jpg) */
+  /* ========================================================
+     ЭКРАН 1: ЧАШКА С ПАРОМ, БЕЛАЯ ДЫМКА И ЛОГОТИП PSD
+     ======================================================== */
   .blk.b1 {
-    display: flex !important;
-    flex-direction: row !important;
-    background: #64a6d1 !important;
+    display: block !important;
+    background: #7ab1d8 !important;
   }
   .blk.b1 .layer.bgimg {
-    display: none !important;
+    display: block !important;
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: -15svh !important;
+    width: 100% !important;
+    height: 130svh !important;
+    background: url("assets/media/mob_bg_screen1.jpg") center 58% / 100% auto no-repeat !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
   }
   .blk.b1 .half.l {
-    width: 39.5% !important;
-    height: 100% !important;
-    flex: none !important;
-    position: relative !important;
-    background: url("assets/media/mob_hero_cup.jpg") center center / cover no-repeat !important;
-    overflow: hidden !important;
-    z-index: 2 !important;
+    display: none !important;
   }
   .blk.b1 .txt.content {
-    width: 60.5% !important;
-    height: 100% !important;
-    flex: 1 !important;
+    position: absolute !important;
+    left: 39.6% !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
     align-items: flex-start !important;
     text-align: left !important;
-    background: linear-gradient(180deg, #62a6d1 0%, #7db0d8 25%, #a8a0cb 60%, #c4a0c2 90%, #d4a8c8 100%) !important;
-    padding: 0 4vw 0 5vw !important;
+    background: transparent !important;
+    padding: 2svh 4vw 6svh 5.2vw !important;
     box-sizing: border-box !important;
     z-index: 3 !important;
   }
   .blk.b1 h1 {
-    font-family: 'Unbounded', sans-serif !important;
+    font-family: "Unbounded", sans-serif !important;
     font-weight: 700 !important;
-    font-size: clamp(12.5px, 3.4vw, 15.5px) !important;
-    line-height: 1.2 !important;
+    font-size: clamp(14px, 3.85vw, 18.5px) !important;
+    line-height: 1.18 !important;
     letter-spacing: -0.01em !important;
     color: #ffffff !important;
     text-transform: uppercase !important;
@@ -195,27 +223,28 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     margin: 0 !important;
   }
   .blk.b1 .heroLogo {
-    width: clamp(118px, 31vw, 150px) !important;
+    width: clamp(135px, 38.5vw, 182px) !important;
     height: auto !important;
-    margin: clamp(14px, 3vh, 22px) 0 0 0 !important;
+    margin: clamp(14px, 2.4svh, 22px) 0 0 0 !important;
     display: block !important;
   }
   .blk.b1 .btn {
-    margin-top: clamp(16px, 3.5vh, 24px) !important;
+    margin-top: clamp(18px, 3.2svh, 26px) !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: fit-content !important;
-    padding: clamp(9px, 2vh, 12px) clamp(22px, 5.5vw, 30px) !important;
+    width: auto !important;
+    aspect-ratio: auto !important;
+    padding: clamp(9px, 1.6svh, 12px) clamp(20px, 5.2vw, 28px) !important;
     border-radius: 999px !important;
     border: 1px solid rgba(255, 255, 255, 0.85) !important;
-    background: rgba(255, 255, 255, 0.28) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
+    background: rgba(255, 255, 255, 0.24) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    backdrop-filter: blur(12px) !important;
     color: #ffffff !important;
-    font-family: 'Unbounded', sans-serif !important;
+    font-family: "Unbounded", sans-serif !important;
     font-weight: 500 !important;
-    font-size: clamp(10px, 2.4vw, 11.5px) !important;
+    font-size: clamp(9.5px, 2.4vw, 11.5px) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
     text-decoration: none !important;
@@ -223,63 +252,60 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
   .blk.b1 .smoke-trans {
     display: block !important;
     position: absolute !important;
-    left: 0 !important; right: 0 !important; bottom: 0 !important;
-    height: clamp(80px, 18svh, 140px) !important;
-    background: url("assets/media/smoke_b1.png") center bottom / cover no-repeat !important;
-    mix-blend-mode: screen !important;
-    opacity: 0.95 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: -2svh !important;
+    height: 22svh !important;
+    background: url("assets/media/mist_white.svg") center bottom / 100% 100% no-repeat !important;
+    mix-blend-mode: normal !important;
+    opacity: 0.92 !important;
     pointer-events: none !important;
-    z-index: 5 !important;
+    z-index: 4 !important;
   }
 
-  /* Block 2 (Philosophy & Bust - 100% match to ref_mob_2.jpg) */
+  /* ========================================================
+     ЭКРАН 2: АНТИЧНЫЙ БЮСТ С КОЛЬЦОМ-ЧЕРЕПОМ И ДЫМОМ
+     ======================================================== */
   .blk.b2 {
-    position: relative !important;
-    background: linear-gradient(180deg, #5b8da8 0%, #689cb5 30%, #a49ec6 70%, #ba95af 100%) !important;
+    display: block !important;
+    background: #779ebb !important;
   }
-  .blk.b2::before {
-    content: "" !important;
+  .blk.b2::before,
+  .blk.b2 .smoke-top,
+  .blk.b2 .half {
+    display: none !important;
+  }
+  .blk.b2 .layer.bgimg {
+    display: block !important;
     position: absolute !important;
-    left: 39.5% !important;
-    top: 0 !important;
-    bottom: 0 !important;
+    left: 0 !important;
     right: 0 !important;
-    background: linear-gradient(180deg, rgba(140, 160, 195, 0.42) 0%, rgba(180, 170, 210, 0.42) 50%, rgba(200, 165, 195, 0.42) 100%) !important;
-    border-left: 1px solid rgba(255, 255, 255, 0.16) !important;
+    top: -15svh !important;
+    width: 100% !important;
+    height: 130svh !important;
+    background: url("assets/media/mob_bg_screen2.jpg") center 76% / 100% auto no-repeat !important;
     z-index: 1 !important;
     pointer-events: none !important;
   }
-  .blk.b2 .layer.bgimg {
-    display: none !important;
-  }
-  .blk.b2 .smoke-top {
-    display: block !important;
-    position: absolute !important;
-    left: 0 !important; right: 0 !important; top: 0 !important;
-    height: clamp(70px, 14svh, 110px) !important;
-    background: url("assets/media/smoke_b2_top.png") center top / cover no-repeat !important;
-    mix-blend-mode: screen !important;
-    opacity: 0.85 !important;
-    pointer-events: none !important;
-    z-index: 2 !important;
-  }
   .blk.b2 .txt.content {
     position: absolute !important;
-    top: clamp(36px, 7vh, 52px) !important;
-    left: 44% !important;
-    right: 5% !important;
-    z-index: 4 !important;
+    top: clamp(58px, 11.5svh, 96px) !important;
+    left: 39.6% !important;
+    right: 0 !important;
+    padding: 0 4.5vw 0 5.2vw !important;
+    box-sizing: border-box !important;
+    z-index: 3 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
     text-align: left !important;
-    padding: 0 !important;
+    background: transparent !important;
   }
   .blk.b2 h1 {
-    font-family: 'Unbounded', sans-serif !important;
+    font-family: "Unbounded", sans-serif !important;
     font-weight: 700 !important;
-    font-size: clamp(15px, 4vw, 19px) !important;
-    line-height: 1.15 !important;
+    font-size: clamp(15px, 4.1vw, 19.5px) !important;
+    line-height: 1.16 !important;
     letter-spacing: -0.01em !important;
     color: #ffffff !important;
     text-transform: uppercase !important;
@@ -287,149 +313,109 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     text-shadow: none !important;
   }
   .blk.b2 p {
-    margin: clamp(10px, 2vh, 14px) 0 0 0 !important;
-    font-family: 'Unbounded', sans-serif !important;
+    margin: clamp(10px, 1.8svh, 15px) 0 0 0 !important;
+    font-family: "Unbounded", sans-serif !important;
     font-weight: 300 !important;
-    font-size: clamp(8.5px, 2.2vw, 10.5px) !important;
-    line-height: 1.4 !important;
+    font-size: clamp(8.5px, 2.25vw, 10.5px) !important;
+    line-height: 1.42 !important;
     color: rgba(255, 255, 255, 0.95) !important;
-    text-transform: uppercase !important;
+    text-transform: none !important;
+    max-width: 100% !important;
   }
   .blk.b2 .btn {
-    margin-top: clamp(14px, 2.5vh, 20px) !important;
+    margin-top: clamp(14px, 2.5svh, 22px) !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: fit-content !important;
-    padding: clamp(9px, 2vh, 12px) clamp(22px, 5.5vw, 30px) !important;
+    width: auto !important;
+    aspect-ratio: auto !important;
+    padding: clamp(9px, 1.6svh, 12px) clamp(20px, 5.2vw, 28px) !important;
     border-radius: 999px !important;
     border: 1px solid rgba(255, 255, 255, 0.85) !important;
-    background: rgba(255, 255, 255, 0.28) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
+    background: rgba(255, 255, 255, 0.24) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    backdrop-filter: blur(12px) !important;
     color: #ffffff !important;
-    font-family: 'Unbounded', sans-serif !important;
+    font-family: "Unbounded", sans-serif !important;
     font-weight: 500 !important;
-    font-size: clamp(10px, 2.4vw, 11.5px) !important;
+    font-size: clamp(9.5px, 2.4vw, 11.5px) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
     text-decoration: none !important;
   }
-  .blk.b2 .half {
-    position: absolute !important;
-    inset: 0 !important;
-    pointer-events: none !important;
-    z-index: 2 !important;
-    min-height: 0 !important;
-  }
-  .blk.b2 .bust {
-    position: absolute !important;
-    bottom: -1% !important;
-    left: -14% !important;
-    width: 128% !important;
-    height: auto !important;
-    pointer-events: none !important;
-    z-index: 3 !important;
-    transform: none !important;
-  }
-  .blk.b2 .bust img.fig {
-    width: 100% !important;
-    height: auto !important;
-    display: block !important;
-  }
-  .blk.b2 .bust .smk, .blk.b2 .bust .smkc {
-    position: absolute !important;
-    left: 66.4% !important;
-    top: 0 !important;
-    width: 28.1% !important;
-    height: 77.2% !important;
-    display: block !important;
-    pointer-events: none !important;
-  }
 
-  /* Block 3 (Services & Sphere - 100% match to ref_mob_3.jpg) */
+  /* ========================================================
+     ЭКРАН 3: ТИПОГРАФИКА СЛЕВА + БЕЛЫЙ ШАРИК С ДЕСКТОПА
+     ======================================================== */
   .blk.b3 {
-    position: relative !important;
-    background: linear-gradient(180deg, #4f96bd 0%, #68a3c6 30%, #9e9fc9 70%, #b89dbb 100%) !important;
+    display: block !important;
+    background: #589ec4 !important;
   }
-  .blk.b3::before {
-    content: "" !important;
-    position: absolute !important;
-    left: 39.5% !important;
-    top: 0 !important;
-    bottom: 0 !important;
-    right: 0 !important;
-    background: linear-gradient(180deg, rgba(135, 175, 205, 0.38) 0%, rgba(175, 170, 210, 0.38) 50%, rgba(200, 165, 195, 0.38) 100%) !important;
-    border-left: 1px solid rgba(255, 255, 255, 0.16) !important;
-    z-index: 1 !important;
-    pointer-events: none !important;
-  }
-  .blk.b3 .layer.bgimg {
+  .blk.b3::before,
+  .blk.b3 .half {
     display: none !important;
   }
-  .blk.b3 .half {
+  .blk.b3 .layer.bgimg {
+    display: block !important;
     position: absolute !important;
-    inset: 0 !important;
-    pointer-events: none !important;
-    z-index: 2 !important;
-    min-height: 0 !important;
-  }
-  .blk.b3 .words {
-    position: absolute !important;
-    left: -18% !important;
-    top: -5% !important;
-    width: 62% !important;
-    height: 110% !important;
-    object-fit: cover !important;
-    object-position: 48% 50% !important;
-    opacity: 0.85 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: -15svh !important;
+    width: 100% !important;
+    height: 130svh !important;
+    background: url("assets/media/mob_bg_screen3.jpg") center 46% / 100% auto no-repeat !important;
+    z-index: 1 !important;
     pointer-events: none !important;
   }
   .blk.b3 .txt.content {
     position: absolute !important;
-    top: clamp(65px, 10vh, 90px) !important;
-    left: 44% !important;
-    right: 5% !important;
-    z-index: 4 !important;
+    top: clamp(78px, 16svh, 130px) !important;
+    left: 39.6% !important;
+    right: 0 !important;
+    padding: 0 4.5vw 0 5.2vw !important;
+    box-sizing: border-box !important;
+    z-index: 3 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
     text-align: left !important;
-    padding: 0 !important;
+    background: transparent !important;
   }
   .blk.b3 .ballwrap {
     position: relative !important;
-    align-self: center !important;
+    align-self: flex-start !important;
     left: auto !important;
     top: auto !important;
-    margin: 0 0 clamp(16px, 2.5vh, 24px) 0 !important;
-    width: clamp(55px, 13vw, 72px) !important;
+    margin: 0 0 clamp(22px, 3.8svh, 34px) clamp(8px, 2.5vw, 18px) !important;
+    width: clamp(64px, 16.5vw, 84px) !important;
+    height: clamp(64px, 16.5vw, 84px) !important;
     aspect-ratio: 1 !important;
     z-index: 3 !important;
     pointer-events: none !important;
+    display: block !important;
   }
-  .blk.b3 .ballwrap img.shadow,
   .blk.b3 .ballwrap img.ball {
     position: absolute !important;
     left: 0 !important;
     top: 0 !important;
     width: 100% !important;
     height: 100% !important;
-  }
-  .blk.b3 .ballwrap img.ball {
+    display: block !important;
     animation: bob 5s ease-in-out infinite !important;
   }
   .blk.b3 .ballwrap img.shadow {
-    top: 95% !important;
-    left: -15% !important;
-    width: 130% !important;
+    position: absolute !important;
+    top: 98% !important;
+    left: -18% !important;
+    width: 136% !important;
     height: auto !important;
+    display: block !important;
     animation: shd 5s ease-in-out infinite !important;
   }
   .blk.b3 h2 {
-    font-family: 'Unbounded', sans-serif !important;
+    font-family: "Unbounded", sans-serif !important;
     font-weight: 700 !important;
-    font-size: clamp(12.5px, 3.4vw, 16px) !important;
+    font-size: clamp(13.5px, 3.7vw, 17.5px) !important;
     line-height: 1.18 !important;
     letter-spacing: -0.01em !important;
     color: #ffffff !important;
@@ -437,29 +423,31 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     margin: 0 !important;
   }
   .blk.b3 p {
-    margin: clamp(8px, 1.8vh, 12px) 0 0 0 !important;
-    font-family: 'Unbounded', sans-serif !important;
+    margin: clamp(10px, 1.8svh, 15px) 0 0 0 !important;
+    font-family: "Unbounded", sans-serif !important;
     font-weight: 300 !important;
-    font-size: clamp(8px, 2vw, 9.5px) !important;
-    line-height: 1.36 !important;
+    font-size: clamp(8.5px, 2.15vw, 10px) !important;
+    line-height: 1.4 !important;
     color: rgba(255, 255, 255, 0.95) !important;
+    max-width: 100% !important;
   }
   .blk.b3 .btn {
-    margin-top: clamp(12px, 2.2vh, 18px) !important;
+    margin-top: clamp(14px, 2.5svh, 22px) !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: fit-content !important;
-    padding: clamp(9px, 2vh, 12px) clamp(22px, 5.5vw, 30px) !important;
+    width: auto !important;
+    aspect-ratio: auto !important;
+    padding: clamp(9px, 1.6svh, 12px) clamp(20px, 5.2vw, 28px) !important;
     border-radius: 999px !important;
     border: 1px solid rgba(255, 255, 255, 0.85) !important;
-    background: rgba(255, 255, 255, 0.28) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
+    background: rgba(255, 255, 255, 0.24) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    backdrop-filter: blur(12px) !important;
     color: #ffffff !important;
-    font-family: 'Unbounded', sans-serif !important;
+    font-family: "Unbounded", sans-serif !important;
     font-weight: 500 !important;
-    font-size: clamp(10px, 2.4vw, 11.5px) !important;
+    font-size: clamp(9.5px, 2.4vw, 11.5px) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
     text-decoration: none !important;
@@ -467,575 +455,138 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
   .blk.b3 .smoke-trans {
     display: block !important;
     position: absolute !important;
-    left: 0 !important; right: 0 !important; bottom: 0 !important;
-    height: clamp(80px, 18svh, 140px) !important;
-    background: url("assets/media/smoke_b1.png") center bottom / cover no-repeat !important;
-    mix-blend-mode: screen !important;
-    opacity: 0.95 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: -2svh !important;
+    height: 18svh !important;
+    background: url("assets/media/mist_white.svg") center bottom / 100% 100% no-repeat !important;
+    mix-blend-mode: normal !important;
+    opacity: 0.88 !important;
     z-index: 5 !important;
     pointer-events: none !important;
   }
 
-  /* Block 4 (Contacts & Astronaut - 100% match to ref_mob_3.jpg) */
+  /* ========================================================
+     ЭКРАН 4: ФОН НЕБА + ОТДЕЛЬНЫЙ PNG КОСМОНАВТА С ЛИНИЯМИ
+     ======================================================== */
   .blk.b4 {
-    position: relative !important;
-    background: linear-gradient(180deg, #689cb8 0%, #a49ec6 35%, #589ec0 75%, #3488ae 100%) !important;
-  }
-  .blk.b4 .layer.bgimg {
-    display: none !important;
+    display: block !important;
+    background: #5b9ac0 !important;
   }
   .blk.b4 .fade {
     display: none !important;
   }
+  .blk.b4 .layer.bgimg {
+    display: block !important;
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: -15svh !important;
+    width: 100% !important;
+    height: 130svh !important;
+    background: url("assets/media/mob_bg_screen4.jpg") center 48% / 100% auto no-repeat !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+  }
+  .blk.b4 .half {
+    display: block !important;
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100svh !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+    overflow: visible !important;
+  }
+  .blk.b4 .stage {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    left: 0 !important;
+    top: 0 !important;
+    aspect-ratio: auto !important;
+    translate: none !important;
+    pointer-events: none !important;
+  }
+  .blk.b4 .stage img.cm,
+  .blk.b4 .stage img.fx,
+  .blk.b4 .stage .zone {
+    display: none !important;
+  }
+  /* PNG астронавта (697x1024) ложится поверх фона с параллаксом */
+  .blk.b4 .stage img.as {
+    display: block !important;
+    position: absolute !important;
+    left: 1% !important;
+    bottom: -2svh !important;
+    top: auto !important;
+    width: 112% !important;
+    height: auto !important;
+    max-height: 98svh !important;
+    content: url("assets/media/mob_astronaut.png") !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+  }
   .blk.b4 .txt.content {
     position: absolute !important;
-    top: clamp(36px, 7vh, 52px) !important;
-    left: 44% !important;
-    right: 5% !important;
+    top: clamp(54px, 10.5svh, 88px) !important;
+    left: 39.6% !important;
+    right: 0 !important;
+    padding: 0 4.5vw 0 5.2vw !important;
+    box-sizing: border-box !important;
     z-index: 4 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
     text-align: left !important;
-    padding: 0 !important;
+    background: transparent !important;
   }
   .blk.b4 h2 {
-    font-family: 'Unbounded', sans-serif !important;
+    font-family: "Unbounded", sans-serif !important;
     font-weight: 700 !important;
-    font-size: clamp(15px, 4vw, 19px) !important;
-    line-height: 1.15 !important;
+    font-size: clamp(14.5px, 4vw, 19px) !important;
+    line-height: 1.16 !important;
     letter-spacing: -0.01em !important;
     color: #ffffff !important;
     text-transform: uppercase !important;
     margin: 0 !important;
   }
   .blk.b4 p {
-    margin: clamp(8px, 1.8vh, 12px) 0 0 0 !important;
-    font-family: 'Unbounded', sans-serif !important;
+    margin: clamp(8px, 1.6svh, 13px) 0 0 0 !important;
+    font-family: "Unbounded", sans-serif !important;
     font-weight: 300 !important;
-    font-size: clamp(8.5px, 2.1vw, 10.5px) !important;
-    line-height: 1.4 !important;
+    font-size: clamp(8.2px, 2.15vw, 10px) !important;
+    line-height: 1.38 !important;
     color: rgba(255, 255, 255, 0.95) !important;
+    max-width: 100% !important;
   }
   .blk.b4 .btn {
-    margin-top: clamp(12px, 2.2vh, 18px) !important;
+    margin-top: clamp(12px, 2.2svh, 18px) !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: fit-content !important;
-    padding: clamp(9px, 2vh, 12px) clamp(22px, 5.5vw, 30px) !important;
+    width: auto !important;
+    aspect-ratio: auto !important;
+    padding: clamp(9px, 1.6svh, 12px) clamp(20px, 5.2vw, 28px) !important;
     border-radius: 999px !important;
     border: 1px solid rgba(255, 255, 255, 0.85) !important;
-    background: rgba(255, 255, 255, 0.28) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
+    background: rgba(255, 255, 255, 0.24) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    backdrop-filter: blur(12px) !important;
     color: #ffffff !important;
-    font-family: 'Unbounded', sans-serif !important;
+    font-family: "Unbounded", sans-serif !important;
     font-weight: 500 !important;
-    font-size: clamp(10px, 2.4vw, 11.5px) !important;
+    font-size: clamp(9.5px, 2.4vw, 11.5px) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
     text-decoration: none !important;
   }
-  .blk.b4 .half {
-    position: absolute !important;
-    left: 0 !important; right: 0 !important; bottom: 0 !important;
-    height: 60svh !important;
-    display: flex !important;
-    align-items: flex-end !important;
-    justify-content: center !important;
-    pointer-events: none !important;
-    z-index: 2 !important;
-    min-height: 0 !important;
-  }
-  .blk.b4 .stage {
-    position: relative !important;
-    width: clamp(260px, 72vw, 320px) !important;
-    height: 100% !important;
-    display: flex !important;
-    align-items: flex-end !important;
-    justify-content: center !important;
-    left: auto !important; top: auto !important; bottom: 0 !important;
-    translate: none !important;
-    aspect-ratio: auto !important;
-  }
-  .blk.b4 .stage img.cm {
-    position: absolute !important;
-    bottom: 4% !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    width: 110% !important;
-    height: auto !important;
-    z-index: 1 !important;
-    opacity: 0.85 !important;
-    pointer-events: none !important;
-  }
-  .blk.b4 .stage img.as {
-    position: absolute !important;
-    bottom: 0 !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    width: 100% !important;
-    height: auto !important;
-    max-height: 56svh !important;
-    object-fit: contain !important;
-    z-index: 2 !important;
-    pointer-events: auto !important;
-  }
-  .blk.b4 .stage img.fx {
-    position: absolute !important;
-    bottom: 0 !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    width: 105% !important;
-    height: auto !important;
-    z-index: 3 !important;
-    pointer-events: none !important;
-    opacity: 0.9 !important;
-  }
-
-  .faq {
-    scroll-snap-align: start !important;
-  }
-  footer {
-    scroll-snap-align: start !important;
-  }
-}
-
-/* Also apply exact same styling rules inside desktop body.preview-mobile */
-body.preview-mobile .blk {
-  height: 896px !important;
-  min-height: 896px !important;
-  position: relative !important;
-  overflow: hidden !important;
-  display: block !important;
-  grid-template-columns: 1fr !important;
-}
-body.preview-mobile .blk.b1 {
-  display: flex !important;
-  flex-direction: row !important;
-  background: #64a6d1 !important;
-}
-body.preview-mobile .blk.b1 .layer.bgimg {
-  display: none !important;
-}
-body.preview-mobile .blk.b1 .half.l {
-  width: 39% !important;
-  height: 100% !important;
-  flex: none !important;
-  position: relative !important;
-  background: url("assets/media/img_005.jpg") 82% center / cover no-repeat !important;
-  overflow: hidden !important;
-  z-index: 2 !important;
-}
-body.preview-mobile .blk.b1 .txt.content {
-  width: 61% !important;
-  height: 100% !important;
-  flex: 1 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  text-align: left !important;
-  background: linear-gradient(180deg, #62a6d1 0%, #7db0d8 25%, #a8a0cb 60%, #c4a0c2 90%, #d4a8c8 100%) !important;
-  padding: 0 20px 0 24px !important;
-  box-sizing: border-box !important;
-  z-index: 3 !important;
-}
-body.preview-mobile .blk.b1 h1 {
-  font-family: 'Unbounded', sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 19px !important;
-  line-height: 1.15 !important;
-  letter-spacing: -0.01em !important;
-  color: #ffffff !important;
-  text-transform: uppercase !important;
-  margin: 0 !important;
-}
-body.preview-mobile .blk.b1 .heroLogo {
-  width: 155px !important;
-  height: auto !important;
-  margin: 22px 0 0 0 !important;
-  display: block !important;
-}
-body.preview-mobile .blk.b1 .btn {
-  margin-top: 26px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: fit-content !important;
-  padding: 10px 28px !important;
-  border-radius: 999px !important;
-  border: 1px solid rgba(255, 255, 255, 0.85) !important;
-  background: rgba(255, 255, 255, 0.28) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  color: #ffffff !important;
-  font-family: 'Unbounded', sans-serif !important;
-  font-weight: 500 !important;
-  font-size: 11px !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.04em !important;
-  text-decoration: none !important;
-}
-body.preview-mobile .blk.b1 .smoke-trans {
-  display: block !important;
-  position: absolute !important;
-  left: 0 !important; right: 0 !important; bottom: 0 !important;
-  height: 130px !important;
-  background: url("assets/media/smoke_b1.png") center bottom / cover no-repeat !important;
-  mix-blend-mode: screen !important;
-  opacity: 0.95 !important;
-  pointer-events: none !important;
-  z-index: 5 !important;
-}
-
-body.preview-mobile .blk.b2 {
-  position: relative !important;
-  background: linear-gradient(180deg, #5b8da8 0%, #689cb5 30%, #a49ec6 70%, #ba95af 100%) !important;
-}
-body.preview-mobile .blk.b2::before {
-  content: "" !important;
-  position: absolute !important;
-  left: 39.5% !important;
-  top: 0 !important;
-  bottom: 0 !important;
-  right: 0 !important;
-  background: linear-gradient(180deg, rgba(140, 160, 195, 0.42) 0%, rgba(180, 170, 210, 0.42) 50%, rgba(200, 165, 195, 0.42) 100%) !important;
-  border-left: 1px solid rgba(255, 255, 255, 0.16) !important;
-  z-index: 1 !important;
-  pointer-events: none !important;
-}
-body.preview-mobile .blk.b2 .layer.bgimg {
-  display: none !important;
-}
-body.preview-mobile .blk.b2 .smoke-top {
-  display: block !important;
-  position: absolute !important;
-  left: 0 !important; right: 0 !important; top: 0 !important;
-  height: 100px !important;
-  background: url("assets/media/smoke_b2_top.png") center top / cover no-repeat !important;
-  mix-blend-mode: screen !important;
-  opacity: 0.85 !important;
-  pointer-events: none !important;
-  z-index: 2 !important;
-}
-body.preview-mobile .blk.b2 .txt.content {
-  position: absolute !important;
-  top: 50px !important;
-  left: 45% !important;
-  right: 6% !important;
-  z-index: 4 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  text-align: left !important;
-  padding: 0 !important;
-}
-body.preview-mobile .blk.b2 h1 {
-  font-family: 'Unbounded', sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 20px !important;
-  line-height: 1.15 !important;
-  letter-spacing: -0.01em !important;
-  color: #ffffff !important;
-  text-transform: uppercase !important;
-  margin: 0 !important;
-  text-shadow: none !important;
-}
-body.preview-mobile .blk.b2 p {
-  margin: 14px 0 0 0 !important;
-  font-family: 'Unbounded', sans-serif !important;
-  font-weight: 300 !important;
-  font-size: 11px !important;
-  line-height: 1.35 !important;
-  color: rgba(255, 255, 255, 0.95) !important;
-  text-transform: uppercase !important;
-}
-body.preview-mobile .blk.b2 .btn {
-  margin-top: 18px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: fit-content !important;
-  padding: 10px 28px !important;
-  border-radius: 999px !important;
-  border: 1px solid rgba(255, 255, 255, 0.85) !important;
-  background: rgba(255, 255, 255, 0.28) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  color: #ffffff !important;
-  font-family: 'Unbounded', sans-serif !important;
-  font-weight: 500 !important;
-  font-size: 11px !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.04em !important;
-  text-decoration: none !important;
-}
-body.preview-mobile .blk.b2 .half {
-  position: absolute !important;
-  inset: 0 !important;
-  pointer-events: none !important;
-  z-index: 2 !important;
-  min-height: 0 !important;
-}
-body.preview-mobile .blk.b2 .bust {
-  position: absolute !important;
-  bottom: 0 !important;
-  left: -14% !important;
-  width: 128% !important;
-  height: auto !important;
-  pointer-events: none !important;
-  z-index: 3 !important;
-  transform: none !important;
-}
-body.preview-mobile .blk.b2 .bust img.fig {
-  width: 100% !important;
-  height: auto !important;
-  display: block !important;
-}
-body.preview-mobile .blk.b2 .bust .smk, body.preview-mobile .blk.b2 .bust .smkc {
-  position: absolute !important;
-  left: 66.40625% !important;
-  top: 0 !important;
-  width: 28.125% !important;
-  height: 77.2727% !important;
-  display: block !important;
-  pointer-events: none !important;
-}
-
-body.preview-mobile .blk.b3 {
-  position: relative !important;
-  background: linear-gradient(180deg, #4f96bd 0%, #68a3c6 30%, #9e9fc9 70%, #b89dbb 100%) !important;
-}
-body.preview-mobile .blk.b3::before {
-  content: "" !important;
-  position: absolute !important;
-  left: 39.5% !important;
-  top: 0 !important;
-  bottom: 0 !important;
-  right: 0 !important;
-  background: linear-gradient(180deg, rgba(135, 175, 205, 0.38) 0%, rgba(175, 170, 210, 0.38) 50%, rgba(200, 165, 195, 0.38) 100%) !important;
-  border-left: 1px solid rgba(255, 255, 255, 0.16) !important;
-  z-index: 1 !important;
-  pointer-events: none !important;
-}
-body.preview-mobile .blk.b3 .layer.bgimg {
-  display: none !important;
-}
-body.preview-mobile .blk.b3 .half {
-  position: absolute !important;
-  inset: 0 !important;
-  pointer-events: none !important;
-  z-index: 2 !important;
-  min-height: 0 !important;
-}
-body.preview-mobile .blk.b3 .words {
-  position: absolute !important;
-  left: -12% !important;
-  top: -5% !important;
-  width: 58% !important;
-  height: 110% !important;
-  object-fit: cover !important;
-  object-position: 45% 55% !important;
-  opacity: 0.85 !important;
-  pointer-events: none !important;
-}
-body.preview-mobile .blk.b3 .ballwrap {
-  position: absolute !important;
-  left: 54% !important;
-  top: 100px !important;
-  width: 76px !important;
-  aspect-ratio: 1 !important;
-  z-index: 3 !important;
-  pointer-events: none !important;
-  animation: floatBall 4s ease-in-out infinite alternate !important;
-}
-body.preview-mobile .blk.b3 .ballwrap img.shadow,
-body.preview-mobile .blk.b3 .ballwrap img.ball {
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-}
-body.preview-mobile .blk.b3 .txt.content {
-  position: absolute !important;
-  top: 200px !important;
-  left: 45% !important;
-  right: 6% !important;
-  z-index: 4 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  text-align: left !important;
-  padding: 0 !important;
-}
-body.preview-mobile .blk.b3 h2 {
-  font-family: 'Unbounded', sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 18px !important;
-  line-height: 1.15 !important;
-  letter-spacing: -0.01em !important;
-  color: #ffffff !important;
-  text-transform: uppercase !important;
-  margin: 0 !important;
-}
-body.preview-mobile .blk.b3 p {
-  margin: 14px 0 0 0 !important;
-  font-family: 'Unbounded', sans-serif !important;
-  font-weight: 300 !important;
-  font-size: 11px !important;
-  line-height: 1.4 !important;
-  color: rgba(255, 255, 255, 0.95) !important;
-}
-body.preview-mobile .blk.b3 .btn {
-  margin-top: 18px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: fit-content !important;
-  padding: 10px 28px !important;
-  border-radius: 999px !important;
-  border: 1px solid rgba(255, 255, 255, 0.85) !important;
-  background: rgba(255, 255, 255, 0.28) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  color: #ffffff !important;
-  font-family: 'Unbounded', sans-serif !important;
-  font-weight: 500 !important;
-  font-size: 11px !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.04em !important;
-  text-decoration: none !important;
-}
-body.preview-mobile .blk.b3 .smoke-trans {
-  display: block !important;
-  position: absolute !important;
-  left: 0 !important; right: 0 !important; bottom: 0 !important;
-  height: 130px !important;
-  background: url("assets/media/smoke_b1.png") center bottom / cover no-repeat !important;
-  mix-blend-mode: screen !important;
-  opacity: 0.95 !important;
-  z-index: 5 !important;
-  pointer-events: none !important;
-}
-
-body.preview-mobile .blk.b4 {
-  position: relative !important;
-  background: linear-gradient(180deg, #689cb8 0%, #a49ec6 35%, #589ec0 75%, #3488ae 100%) !important;
-}
-body.preview-mobile .blk.b4 .layer.bgimg {
-  display: none !important;
-}
-body.preview-mobile .blk.b4 .fade {
-  display: none !important;
-}
-body.preview-mobile .blk.b4 .txt.content {
-  position: absolute !important;
-  top: 60px !important;
-  left: 45% !important;
-  right: 6% !important;
-  z-index: 4 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  text-align: left !important;
-  padding: 0 !important;
-}
-body.preview-mobile .blk.b4 h2 {
-  font-family: 'Unbounded', sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 20px !important;
-  line-height: 1.15 !important;
-  letter-spacing: -0.01em !important;
-  color: #ffffff !important;
-  text-transform: uppercase !important;
-  margin: 0 !important;
-}
-body.preview-mobile .blk.b4 p {
-  margin: 14px 0 0 0 !important;
-  font-family: 'Unbounded', sans-serif !important;
-  font-weight: 300 !important;
-  font-size: 11px !important;
-  line-height: 1.35 !important;
-  color: rgba(255, 255, 255, 0.95) !important;
-}
-body.preview-mobile .blk.b4 .btn {
-  margin-top: 18px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: fit-content !important;
-  padding: 10px 28px !important;
-  border-radius: 999px !important;
-  border: 1px solid rgba(255, 255, 255, 0.85) !important;
-  background: rgba(255, 255, 255, 0.28) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  color: #ffffff !important;
-  font-family: 'Unbounded', sans-serif !important;
-  font-weight: 500 !important;
-  font-size: 11px !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.04em !important;
-  text-decoration: none !important;
-}
-body.preview-mobile .blk.b4 .half {
-  position: absolute !important;
-  left: 0 !important; right: 0 !important; bottom: 0 !important;
-  height: 550px !important;
-  display: flex !important;
-  align-items: flex-end !important;
-  justify-content: center !important;
-  pointer-events: none !important;
-  z-index: 2 !important;
-  min-height: 0 !important;
-}
-body.preview-mobile .blk.b4 .stage {
-  position: relative !important;
-  width: 320px !important;
-  height: 100% !important;
-  display: flex !important;
-  align-items: flex-end !important;
-  justify-content: center !important;
-  left: auto !important; top: auto !important; bottom: auto !important;
-  translate: none !important;
-  aspect-ratio: auto !important;
-}
-body.preview-mobile .blk.b4 .stage img.cm {
-  position: absolute !important;
-  bottom: 4% !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  width: 110% !important;
-  height: auto !important;
-  z-index: 1 !important;
-  opacity: 0.85 !important;
-  pointer-events: none !important;
-}
-body.preview-mobile .blk.b4 .stage img.as {
-  position: absolute !important;
-  bottom: 0 !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  width: 100% !important;
-  height: auto !important;
-  max-height: 500px !important;
-  object-fit: contain !important;
-  z-index: 2 !important;
-  pointer-events: auto !important;
-}
-body.preview-mobile .blk.b4 .stage img.fx {
-  position: absolute !important;
-  bottom: 0 !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  width: 105% !important;
-  height: auto !important;
-  z-index: 3 !important;
-  pointer-events: none !important;
-  opacity: 0.9 !important;
 }
 
 @media (prefers-reduced-motion:reduce){.layer,.content,.blk{transform:none!important}}
@@ -1498,13 +1049,6 @@ body.hdr-dark header .logo{filter:invert(1)}
 </script>
 </head>
 <body>
-<aside class="view-toggle" id="view-toggle" aria-label="Переключатель версий">
-  <div class="vt-pill">
-    <button type="button" id="btn-mode-desktop" class="vt-btn active" title="Полноэкранный десктоп 1920px">💻 Десктоп (1920px)</button>
-    <button type="button" id="btn-mode-mobile" class="vt-btn" title="Мобильная версия (в точности по дизайн-референсу)">📱 Мобильная (по референсу)</button>
-  </div>
-</aside>
-
 <header>
   <img class="logo" src="assets/media/img_008.svg" alt="PSD">
   <a href="#about">О студии</a><a href="#portfolio">Портфолио</a><a href="#services">Услуги</a><a href="#contacts">Контакты</a>
@@ -1744,7 +1288,7 @@ body.hdr-dark header .logo{filter:invert(1)}
       if(next){
         p=Math.max(0,Math.min(1,1-next.getBoundingClientRect().top/vh));
         if(c)c.style.transform='translate3d(0,'+(-p*vh*0.18)+'px,0)';
-        b.style.filter='brightness('+(1-p*0.35)+')';
+        b.style.filter=window.innerWidth<900?'':'brightness('+(1-p*0.35)+')';
       }else{
         if(c)c.style.transform='';
         b.style.filter='';
@@ -1926,6 +1470,7 @@ new IntersectionObserver(function(es){inView=es[0].isIntersecting;if(inView)rest
     gl.bindFramebuffer(gl.FRAMEBUFFER,null);cur=0;return true;
   }
   function resize(){
+    if(window.innerWidth<900){ready=false;if(cv.parentNode)cv.remove();return}
     var w=layer.clientWidth,h=layer.clientHeight; if(w<4||h<4){ready=false;if(cv.parentNode)cv.remove();return}
     if(!cv.parentNode)layer.appendChild(cv);
     var dpr=Math.min(devicePixelRatio||1,1.25),k=Math.min(1,2600/(w*dpr));
@@ -2264,34 +1809,10 @@ new IntersectionObserver(function(es){inView=es[0].isIntersecting;if(inView)rest
 })();
 </script>
 <script>
-(function(){
-  var btnDesk = document.getElementById('btn-mode-desktop');
-  var btnMob = document.getElementById('btn-mode-mobile');
-  if(!btnDesk || !btnMob) return;
-
-  function setMode(mode){
-    var isMob = (mode === 'mobile');
-    btnMob.classList.toggle('active', isMob);
-    btnDesk.classList.toggle('active', !isMob);
-    document.body.classList.toggle('preview-mobile', isMob);
-    try { localStorage.setItem('psd_preview_mode', mode); } catch(e){}
-    setTimeout(function(){
-      window.dispatchEvent(new Event('resize'));
-      window.dispatchEvent(new Event('scroll'));
-    }, 60);
-  }
-
-  btnDesk.addEventListener('click', function(){ setMode('desktop'); });
-  btnMob.addEventListener('click', function(){ setMode('mobile'); });
-
-  var saved = null;
-  try { saved = localStorage.getItem('psd_preview_mode'); } catch(e){}
-  if(saved === 'mobile') {
-    setMode('mobile');
-  } else {
-    setMode('desktop');
-  }
-})();
+try {
+  localStorage.removeItem('psd_preview_mode');
+  document.body.classList.remove('preview-mobile');
+} catch(e){}
 </script>
 </body>
 </html>
