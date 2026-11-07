@@ -1,0 +1,45 @@
+﻿# OS files
+.DS_Store
+Thumbs.db
+.agent/
+*.log
+
+# Scripts & temporary tools
+*.ps1
+*.bat
+
+# Drafts and intermediate files
+*.backup*.html
+*backup*.html
+*pre_mobref*.html
+*.clean.html
+*.optimized.html
+*.ai
+*.psd
+*.eps
+*.doc
+*.docx
+*.pptx
+*.xls
+*.xlsx
+
+# Old numbered versions
+PSD *.html
+PSD*.html
+РџРѕСЂС‚С„РѕР»РёРѕ *.html
+РџРѕСЂС‚С„РѕР»РёРѕ*.html
+РЈСЃР»СѓРіРё *.html
+РЈСЃР»СѓРіРё*.html
+3.2.html
+psd-landing_11.html
+
+# Raw materials folders (kept locally, not needed for web)
+РљРѕРЅС‚Р°РєС‚С‹/
+РџСЂР°Р№СЃ-Р»РёСЃС‚/
+СЂР°Р·РґРµР» Рѕ СЃС‚СѓРґРёРё/
+20261029005914943451.png
+hd_4e07617fc7c279abd1e8acd977dce984.jpg
+VJ AJNJ.jpg
+С€Р°СЂ.svg
+AGENTS.md
+PROGRESS.md
