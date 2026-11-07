@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
@@ -115,109 +115,43 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
 
 /* РџР°РЅРµР»СЊ РїРµСЂРµРєР»СЋС‡РµРЅРёСЏ СЂРµР¶РёРјРѕРІ Р”РµСЃРєС‚РѕРї / РњРѕР±РёР»СЊРЅС‹Р№ */
 /* ========================================================
-   VIEW TOGGLE (Desktop switcher: Desktop 1920px / Mobile)
-   ======================================================== */
-.view-toggle {
-  display: none;
-}
-@media (min-width: 900px) {
-  .view-toggle {
-    display: block;
-    position: fixed;
-    top: 18px;
-    right: 24px;
-    z-index: 99999;
-    font-family: 'Unbounded', sans-serif;
-  }
-  .vt-pill {
-    display: inline-flex;
-    background: rgba(14, 16, 23, 0.9);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 999px;
-    padding: 4px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-    gap: 4px;
-  }
-  .vt-btn {
-    border: none;
-    background: transparent;
-    color: rgba(255, 255, 255, 0.65);
-    font-family: inherit;
-    font-size: 11px;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    white-space: nowrap;
-  }
-  .vt-btn:hover {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.08);
-  }
-  .vt-btn.active {
-    background: #ffffff;
-    color: #0b0d13;
-    font-weight: 600;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-  }
-
-  /* Desktop Preview of Mobile Layout */
-  body.preview-mobile {
-    background: #090a0f !important;
-    background-image: radial-gradient(circle at 50% 30%, #151a28 0%, #08090e 70%) !important;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-    min-height: 100vh !important;
-  }
-  body.preview-mobile header {
-    display: none !important;
-  }
-  body.preview-mobile footer {
-    display: none !important;
-  }
-  body.preview-mobile .stack {
-    width: 414px !important;
-    max-width: 92vw !important;
-    height: 896px !important;
-    max-height: 90vh !important;
-    margin: 5vh auto !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    border-radius: 36px !important;
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.12) !important;
-    position: relative !important;
-    display: block !important;
-    scroll-behavior: smooth !important;
-  }
-}
-
-/* ========================================================
    MOBILE STYLING (Pixel-perfect by User Reference JPEGs)
    ======================================================== */
 @media (max-width: 899px) {
+  html, body {
+    scroll-snap-type: y mandatory;
+    overflow-x: hidden !important;
+    background: #090a0f !important;
+  }
   header {
     display: none !important;
   }
   .view-toggle {
     display: none !important;
   }
-}
-
-/* Screen 1-4 common rules for real mobile (<900px) */
-@media (max-width: 899px) {
+  .stack {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+  }
   .blk {
     height: 100svh !important;
     min-height: 100svh !important;
+    max-height: 100svh !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
     position: relative !important;
     overflow: hidden !important;
     display: block !important;
     grid-template-columns: 1fr !important;
+    isolation: isolate !important;
+    transform: none !important;
   }
 
-  /* Block 1 (Hero) */
+  /* Block 1 (Hero - 100% match to ref_mob_1.jpg) */
   .blk.b1 {
     display: flex !important;
     flex-direction: row !important;
@@ -227,16 +161,16 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     display: none !important;
   }
   .blk.b1 .half.l {
-    width: 39% !important;
+    width: 39.5% !important;
     height: 100% !important;
     flex: none !important;
     position: relative !important;
-    background: url("assets/media/img_005.jpg") 82% center / cover no-repeat !important;
+    background: url("assets/media/mob_hero_cup.jpg") center center / cover no-repeat !important;
     overflow: hidden !important;
     z-index: 2 !important;
   }
   .blk.b1 .txt.content {
-    width: 61% !important;
+    width: 60.5% !important;
     height: 100% !important;
     flex: 1 !important;
     display: flex !important;
@@ -245,33 +179,34 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     align-items: flex-start !important;
     text-align: left !important;
     background: linear-gradient(180deg, #62a6d1 0%, #7db0d8 25%, #a8a0cb 60%, #c4a0c2 90%, #d4a8c8 100%) !important;
-    padding: 0 5vw 0 6vw !important;
+    padding: 0 4vw 0 5vw !important;
     box-sizing: border-box !important;
     z-index: 3 !important;
   }
   .blk.b1 h1 {
     font-family: 'Unbounded', sans-serif !important;
     font-weight: 700 !important;
-    font-size: clamp(17px, 4.4vw, 22px) !important;
-    line-height: 1.15 !important;
+    font-size: clamp(12.5px, 3.4vw, 15.5px) !important;
+    line-height: 1.2 !important;
     letter-spacing: -0.01em !important;
     color: #ffffff !important;
     text-transform: uppercase !important;
+    white-space: nowrap !important;
     margin: 0 !important;
   }
   .blk.b1 .heroLogo {
-    width: clamp(130px, 34vw, 175px) !important;
+    width: clamp(118px, 31vw, 150px) !important;
     height: auto !important;
-    margin: clamp(18px, 4vh, 26px) 0 0 0 !important;
+    margin: clamp(14px, 3vh, 22px) 0 0 0 !important;
     display: block !important;
   }
   .blk.b1 .btn {
-    margin-top: clamp(20px, 4.5vh, 30px) !important;
+    margin-top: clamp(16px, 3.5vh, 24px) !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     width: fit-content !important;
-    padding: clamp(9px, 2.2vh, 12px) clamp(22px, 6vw, 32px) !important;
+    padding: clamp(9px, 2vh, 12px) clamp(22px, 5.5vw, 30px) !important;
     border-radius: 999px !important;
     border: 1px solid rgba(255, 255, 255, 0.85) !important;
     background: rgba(255, 255, 255, 0.28) !important;
@@ -280,7 +215,7 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     color: #ffffff !important;
     font-family: 'Unbounded', sans-serif !important;
     font-weight: 500 !important;
-    font-size: clamp(10px, 2.5vw, 12px) !important;
+    font-size: clamp(10px, 2.4vw, 11.5px) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
     text-decoration: none !important;
@@ -289,7 +224,7 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     display: block !important;
     position: absolute !important;
     left: 0 !important; right: 0 !important; bottom: 0 !important;
-    height: clamp(90px, 20svh, 150px) !important;
+    height: clamp(80px, 18svh, 140px) !important;
     background: url("assets/media/smoke_b1.png") center bottom / cover no-repeat !important;
     mix-blend-mode: screen !important;
     opacity: 0.95 !important;
@@ -297,10 +232,22 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     z-index: 5 !important;
   }
 
-  /* Block 2 (Bust & Philosophy) */
+  /* Block 2 (Philosophy & Bust - 100% match to ref_mob_2.jpg) */
   .blk.b2 {
     position: relative !important;
-    background: linear-gradient(180deg, #6c889a 0%, #6398b5 30%, #a49ec6 70%, #ba95af 100%) !important;
+    background: linear-gradient(180deg, #5b8da8 0%, #689cb5 30%, #a49ec6 70%, #ba95af 100%) !important;
+  }
+  .blk.b2::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 39.5% !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    background: linear-gradient(180deg, rgba(140, 160, 195, 0.42) 0%, rgba(180, 170, 210, 0.42) 50%, rgba(200, 165, 195, 0.42) 100%) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.16) !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
   }
   .blk.b2 .layer.bgimg {
     display: none !important;
@@ -309,18 +256,18 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     display: block !important;
     position: absolute !important;
     left: 0 !important; right: 0 !important; top: 0 !important;
-    height: clamp(90px, 20svh, 150px) !important;
+    height: clamp(70px, 14svh, 110px) !important;
     background: url("assets/media/smoke_b2_top.png") center top / cover no-repeat !important;
     mix-blend-mode: screen !important;
     opacity: 0.85 !important;
     pointer-events: none !important;
-    z-index: 1 !important;
+    z-index: 2 !important;
   }
   .blk.b2 .txt.content {
     position: absolute !important;
-    top: clamp(48px, 12svh, 72px) !important;
-    left: 45% !important;
-    right: 6% !important;
+    top: clamp(36px, 7vh, 52px) !important;
+    left: 44% !important;
+    right: 5% !important;
     z-index: 4 !important;
     display: flex !important;
     flex-direction: column !important;
@@ -331,29 +278,30 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
   .blk.b2 h1 {
     font-family: 'Unbounded', sans-serif !important;
     font-weight: 700 !important;
-    font-size: clamp(18px, 4.8vw, 24px) !important;
+    font-size: clamp(15px, 4vw, 19px) !important;
     line-height: 1.15 !important;
     letter-spacing: -0.01em !important;
     color: #ffffff !important;
     text-transform: uppercase !important;
     margin: 0 !important;
+    text-shadow: none !important;
   }
   .blk.b2 p {
-    margin: clamp(12px, 2.5vh, 18px) 0 0 0 !important;
+    margin: clamp(10px, 2vh, 14px) 0 0 0 !important;
     font-family: 'Unbounded', sans-serif !important;
     font-weight: 300 !important;
-    font-size: clamp(10px, 2.4vw, 12px) !important;
-    line-height: 1.35 !important;
+    font-size: clamp(8.5px, 2.2vw, 10.5px) !important;
+    line-height: 1.4 !important;
     color: rgba(255, 255, 255, 0.95) !important;
     text-transform: uppercase !important;
   }
   .blk.b2 .btn {
-    margin-top: clamp(16px, 3.5vh, 24px) !important;
+    margin-top: clamp(14px, 2.5vh, 20px) !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     width: fit-content !important;
-    padding: clamp(9px, 2.2vh, 12px) clamp(22px, 6vw, 32px) !important;
+    padding: clamp(9px, 2vh, 12px) clamp(22px, 5.5vw, 30px) !important;
     border-radius: 999px !important;
     border: 1px solid rgba(255, 255, 255, 0.85) !important;
     background: rgba(255, 255, 255, 0.28) !important;
@@ -362,7 +310,7 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     color: #ffffff !important;
     font-family: 'Unbounded', sans-serif !important;
     font-weight: 500 !important;
-    font-size: clamp(10px, 2.5vw, 12px) !important;
+    font-size: clamp(10px, 2.4vw, 11.5px) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
     text-decoration: none !important;
@@ -376,12 +324,12 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
   }
   .blk.b2 .bust {
     position: absolute !important;
-    bottom: 0 !important;
+    bottom: -1% !important;
     left: -14% !important;
     width: 128% !important;
     height: auto !important;
     pointer-events: none !important;
-    z-index: 2 !important;
+    z-index: 3 !important;
     transform: none !important;
   }
   .blk.b2 .bust img.fig {
@@ -391,18 +339,30 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
   }
   .blk.b2 .bust .smk, .blk.b2 .bust .smkc {
     position: absolute !important;
-    left: 66.40625% !important;
+    left: 66.4% !important;
     top: 0 !important;
-    width: 28.125% !important;
-    height: 77.2727% !important;
+    width: 28.1% !important;
+    height: 77.2% !important;
     display: block !important;
     pointer-events: none !important;
   }
 
-  /* Block 3 (Services & Sphere) */
+  /* Block 3 (Services & Sphere - 100% match to ref_mob_3.jpg) */
   .blk.b3 {
     position: relative !important;
-    background: linear-gradient(180deg, #5398bd 0%, #6da6c8 30%, #a4a2cb 70%, #b89dbb 100%) !important;
+    background: linear-gradient(180deg, #4f96bd 0%, #68a3c6 30%, #9e9fc9 70%, #b89dbb 100%) !important;
+  }
+  .blk.b3::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 39.5% !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    background: linear-gradient(180deg, rgba(135, 175, 205, 0.38) 0%, rgba(175, 170, 210, 0.38) 50%, rgba(200, 165, 195, 0.38) 100%) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.16) !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
   }
   .blk.b3 .layer.bgimg {
     display: none !important;
@@ -411,27 +371,42 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     position: absolute !important;
     inset: 0 !important;
     pointer-events: none !important;
-    z-index: 1 !important;
+    z-index: 2 !important;
     min-height: 0 !important;
   }
   .blk.b3 .words {
     position: absolute !important;
-    left: -4% !important;
-    top: 8svh !important;
-    width: 52% !important;
-    height: auto !important;
-    opacity: 0.9 !important;
+    left: -18% !important;
+    top: -5% !important;
+    width: 62% !important;
+    height: 110% !important;
+    object-fit: cover !important;
+    object-position: 48% 50% !important;
+    opacity: 0.85 !important;
     pointer-events: none !important;
   }
-  .blk.b3 .ballwrap {
+  .blk.b3 .txt.content {
     position: absolute !important;
-    left: 46% !important;
-    top: 22svh !important;
-    width: clamp(70px, 16vw, 92px) !important;
+    top: clamp(65px, 10vh, 90px) !important;
+    left: 44% !important;
+    right: 5% !important;
+    z-index: 4 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    padding: 0 !important;
+  }
+  .blk.b3 .ballwrap {
+    position: relative !important;
+    align-self: center !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 0 0 clamp(16px, 2.5vh, 24px) 0 !important;
+    width: clamp(55px, 13vw, 72px) !important;
     aspect-ratio: 1 !important;
     z-index: 3 !important;
     pointer-events: none !important;
-    animation: floatBall 4s ease-in-out infinite alternate !important;
   }
   .blk.b3 .ballwrap img.shadow,
   .blk.b3 .ballwrap img.ball {
@@ -441,43 +416,41 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     width: 100% !important;
     height: 100% !important;
   }
-  .blk.b3 .txt.content {
-    position: absolute !important;
-    top: clamp(330px, 37svh, 390px) !important;
-    left: 45% !important;
-    right: 6% !important;
-    z-index: 4 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    text-align: left !important;
-    padding: 0 !important;
+  .blk.b3 .ballwrap img.ball {
+    animation: bob 5s ease-in-out infinite !important;
+  }
+  .blk.b3 .ballwrap img.shadow {
+    top: 95% !important;
+    left: -15% !important;
+    width: 130% !important;
+    height: auto !important;
+    animation: shd 5s ease-in-out infinite !important;
   }
   .blk.b3 h2 {
     font-family: 'Unbounded', sans-serif !important;
     font-weight: 700 !important;
-    font-size: clamp(16px, 4.3vw, 21px) !important;
-    line-height: 1.15 !important;
+    font-size: clamp(12.5px, 3.4vw, 16px) !important;
+    line-height: 1.18 !important;
     letter-spacing: -0.01em !important;
     color: #ffffff !important;
     text-transform: uppercase !important;
     margin: 0 !important;
   }
   .blk.b3 p {
-    margin: clamp(12px, 2.5vh, 18px) 0 0 0 !important;
+    margin: clamp(8px, 1.8vh, 12px) 0 0 0 !important;
     font-family: 'Unbounded', sans-serif !important;
     font-weight: 300 !important;
-    font-size: clamp(10px, 2.4vw, 11.5px) !important;
-    line-height: 1.4 !important;
+    font-size: clamp(8px, 2vw, 9.5px) !important;
+    line-height: 1.36 !important;
     color: rgba(255, 255, 255, 0.95) !important;
   }
   .blk.b3 .btn {
-    margin-top: clamp(16px, 3vh, 24px) !important;
+    margin-top: clamp(12px, 2.2vh, 18px) !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     width: fit-content !important;
-    padding: clamp(9px, 2.2vh, 12px) clamp(22px, 6vw, 32px) !important;
+    padding: clamp(9px, 2vh, 12px) clamp(22px, 5.5vw, 30px) !important;
     border-radius: 999px !important;
     border: 1px solid rgba(255, 255, 255, 0.85) !important;
     background: rgba(255, 255, 255, 0.28) !important;
@@ -486,7 +459,7 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     color: #ffffff !important;
     font-family: 'Unbounded', sans-serif !important;
     font-weight: 500 !important;
-    font-size: clamp(10px, 2.5vw, 12px) !important;
+    font-size: clamp(10px, 2.4vw, 11.5px) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
     text-decoration: none !important;
@@ -495,7 +468,7 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     display: block !important;
     position: absolute !important;
     left: 0 !important; right: 0 !important; bottom: 0 !important;
-    height: clamp(90px, 18svh, 150px) !important;
+    height: clamp(80px, 18svh, 140px) !important;
     background: url("assets/media/smoke_b1.png") center bottom / cover no-repeat !important;
     mix-blend-mode: screen !important;
     opacity: 0.95 !important;
@@ -503,7 +476,7 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     pointer-events: none !important;
   }
 
-  /* Block 4 (Contacts & Astronaut) */
+  /* Block 4 (Contacts & Astronaut - 100% match to ref_mob_3.jpg) */
   .blk.b4 {
     position: relative !important;
     background: linear-gradient(180deg, #689cb8 0%, #a49ec6 35%, #589ec0 75%, #3488ae 100%) !important;
@@ -516,9 +489,9 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
   }
   .blk.b4 .txt.content {
     position: absolute !important;
-    top: clamp(48px, 12svh, 72px) !important;
-    left: 45% !important;
-    right: 6% !important;
+    top: clamp(36px, 7vh, 52px) !important;
+    left: 44% !important;
+    right: 5% !important;
     z-index: 4 !important;
     display: flex !important;
     flex-direction: column !important;
@@ -529,7 +502,7 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
   .blk.b4 h2 {
     font-family: 'Unbounded', sans-serif !important;
     font-weight: 700 !important;
-    font-size: clamp(18px, 4.8vw, 24px) !important;
+    font-size: clamp(15px, 4vw, 19px) !important;
     line-height: 1.15 !important;
     letter-spacing: -0.01em !important;
     color: #ffffff !important;
@@ -537,20 +510,20 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     margin: 0 !important;
   }
   .blk.b4 p {
-    margin: clamp(12px, 2.5vh, 18px) 0 0 0 !important;
+    margin: clamp(8px, 1.8vh, 12px) 0 0 0 !important;
     font-family: 'Unbounded', sans-serif !important;
     font-weight: 300 !important;
-    font-size: clamp(10px, 2.4vw, 11.5px) !important;
-    line-height: 1.35 !important;
+    font-size: clamp(8.5px, 2.1vw, 10.5px) !important;
+    line-height: 1.4 !important;
     color: rgba(255, 255, 255, 0.95) !important;
   }
   .blk.b4 .btn {
-    margin-top: clamp(16px, 3vh, 24px) !important;
+    margin-top: clamp(12px, 2.2vh, 18px) !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     width: fit-content !important;
-    padding: clamp(9px, 2.2vh, 12px) clamp(22px, 6vw, 32px) !important;
+    padding: clamp(9px, 2vh, 12px) clamp(22px, 5.5vw, 30px) !important;
     border-radius: 999px !important;
     border: 1px solid rgba(255, 255, 255, 0.85) !important;
     background: rgba(255, 255, 255, 0.28) !important;
@@ -559,7 +532,7 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     color: #ffffff !important;
     font-family: 'Unbounded', sans-serif !important;
     font-weight: 500 !important;
-    font-size: clamp(10px, 2.5vw, 12px) !important;
+    font-size: clamp(10px, 2.4vw, 11.5px) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
     text-decoration: none !important;
@@ -567,7 +540,7 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
   .blk.b4 .half {
     position: absolute !important;
     left: 0 !important; right: 0 !important; bottom: 0 !important;
-    height: 62svh !important;
+    height: 60svh !important;
     display: flex !important;
     align-items: flex-end !important;
     justify-content: center !important;
@@ -577,12 +550,12 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
   }
   .blk.b4 .stage {
     position: relative !important;
-    width: clamp(280px, 80vw, 360px) !important;
+    width: clamp(260px, 72vw, 320px) !important;
     height: 100% !important;
     display: flex !important;
     align-items: flex-end !important;
     justify-content: center !important;
-    left: auto !important; top: auto !important; bottom: auto !important;
+    left: auto !important; top: auto !important; bottom: 0 !important;
     translate: none !important;
     aspect-ratio: auto !important;
   }
@@ -619,6 +592,13 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     z-index: 3 !important;
     pointer-events: none !important;
     opacity: 0.9 !important;
+  }
+
+  .faq {
+    scroll-snap-align: start !important;
+  }
+  footer {
+    scroll-snap-align: start !important;
   }
 }
 
@@ -712,7 +692,19 @@ body.preview-mobile .blk.b1 .smoke-trans {
 
 body.preview-mobile .blk.b2 {
   position: relative !important;
-  background: linear-gradient(180deg, #6c889a 0%, #6398b5 30%, #a49ec6 70%, #ba95af 100%) !important;
+  background: linear-gradient(180deg, #5b8da8 0%, #689cb5 30%, #a49ec6 70%, #ba95af 100%) !important;
+}
+body.preview-mobile .blk.b2::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 39.5% !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  background: linear-gradient(180deg, rgba(140, 160, 195, 0.42) 0%, rgba(180, 170, 210, 0.42) 50%, rgba(200, 165, 195, 0.42) 100%) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.16) !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
 }
 body.preview-mobile .blk.b2 .layer.bgimg {
   display: none !important;
@@ -721,16 +713,16 @@ body.preview-mobile .blk.b2 .smoke-top {
   display: block !important;
   position: absolute !important;
   left: 0 !important; right: 0 !important; top: 0 !important;
-  height: 130px !important;
+  height: 100px !important;
   background: url("assets/media/smoke_b2_top.png") center top / cover no-repeat !important;
   mix-blend-mode: screen !important;
   opacity: 0.85 !important;
   pointer-events: none !important;
-  z-index: 1 !important;
+  z-index: 2 !important;
 }
 body.preview-mobile .blk.b2 .txt.content {
   position: absolute !important;
-  top: 60px !important;
+  top: 50px !important;
   left: 45% !important;
   right: 6% !important;
   z-index: 4 !important;
@@ -749,6 +741,7 @@ body.preview-mobile .blk.b2 h1 {
   color: #ffffff !important;
   text-transform: uppercase !important;
   margin: 0 !important;
+  text-shadow: none !important;
 }
 body.preview-mobile .blk.b2 p {
   margin: 14px 0 0 0 !important;
@@ -793,7 +786,7 @@ body.preview-mobile .blk.b2 .bust {
   width: 128% !important;
   height: auto !important;
   pointer-events: none !important;
-  z-index: 2 !important;
+  z-index: 3 !important;
   transform: none !important;
 }
 body.preview-mobile .blk.b2 .bust img.fig {
@@ -813,7 +806,19 @@ body.preview-mobile .blk.b2 .bust .smk, body.preview-mobile .blk.b2 .bust .smkc 
 
 body.preview-mobile .blk.b3 {
   position: relative !important;
-  background: linear-gradient(180deg, #5398bd 0%, #6da6c8 30%, #a4a2cb 70%, #b89dbb 100%) !important;
+  background: linear-gradient(180deg, #4f96bd 0%, #68a3c6 30%, #9e9fc9 70%, #b89dbb 100%) !important;
+}
+body.preview-mobile .blk.b3::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 39.5% !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  background: linear-gradient(180deg, rgba(135, 175, 205, 0.38) 0%, rgba(175, 170, 210, 0.38) 50%, rgba(200, 165, 195, 0.38) 100%) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.16) !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
 }
 body.preview-mobile .blk.b3 .layer.bgimg {
   display: none !important;
@@ -822,23 +827,25 @@ body.preview-mobile .blk.b3 .half {
   position: absolute !important;
   inset: 0 !important;
   pointer-events: none !important;
-  z-index: 1 !important;
+  z-index: 2 !important;
   min-height: 0 !important;
 }
 body.preview-mobile .blk.b3 .words {
   position: absolute !important;
-  left: -4% !important;
-  top: 70px !important;
-  width: 52% !important;
-  height: auto !important;
-  opacity: 0.9 !important;
+  left: -12% !important;
+  top: -5% !important;
+  width: 58% !important;
+  height: 110% !important;
+  object-fit: cover !important;
+  object-position: 45% 55% !important;
+  opacity: 0.85 !important;
   pointer-events: none !important;
 }
 body.preview-mobile .blk.b3 .ballwrap {
   position: absolute !important;
-  left: 46% !important;
-  top: 200px !important;
-  width: 80px !important;
+  left: 54% !important;
+  top: 100px !important;
+  width: 76px !important;
   aspect-ratio: 1 !important;
   z-index: 3 !important;
   pointer-events: none !important;
@@ -854,7 +861,7 @@ body.preview-mobile .blk.b3 .ballwrap img.ball {
 }
 body.preview-mobile .blk.b3 .txt.content {
   position: absolute !important;
-  top: 330px !important;
+  top: 200px !important;
   left: 45% !important;
   right: 6% !important;
   z-index: 4 !important;
@@ -1462,6 +1469,33 @@ body.hdr-dark header .logo{filter:invert(1)}
 }
 @media (prefers-reduced-motion:reduce){#pr .hero .rays,#pr .scroll i{animation:none}#pr .hero>*:not(.rays):not(.prclose){animation:none;opacity:1;translate:0 0}#pr .rv{opacity:1;translate:0 0;transition:none}#pr .acc-p,#pr .acc-in>div{transition:none}}
 </style>
+<script id="url-screen-helper">
+(function(){
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  var p = new URLSearchParams(window.location.search);
+  var s = p.get('s');
+  if(s){
+    function goTo(){
+      var el = document.querySelector('.blk.b' + s);
+      if(el) {
+        var stack = document.querySelector('.stack');
+        if(document.body.classList.contains('preview-mobile') && stack && stack.scrollHeight > stack.clientHeight){
+          stack.scrollTop = el.offsetTop;
+        } else {
+          var r = el.getBoundingClientRect();
+          window.scrollTo(0, r.top + window.pageYOffset);
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', function(){
+      goTo();
+      setTimeout(goTo, 60);
+      setTimeout(goTo, 250);
+    });
+    window.addEventListener('load', goTo);
+  }
+})();
+</script>
 </head>
 <body>
 <aside class="view-toggle" id="view-toggle" aria-label="Переключатель версий">
