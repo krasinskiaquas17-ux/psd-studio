@@ -80,9 +80,14 @@ h2{font-size:clamp(18px,2.2vw,32px)}
 @media (min-width:900px) and (hover:hover){
   .b4 .stage .zone{display:block}
   .b4 .stage .as{transform-origin:50% 35.5%;transition:scale .55s cubic-bezier(.2,.7,.2,1)}
-  .b4 .stage .zone:hover + .as{scale:1.16}
+  .b4 .stage .zone:hover + .as{scale:1.08}
 }
-@media (min-width:900px){.b4 .txt{padding-right:12vw}}
+@media (min-width:900px){
+  .b4 .txt{padding-right:12vw}
+  .b4 .stage img.cm,
+  .b4 .stage img.fx{display:none}
+  .b4 .stage img.as{left:37%;top:-7%;width:50%;height:107%;object-fit:contain;object-position:center bottom}
+}
 
 .ph{display:flex;align-items:center;justify-content:center;text-align:center;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85);border:1px dashed rgba(255,255,255,.6);border-radius:18px;background:rgba(255,255,255,.12)}
 .orb{border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,#e7a9cb 40%,#8ac3d6)}
@@ -118,7 +123,6 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
    ======================================================== */
 @media (max-width: 899px) {
   html, body {
-    overflow-x: hidden !important;
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -517,7 +521,7 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
   .blk.b4 .stage .zone {
     display: none !important;
   }
-  /* PNG астронавта (697x1024) ложится поверх фона с параллаксом */
+  /* PNG/WebP секвенция астронавта (697x1024) ложится поверх фона со скролл-анимацией */
   .blk.b4 .stage img.as {
     display: block !important;
     position: absolute !important;
@@ -527,7 +531,6 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     width: 112% !important;
     height: auto !important;
     max-height: 98svh !important;
-    content: url("assets/media/mob_astronaut.png") !important;
     object-fit: contain !important;
     object-position: center bottom !important;
     pointer-events: none !important;
@@ -1216,13 +1219,14 @@ body.hdr-dark header .logo{filter:invert(1)}
     <div class="half">
       <div class="stage">
         <img class="layer cm" data-speed="-0.15" src="assets/media/img_015.svg" alt="">
-        <div class="zone"></div><img class="layer as" data-speed="-0.06" src="assets/media/img_016.webp" alt="Космонавт, выходящий из экрана смартфона">
+        <div class="zone"></div><img class="layer as" data-speed="0" src="assets/media/astro_seq/f_00.webp" alt="Космонавт, выходящий из экрана смартфона">
         <img class="layer fx" data-speed="-0.14" src="assets/media/img_017.svg" alt="">
       </div>
     </div>
   </section>
 
-<div id="cta" style="height:0"></div>
+  <div id="b4-runway" style="height:125svh;pointer-events:none"></div>
+  <div id="cta" style="height:0"></div>
   <section id="ct" aria-label="Контакты"><div class="ctbody"><div class="ctinner">
     <video class="ctv" muted loop playsinline preload="none" poster="assets/media/img_018.webp"></video>
     <div class="grain"></div>
@@ -1239,9 +1243,7 @@ body.hdr-dark header .logo{filter:invert(1)}
     <button class="ctclose" id="ct-close" aria-label="Свернуть"><span>Свернуть</span><i><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg></i></button>
   </div></div></section>
   <script type="text/plain" id="ct-vsrc">assets/video/contacts_bg.mp4</script>
-  </main>
-
-<section class="faq" id="faq">
+  <section class="faq" id="faq">
   <div class="in">
     <h3>F.A.Q | Часто задаваемые<br>вопросы</h3>
     <details><summary>Вы зарегистрированы как юр. лицо?</summary><p>Да, мы работаем официально: заключаем договор с ИП или юридическим лицом, предоставляем закрывающие документы и принимаем безналичную оплату на расчётный счёт.</p></details>
@@ -1261,6 +1263,7 @@ body.hdr-dark header .logo{filter:invert(1)}
     </form>
   </div>
 </section>
+</main>
 
 <footer>
   <img class="logo" src="assets/media/img_024.svg" alt="PSD">
@@ -1270,6 +1273,28 @@ body.hdr-dark header .logo{filter:invert(1)}
 <script>
 (function(){
   var blks=[].slice.call(document.querySelectorAll('.blk'));
+  var b4=document.querySelector('.blk.b4');
+  var asImg=b4&&b4.querySelector('.stage img.as');
+  var rw=document.getElementById('b4-runway');
+  var N_FRAMES=64,seqUrls=[],seqLoaded=false,lastFrame=0;
+  for(var fi=0;fi<N_FRAMES;fi++){
+    seqUrls.push('assets/media/astro_seq/f_'+(fi<10?'0'+fi:fi)+'.webp');
+  }
+  function preloadAstroSeq(){
+    if(seqLoaded)return;seqLoaded=true;
+    seqUrls.forEach(function(u){
+      var im=new Image();im.src=u;
+      if(im.decode)im.decode().catch(function(){});
+    });
+  }
+  if(b4&&window.IntersectionObserver){
+    new IntersectionObserver(function(es){
+      if(es[0].isIntersecting)preloadAstroSeq();
+    },{rootMargin:'120% 0px'}).observe(b4);
+  }else{
+    setTimeout(preloadAstroSeq,1200);
+  }
+
   function tick(){
     if(window.__tw)return;
     var vh=window.innerHeight;
@@ -1294,6 +1319,22 @@ body.hdr-dark header .logo{filter:invert(1)}
         b.style.filter='';
       }
     });
+
+    // Скролл-анимация выхода космонавта в невесомость внутри 4-го экрана (.blk.b4)
+    if(b4&&asImg&&rw){
+      var rwRect=rw.getBoundingClientRect();
+      var rwH=Math.max(1,rwRect.height);
+      var startTop=vh*1.0;
+      var endTop=vh-rwH*0.88;
+      var prog=(startTop-rwRect.top)/Math.max(1,startTop-endTop);
+      if(prog<0)prog=0;if(prog>1)prog=1;
+      var idx=Math.min(N_FRAMES-1,Math.max(0,Math.round(prog*(N_FRAMES-1))));
+      if(idx!==lastFrame){
+        lastFrame=idx;
+        if(!seqLoaded)preloadAstroSeq();
+        asImg.src=seqUrls[idx];
+      }
+    }
   }
   var q=false;
   function on(){if(!q){q=true;requestAnimationFrame(function(){q=false;tick()})}}
@@ -1631,7 +1672,7 @@ new IntersectionObserver(function(es){inView=es[0].isIntersecting;if(inView)rest
     if(document.elementsFromPoint){
       var els=document.elementsFromPoint(innerWidth/2,64),el=null;
       for(var i=0;i<els.length;i++){if(!els[i].closest('header')){el=els[i];break}}
-      if(el)dark=!!(el.closest('#pf')||(light&&el.closest('#ab'))||(el.closest('#pr')&&!el.closest('.hero,.closing')));
+      if(el)dark=!!(el.closest('#pf')||el.closest('#faq')||(light&&el.closest('#ab'))||(el.closest('#pr')&&!el.closest('.hero,.closing')));
     }
     document.body.classList.toggle('hdr-dark',dark);
   }
@@ -1718,7 +1759,8 @@ new IntersectionObserver(function(es){inView=es[0].isIntersecting;if(inView)rest
   }
   function collapse(){
     if(!opened||anim)return;opened=false;clearTimeout(doneT);
-    var h0=body.offsetHeight,y0=scrollY,aT=aTop(),bStart=aT-document.getElementById('contacts').offsetHeight;
+    var rw=document.getElementById('b4-runway'),rwH=rw?rw.offsetHeight:0;
+    var h0=body.offsetHeight,y0=scrollY,aT=aTop(),bStart=aT-rwH-document.getElementById('contacts').offsetHeight;
     var mode=(y0>=aT-2&&y0<=aT+h0)?1:(y0>aT+h0?2:0);
     tween(1200,function(e){body.style.height=(h0*(1-e))+'px';
       if(mode===1)scrollTo(0,y0+(bStart-y0)*e);else if(mode===2)scrollTo(0,y0-h0*e)},
