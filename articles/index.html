@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Статьи и база знаний о брендинге и дизайне — PSD Studio (Platonov Sergey Design)</title>
+<meta name="description" content="Экспертные статьи и база знаний студии графического дизайна PSD (Platonov Sergey Design): разработка фирменного стиля, логотипа, брендбука, дизайн упаковки, полиграфии, презентаций и веб-дизайн.">
+<meta name="keywords" content="статьи о брендинге, база знаний графический дизайн, разработка фирменного стиля этапы, дизайн упаковки советы, предпечатная подготовка макетов, разработка брендбука, PSD Studio">
+<meta name="author" content="Сергей Платонов — PSD Studio">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://krasinskiaquas17-ux.github.io/psd-studio/articles/">
+<link rel="icon" type="image/svg+xml" href="../assets/media/img_008.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="PSD — Студия графического дизайна">
+<meta property="og:title" content="Статьи и база знаний о брендинге и дизайне — PSD Studio">
+<meta property="og:description" content="Разборы, гайды и аналитика по брендингу, фирменному стилю, дизайну упаковки, полиграфии и цифровым продуктам от арт-директора PSD Studio.">
+<meta property="og:url" content="https://krasinskiaquas17-ux.github.io/psd-studio/articles/">
+<meta property="og:image" content="https://krasinskiaquas17-ux.github.io/psd-studio/assets/media/hero_desktop.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://krasinskiaquas17-ux.github.io/psd-studio/articles/#collection",
+  "name": "Статьи и база знаний — Студия графического дизайна PSD",
+  "description": "Экспертные материалы по брендингу, разработке фирменного стиля, дизайну упаковки, полиграфии и веб-дизайну.",
+  "url": "https://krasinskiaquas17-ux.github.io/psd-studio/articles/",
+  "isPartOf": {
+    "@id": "https://krasinskiaquas17-ux.github.io/psd-studio/#website"
+  },
+  "publisher": {
+    "@id": "https://krasinskiaquas17-ux.github.io/psd-studio/#organization"
+  }
+}
+</script>
+
+<style>
+:root {
+  --teal: #18a2c0;
+  --pink: #eaabcd;
+  --lav: #a9a7c7;
+  --bg: #ffffff;
+  --bg-alt: #ededed;
+  --text: #4a4a52;
+  --text-dark: #1d1d1f;
+  --muted: #878787;
+  --line: #d4d4d8;
+  --u: calc(100cqw / 2560);
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Unbounded", "Montserrat", Arial, sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ================= СТЕКЛЯННЫЙ ХЕДЕР ================= */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 2.4vw, 34px);
+  padding: calc(12px + env(safe-area-inset-top, 0px)) 4vw 12px;
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 6px 24px rgba(20, 40, 70, 0.08);
+  transition: color 0.45s ease, filter 0.45s ease, background 0.45s ease, border-color 0.45s ease;
+}
+header a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.9;
+  transition: opacity 0.25s ease, color 0.45s ease;
+}
+header a:hover,
+header a.active {
+  opacity: 1;
+}
+header a.active {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+header .logo-link {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 10px;
+  opacity: 1;
+}
+header .logo {
+  height: 30px;
+  width: auto;
+  display: block;
+  transition: filter 0.45s ease;
+}
+body.hdr-dark header {
+  color: #1d1d1f;
+  background: rgba(255, 255, 255, 0.72);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+body.hdr-dark header a {
+  color: #1d1d1f;
+}
+body.hdr-dark header .logo {
+  filter: invert(1);
+}
+.mob-menu-btn,
+.mob-menu-pop {
+  display: none;
+}
+
+/* ================= HERO ЭКРАН В СТИЛЕ PSD (#pr hero) ================= */
+.art-page {
+  container-type: inline-size;
+  width: 100%;
+}
+.hero {
+  position: relative;
+  min-height: clamp(540px, 64svh, 760px);
+  padding: calc(130px + env(safe-area-inset-top, 0px)) max(6vw, calc((100% - 1440px) / 2)) 80px;
+  overflow: hidden;
+  color: #fff;
+  background: linear-gradient(to top right, #18a2c0 0%, #63a4c3 30%, #a9a7c7 62%, #caa8c9 84%, #eaabcd 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hero .rays {
+  position: absolute;
+  left: 92%;
+  top: 12%;
+  width: max(900px, 74vw);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  background: repeating-conic-gradient(rgba(255, 255, 255, 0.2) 0 5deg, rgba(255, 255, 255, 0) 5deg 11deg);
+  -webkit-mask-image: radial-gradient(circle, #000 0, rgba(0, 0, 0, 0.6) 30%, transparent 66%);
+  mask-image: radial-gradient(circle, #000 0, rgba(0, 0, 0, 0.6) 30%, transparent 66%);
+  animation: pr-rot 140s linear infinite;
+  pointer-events: none;
+}
+@keyframes pr-rot {
+  to { rotate: 360deg; }
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+}
+.breadcrumbs {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 24px;
+}
+.breadcrumbs a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  transition: border-color 0.25s;
+}
+.breadcrumbs a:hover {
+  border-color: #fff;
+}
+.hero h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: clamp(42px, 6.6vw, 118px);
+  line-height: 0.98;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+}
+.hero .subtitle-accent {
+  margin: 10px 0 26px;
+  font-size: clamp(22px, 3.6vw, 62px);
+  font-weight: 200;
+  line-height: 1.1;
+}
+.hero .subtitle-accent b {
+  font-weight: 600;
+}
+.hero .lead {
+  margin: 0 0 38px;
+  max-width: 680px;
+  font-size: clamp(13px, 1.15vw, 18px);
+  line-height: 1.6;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Стеклянные чипы-фильтры рубрик (матовое жидкое стекло без диагональных бликов) */
+.filter-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 12px;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 22px;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
+  box-shadow: 0 6px 20px rgba(20, 35, 70, 0.08);
+  color: #fff;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+.chip b {
+  font-weight: 700;
+  margin-right: 6px;
+}
+.chip:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.32);
+}
+.chip.on {
+  background: rgba(255, 255, 255, 0.44);
+  border-color: #fff;
+  font-weight: 500;
+}
+.search-box {
+  position: relative;
+  min-width: 260px;
+  flex: 0 1 320px;
+}
+.search-box input {
+  width: 100%;
+  height: 44px;
+  padding: 0 42px 0 20px;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
+  color: #fff;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 300;
+  outline: none;
+  transition: background 0.3s, border-color 0.3s;
+}
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.85);
+}
+.search-box input:focus {
+  background: rgba(255, 255, 255, 0.32);
+  border-color: #fff;
+}
+.search-box svg {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 16px;
+  height: 16px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2;
+  pointer-events: none;
+}
+
+/* ================= ФЛАГМАНСКАЯ СТАТЬЯ (FEATURED) ================= */
+.sec-wrap {
+  padding: 84px max(6vw, calc((100% - 1440px) / 2));
+}
+.sec-wrap.alt {
+  background: var(--bg-alt);
+}
+.sec-kick {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 44px;
+}
+.sec-kick b {
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.featured-card {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  border-radius: 32px;
+  overflow: hidden;
+  background: #141821;
+  color: #fff;
+  box-shadow: 0 24px 60px rgba(20, 30, 55, 0.14);
+  text-decoration: none;
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.45s ease;
+}
+.featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 72px rgba(20, 30, 55, 0.22);
+}
+.featured-visual {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+  background: #1c222e;
+}
+.featured-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.featured-card:hover .featured-visual img {
+  transform: scale(1.04);
+}
+.featured-badge {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  padding: 8px 16px;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  background: rgba(15, 23, 38, 0.48);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.featured-body {
+  padding: clamp(32px, 4vw, 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background:
+    radial-gradient(circle at 90% 15%, rgba(234, 171, 205, 0.25), transparent 55%),
+    radial-gradient(circle at 15% 90%, rgba(24, 162, 192, 0.28), transparent 60%),
+    #161b24;
+}
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 18px;
+}
+.meta-row span.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--pink);
+}
+.featured-body h2 {
+  margin: 0 0 18px;
+  font-size: clamp(22px, 2.3vw, 36px);
+  font-weight: 600;
+  line-height: 1.18;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+.featured-body p {
+  margin: 0 0 28px;
+  font-size: clamp(12px, 1vw, 15px);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 300;
+}
+.read-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  align-self: flex-start;
+  padding: 13px 26px;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.featured-card:hover .read-btn {
+  background: rgba(255, 255, 255, 0.28);
+  transform: translateX(4px);
+}
+
+/* ================= СЕТКА СТАТЕЙ (BENTO / EDITORIAL GRID) ================= */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.art-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 34px rgba(20, 30, 55, 0.05);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+}
+.art-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 48px rgba(20, 30, 55, 0.12);
+  border-color: rgba(24, 162, 192, 0.45);
+}
+.art-thumb {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #e4e7ec;
+}
+.art-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.art-card:hover .art-thumb img {
+  transform: scale(1.06);
+}
+.art-cat-tag {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  padding: 6px 14px;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(20, 28, 44, 0.52);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.art-content {
+  padding: 26px 26px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.art-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10.5px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.art-content h3 {
+  margin: 0 0 12px;
+  font-size: clamp(16px, 1.35vw, 21px);
+  font-weight: 600;
+  line-height: 1.26;
+  color: var(--text-dark);
+  letter-spacing: -0.01em;
+}
+.art-content p {
+  margin: 0 0 22px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--text);
+  font-weight: 300;
+  flex: 1;
+}
+.art-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.art-foot i {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  display: grid;
+  place-items: center;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+.art-card:hover .art-foot i {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #fff;
+  transform: translateX(3px);
+}
+.art-foot svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ================= ПРЕВЬЮ ШАБЛОНА ВНУТРЕННЕЙ СТРАНИЦЫ СТАТЬИ ================= */
+.article-preview-wrap {
+  background: #fff;
+  border-radius: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  padding: clamp(28px, 4.5vw, 64px);
+  box-shadow: 0 20px 60px rgba(20, 30, 55, 0.06);
+}
+.article-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: clamp(32px, 4vw, 64px);
+  align-items: start;
+}
+.toc-box {
+  position: sticky;
+  top: 100px;
+  padding: 24px;
+  border-radius: 22px;
+  background: var(--bg-alt);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.toc-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dark);
+  margin: 0 0 16px;
+}
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.toc-list a {
+  display: block;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--text);
+  text-decoration: none;
+  padding-left: 12px;
+  border-left: 2px solid transparent;
+  transition: color 0.25s, border-color 0.25s;
+}
+.toc-list a:hover,
+.toc-list a.active {
+  color: var(--teal);
+  border-left-color: var(--teal);
+  font-weight: 500;
+}
+.toc-cta {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.toc-cta p {
+  margin: 0 0 12px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--text);
+}
+.toc-cta a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 12px;
+  background: var(--teal);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: filter 0.25s;
+}
+.toc-cta a:hover {
+  filter: brightness(1.08);
+}
+
+.prose h2 {
+  margin: 0 0 18px;
+  font-size: clamp(22px, 2.4vw, 36px);
+  font-weight: 600;
+  line-height: 1.18;
+  color: var(--text-dark);
+}
+.prose h3 {
+  margin: 32px 0 14px;
+  font-size: clamp(17px, 1.6vw, 24px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-dark);
+}
+.prose p {
+  margin: 0 0 18px;
+  font-size: clamp(13px, 1.05vw, 16px);
+  line-height: 1.75;
+  color: var(--text);
+}
+.prose .callout {
+  margin: 26px 0;
+  padding: 24px 28px;
+  border-radius: 20px;
+  border-left: 4px solid var(--teal);
+  background: linear-gradient(135deg, rgba(24, 162, 192, 0.08), rgba(234, 171, 205, 0.12));
+}
+.prose .callout b {
+  display: block;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+.prose .key-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+.prose .key-tags span {
+  padding: 6px 13px;
+  border-radius: 99px;
+  background: var(--bg-alt);
+  font-size: 10.5px;
+  color: var(--muted);
+}
+
+/* ================= ФИРМЕННЫЙ CLOSING-БЛОК С ЗАЯВКОЙ ================= */
+.closing-cta {
+  position: relative;
+  padding: 88px max(6vw, calc((100% - 1440px) / 2));
+  color: #fff;
+  background:
+    radial-gradient(ellipse 35% 55% at 48% 8%, rgba(244, 174, 207, 1) 0%, rgba(222, 170, 203, 0.9) 28%, rgba(180, 166, 203, 0.5) 58%, rgba(22, 161, 191, 0) 100%),
+    radial-gradient(ellipse 40% 65% at 44% 40%, rgba(166, 166, 203, 0.5) 0%, rgba(80, 164, 195, 0.25) 55%, rgba(22, 161, 191, 0) 100%),
+    #16a1bf;
+  overflow: hidden;
+}
+.closing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+.glass-box {
+  padding: clamp(28px, 3.5vw, 48px);
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 18px 48px rgba(15, 35, 65, 0.14);
+}
+.closing-cta h2 {
+  margin: 0 0 16px;
+  font-size: clamp(26px, 3.2vw, 52px);
+  font-weight: 600;
+  line-height: 1.12;
+}
+.closing-cta h2 span {
+  display: block;
+  font-weight: 200;
+}
+.closing-cta p {
+  margin: 0 0 28px;
+  font-size: clamp(13px, 1.1vw, 17px);
+  line-height: 1.6;
+  font-weight: 300;
+}
+.cta-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  border-radius: 99px;
+  border: 1px solid #fff;
+  background: rgba(255, 255, 255, 0.28);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+}
+.cta-btn:hover {
+  background: rgba(255, 255, 255, 0.44);
+  transform: translateY(-2px);
+}
+.cta-btn.sec {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
+/* ================= ФУТЕР ================= */
+footer {
+  background: #d9d9d9;
+  padding: 36px max(20px, calc((100% - 520px) / 2)) calc(36px + env(safe-area-inset-bottom, 0px));
+  color: #8d8d96;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+footer .logo {
+  height: 30px;
+  width: auto;
+  display: block;
+  margin: 0 0 16px;
+  filter: invert(0.6);
+  opacity: 0.8;
+}
+footer a {
+  display: block;
+  color: #8d8d96;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+footer a:hover {
+  color: #4a4a52;
+}
+
+/* ================= МОБИЛЬНАЯ АДАПТАЦИЯ (< 900px) ================= */
+@media (max-width: 899px) {
+  header {
+    justify-content: space-between;
+    padding: calc(10px + env(safe-area-inset-top, 0px)) 5vw 10px;
+  }
+  header .logo {
+    height: 23px;
+    margin: 0;
+  }
+  header > a:not(.logo-link) {
+    display: none;
+  }
+  .mob-menu-btn {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4.5px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.18);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    backdrop-filter: blur(14px) saturate(140%);
+    box-shadow: 0 4px 16px rgba(20, 35, 70, 0.16);
+    cursor: pointer;
+  }
+  .mob-menu-btn span {
+    display: block;
+    width: 18px;
+    height: 1.8px;
+    border-radius: 2px;
+    background: #ffffff;
+    transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.25s ease, background 0.3s ease;
+  }
+  .mob-menu-btn.open span:nth-child(1) {
+    transform: translateY(6.3px) rotate(45deg);
+  }
+  .mob-menu-btn.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .mob-menu-btn.open span:nth-child(3) {
+    transform: translateY(-6.3px) rotate(-45deg);
+  }
+  body.hdr-dark .mob-menu-btn {
+    border-color: rgba(29, 29, 31, 0.24);
+    background: rgba(29, 29, 31, 0.08);
+  }
+  body.hdr-dark .mob-menu-btn span {
+    background: #1d1d1f;
+  }
+  .mob-menu-pop {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: fixed;
+    top: calc(64px + env(safe-area-inset-top, 0px));
+    right: 5vw;
+    left: 5vw;
+    padding: 18px 20px;
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    background: rgba(58, 92, 132, 0.48);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    backdrop-filter: blur(24px) saturate(160%);
+    box-shadow: 0 18px 44px rgba(10, 20, 45, 0.36);
+    z-index: 39;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-12px) scale(0.96);
+    transform-origin: top right;
+    transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .mob-menu-pop.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+  .mob-menu-pop a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .mob-menu-pop a::after {
+    content: "→";
+    font-size: 13px;
+    opacity: 0.75;
+  }
+
+  .hero {
+    min-height: 0;
+    padding: calc(105px + env(safe-area-inset-top, 0px)) 6vw 52px;
+  }
+  .search-box {
+    flex: 1 1 100%;
+  }
+  .chips {
+    gap: 8px;
+  }
+  .chip {
+    height: 36px;
+    padding: 0 14px;
+    font-size: 10px;
+  }
+  .sec-wrap {
+    padding: 52px 6vw;
+  }
+  .featured-card {
+    grid-template-columns: 1fr;
+    border-radius: 24px;
+  }
+  .featured-visual {
+    min-height: 240px;
+    aspect-ratio: 16 / 10;
+  }
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .article-layout {
+    grid-template-columns: 1fr;
+  }
+  .toc-box {
+    position: relative;
+    top: 0;
+  }
+  .closing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo-link" href="../index.html" aria-label="На главную PSD Studio"><img class="logo" src="../assets/media/img_008.svg" alt="PSD"></a>
+  <a href="../index.html#about">О студии</a>
+  <a href="../index.html#portfolio">Портфолио</a>
+  <a href="../index.html#services">Услуги</a>
+  <a href="index.html" class="active">Статьи</a>
+  <a href="../index.html#contacts">Контакты</a>
+  <button class="mob-menu-btn" id="mob-menu-btn" type="button" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<nav class="mob-menu-pop" id="mob-menu-pop" aria-label="Мобильное меню">
+  <a href="../index.html#about">О студии</a>
+  <a href="../index.html#portfolio">Портфолио</a>
+  <a href="../index.html#services">Услуги</a>
+  <a href="index.html">Статьи</a>
+  <a href="../index.html#contacts">Контакты</a>
+</nav>
+
+<main class="art-page">
+
+  <!-- 1. HERO-БЛОК РАЗДЕЛА «СТАТЬИ / БАЗА ЗНАНИЙ» -->
+  <section class="hero" id="top">
+    <div class="rays"></div>
+    <div class="hero-inner">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a href="../index.html">Главная</a>
+        <span>/</span>
+        <span>Статьи и база знаний</span>
+      </nav>
+      <h1>База знаний</h1>
+      <p class="subtitle-accent">дизайн, который <b>приносит прибыль</b></p>
+      <p class="lead">Практические разборы, чек-листы и экспертные статьи от студии PSD: как создавать сильный фирменный стиль, продающую упаковку, безупречную полиграфию и сайты, которые выделяют бизнес среди конкурентов.</p>
+    </div>
+
+    <div class="filter-bar">
+      <div class="chips" role="tablist" aria-label="Рубрики статей">
+        <button class="chip on" type="button" data-cat="all"><b>ВСЕ</b> | МАТЕРИАЛЫ</button>
+        <button class="chip" type="button" data-cat="branding"><b>01</b> | БРЕНДИНГ И АЙДЕНТИКА</button>
+        <button class="chip" type="button" data-cat="packaging"><b>02</b> | УПАКОВКА И ЭТИКЕТКА</button>
+        <button class="chip" type="button" data-cat="digital"><b>03</b> | DIGITAL И САЙТЫ</button>
+        <button class="chip" type="button" data-cat="print"><b>04</b> | ПОЛИГРАФИЯ И ПЕЧАТЬ</button>
+        <button class="chip" type="button" data-cat="merch"><b>05</b> | МЕРЧ И СУВЕНИРЫ</button>
+      </div>
+      <div class="search-box">
+        <input type="search" id="art-search" placeholder="Поиск по теме или запросу..." aria-label="Поиск по статьям">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. ФЛАГМАНСКИЙ МАТЕРИАЛ (FEATURED ARTICLE) -->
+  <section class="sec-wrap" id="featured-sec">
+    <div class="sec-kick">
+      <span><b>01</b> | ГЛАВНЫЙ РАЗБОР</span>
+      <span>ВЫБОР РЕДАКЦИИ PSD</span>
+    </div>
+
+    <a class="featured-card" href="#article-template-preview" data-cat="branding">
+      <div class="featured-visual">
+        <img src="../assets/media/ab_slide3.webp" alt="Разработка фирменного стиля и брендбука компании">
+        <span class="featured-badge">01 | БРЕНДИНГ И АЙДЕНТИКА</span>
+      </div>
+      <div class="featured-body">
+        <div>
+          <div class="meta-row">
+            <span>Время чтения: 8 мин</span>
+            <span class="dot"></span>
+            <span>Полное руководство</span>
+          </div>
+          <h2>Разработка фирменного стиля и брендбука: из чего складывается цена и как бизнесу не слить бюджет</h2>
+          <p>Разбираем по шагам: чем логотип за 5 000 ₽ отличается от комплексной системы визуальной идентификации, какие разделы обязательно должны входить в рабочий брендбук и как правильная айдентика повышает чек компании на 25–40%.</p>
+        </div>
+        <span class="read-btn">Читать разбор <span>→</span></span>
+      </div>
+    </a>
+  </section>
+
+  <!-- 3. СЕТКА СТАТЕЙ ПО КЛАСТЕРАМ ЗАПРОСОВ -->
+  <section class="sec-wrap alt" id="catalog">
+    <div class="sec-kick">
+      <span><b>02</b> | ВСЕ ПУБЛИКАЦИИ ПО НАПРАВЛЕНИЯМ</span>
+      <span id="art-count">ПОКАЗАНО: 6 СТАТЕЙ</span>
+    </div>
+
+    <div class="articles-grid" id="articles-grid">
+
+      <!-- Карточка 1 -->
+      <a class="art-card" href="#article-template-preview" data-cat="branding">
+        <div class="art-thumb">
+          <img src="../assets/media/img_025.webp" alt="Ребрендинг компании на примере кейса ЦПА Цель">
+          <span class="art-cat-tag">Брендинг</span>
+        </div>
+        <div class="art-content">
+          <div class="art-meta">
+            <span>Рубрика: Айдентика</span>
+            <span>7 мин чтения</span>
+          </div>
+          <h3>Когда компании нужен ребрендинг: 5 признаков устаревшего визуала и этапы обновления</h3>
+          <p>На реальных кейсах разбираем, как смена позиционирования, логотипа и корпоративного сайта открывает бизнесу выход в премиум-сегмент.</p>
+          <div class="art-foot">
+            <span>Читать статью</span>
+            <i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></i>
+          </div>
+        </div>
+      </a>
+
+      <!-- Карточка 2 -->
+      <a class="art-card" href="#article-template-preview" data-cat="packaging">
+        <div class="art-thumb">
+          <img src="../assets/media/img_028.webp" alt="Дизайн упаковки и этикетки для маркетплейсов и ритейла">
+          <span class="art-cat-tag">Упаковка</span>
+        </div>
+        <div class="art-content">
+          <div class="art-meta">
+            <span>Рубрика: Упаковка</span>
+            <span>6 мин чтения</span>
+          </div>
+          <h3>Дизайн упаковки, который продаёт с полки и на маркетплейсах: психология цвета и формы</h3>
+          <p>Как за 2 секунды привлечь внимание покупателя в ритейле и карточке товара, избежать ошибок при вёрстке штампа и подготовить развёртку к печати.</p>
+          <div class="art-foot">
+            <span>Читать статью</span>
+            <i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></i>
+          </div>
+        </div>
+      </a>
+
+      <!-- Карточка 3 -->
+      <a class="art-card" href="#article-template-preview" data-cat="print">
+        <div class="art-thumb">
+          <img src="../assets/media/img_027.webp" alt="Дизайн каталогов и предпечатная подготовка полиграфии">
+          <span class="art-cat-tag">Полиграфия</span>
+        </div>
+        <div class="art-content">
+          <div class="art-meta">
+            <span>Рубрика: Полиграфия</span>
+            <span>9 мин чтения</span>
+          </div>
+          <h3>Предпечатная подготовка макетов (Prepress): чек-лист, который спасёт тираж в типографии</h3>
+          <p>Вылеты под обрез, цветовой профиль CMYK vs Pantone, треппинг, оверпринт и разрешение 300 DPI — всё, что нужно знать заказчику перед печатью.</p>
+          <div class="art-foot">
+            <span>Читать статью</span>
+            <i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></i>
+          </div>
+        </div>
+      </a>
+
+      <!-- Карточка 4 -->
+      <a class="art-card" href="#article-template-preview" data-cat="digital">
+        <div class="art-thumb">
+          <img src="../assets/media/hero_desktop.jpg" alt="Разработка дизайна лендинга и многостраничного сайта">
+          <span class="art-cat-tag">Digital &amp; Web</span>
+        </div>
+        <div class="art-content">
+          <div class="art-meta">
+            <span>Рубрика: Сайты</span>
+            <span>8 мин чтения</span>
+          </div>
+          <h3>Лендинг или многостраничный сайт: что выбрать для бизнеса и как вывести проект в ТОП Яндекса</h3>
+          <p>Сравниваем конверсию, стоимость разработки и SEO-потенциал одностраничных промо-сайтов и полноценных корпоративных порталов с базой знаний.</p>
+          <div class="art-foot">
+            <span>Читать статью</span>
+            <i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></i>
+          </div>
+        </div>
+      </a>
+
+      <!-- Карточка 5 -->
+      <a class="art-card" href="#article-template-preview" data-cat="print">
+        <div class="art-thumb">
+          <img src="../assets/media/img_029.webp" alt="Дизайн презентаций и многостраничных каталогов">
+          <span class="art-cat-tag">Многостраничные</span>
+        </div>
+        <div class="art-content">
+          <div class="art-meta">
+            <span>Рубрика: Презентации</span>
+            <span>6 мин чтения</span>
+          </div>
+          <h3>Как создать коммерческую презентацию или каталог, которые закрывают сделки с B2B-клиентами</h3>
+          <p>Структура продающей презентации, визуальная иерархия, инфографика и вёрстка сложных технических каталогов без перегруза текстом.</p>
+          <div class="art-foot">
+            <span>Читать статью</span>
+            <i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></i>
+          </div>
+        </div>
+      </a>
+
+      <!-- Карточка 6 -->
+      <a class="art-card" href="#article-template-preview" data-cat="merch">
+        <div class="art-thumb">
+          <img src="../assets/media/img_031.webp" alt="Дизайн корпоративного мерча и VIP подарков">
+          <span class="art-cat-tag">Мерч и подарки</span>
+        </div>
+        <div class="art-content">
+          <div class="art-meta">
+            <span>Рубрика: Мерч</span>
+            <span>5 мин чтения</span>
+          </div>
+          <h3>Корпоративный мерч, который носят с гордостью: от брендированных худи до VIP-наборов</h3>
+          <p>Почему ручки с логотипом больше не работают и как разработать концептуальную линейку сувенирной продукции с гравировкой, вышивкой и кастомной упаковкой.</p>
+          <div class="art-foot">
+            <span>Читать статью</span>
+            <i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></i>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- 4. ПРЕВЬЮ ШАБЛОНА ВНУТРЕННЕЙ СТРАНИЦЫ СТАТЬИ (КАК БУДЕТ ВЫГЛЯДЕТЬ КАЖДАЯ СТАТЬЯ) -->
+  <section class="sec-wrap" id="article-template-preview">
+    <div class="sec-kick">
+      <span><b>03</b> | ШАБЛОН ВНУТРЕННЕЙ СТРАНИЦЫ СТАТЬИ (ПРЕВЬЮ СТРУКТУРЫ)</span>
+      <span>SEO-ОПТИМИЗИРОВАННАЯ ВЁРСТКА</span>
+    </div>
+
+    <div class="article-preview-wrap">
+      <div class="article-layout">
+        <!-- Левая колонка: липкое оглавление + быстрый переход к расчёту -->
+        <aside class="toc-box" aria-label="Содержание статьи">
+          <p class="toc-title">Содержание статьи</p>
+          <ul class="toc-list">
+            <li><a href="#article-template-preview" class="active">1. Зачем бизнесу система, а не просто картинка</a></li>
+            <li><a href="#article-template-preview">2. Что входит в разработку фирменного стиля</a></li>
+            <li><a href="#article-template-preview">3. Этапы работы в студии PSD</a></li>
+            <li><a href="#article-template-preview">4. Примеры из портфолио и стоимость</a></li>
+          </ul>
+          <div class="toc-cta">
+            <p>Нужен расчёт стоимости под вашу задачу?</p>
+            <a href="../index.html#pr">Посмотреть прайс →</a>
+          </div>
+        </aside>
+
+        <!-- Правая колонка: типографика статьи, врезки, кейсы и SEO-ключи -->
+        <article class="prose">
+          <h2>Как устроена каждая статья внутри раздела «База знаний»</h2>
+          <p>Каждая статья в этом разделе создаётся как <strong>отдельная самостоятельная HTML-страница</strong> со своим собственным URL-адресом, уникальными мета-тегами <code>Title</code> / <code>Description</code> и микроразметкой <code>Schema.org/Article</code>. Благодаря этому Яндекс и Google индексируют сайт как крупный профильный ресурс по дизайну и брендингу.</p>
+
+          <div class="callout">
+            <b>💡 Экспертная врезка от арт-директора PSD</b>
+            Внутри текста каждой статьи мы размещаем акценты, таблицы сравнения, реальные кадры из твоего портфолио («ЦПА Цель», «Радиус Ремонта», «LUHTAA», «224 лётный отряд») и прямые кнопки перехода к прайс-листу.
+          </div>
+
+          <h3>Что даёт такая структура страницы:</h3>
+          <p>1. <strong>Высокое время удержания (поведенческий фактор №1 в Яндексе):</strong> удобное оглавление слева, чистая типографика Unbounded, визуальные врезки и быстрые ответы не дают посетителю закрыть вкладку.<br>
+          2. <strong>Прямая конверсия из читателя в клиента:</strong> человек ищет в Яндексе <em>«разработка фирменного стиля этапы и цена»</em>, попадает на твою статью, видит экспертный подход и живые кейсы — и сразу жмёт кнопку «Обсудить проект».</p>
+
+          <div class="key-tags">
+            <span>#разработка фирменного стиля</span>
+            <span>#брендбук цена</span>
+            <span>#дизайн упаковки москва</span>
+            <span>#предпечатная подготовка</span>
+            <span>#ребрендинг компании</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ФИРМЕННЫЙ CLOSING-БЛОК В СТИЛЕ ПРАЙС-ЛИСТА (#pr .closing) -->
+  <section class="closing-cta">
+    <div class="closing-grid">
+      <div>
+        <h2>Есть задача по дизайну?<span>Давайте обсудим.</span></h2>
+        <p>Расскажите о вашем продукте или бренде — подберём оптимальное визуальное решение, сориентируем по срокам и подготовим прозрачную смету.</p>
+        <div class="cta-btns">
+          <a class="cta-btn" href="../index.html#ct">Связаться со студией</a>
+          <a class="cta-btn sec" href="../index.html#pf">Смотреть портфолио</a>
+        </div>
+      </div>
+      <div class="glass-box">
+        <h3 style="margin:0 0 14px;font-size:clamp(18px,2vw,28px);font-weight:600">Работаем по договору с передачей 100% исходников</h3>
+        <p style="margin:0;font-size:13.5px;line-height:1.65;color:rgba(255,255,255,0.92)">От экспресс-полиграфии и упаковки до комплексного ребрендинга и многостраничных сайтов. Все макеты проходят строгую предпечатную и техническую проверку перед сдачей.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <img class="logo" src="../assets/media/img_024.svg" alt="PSD">
+  <a href="../index.html#about">О студии</a>
+  <a href="../index.html#portfolio">Портфолио</a>
+  <a href="../index.html#services">Услуги</a>
+  <a href="index.html">Статьи</a>
+  <a href="../index.html#contacts">Контакты</a>
+</footer>
+
+<script>
+(function(){
+  // 1. Переключение светлого/тёмного хедера при скролле ниже Hero
+  var hero = document.querySelector('.hero');
+  function syncHdr(){
+    if(!hero) return;
+    var r = hero.getBoundingClientRect();
+    document.body.classList.toggle('hdr-dark', r.bottom <= 68);
+  }
+  window.addEventListener('scroll', syncHdr, {passive: true});
+  window.addEventListener('resize', syncHdr);
+  syncHdr();
+
+  // 2. Мобильное бургер-меню
+  var btn = document.getElementById('mob-menu-btn');
+  var pop = document.getElementById('mob-menu-pop');
+  if(btn && pop){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = pop.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function(e){
+      if(pop.classList.contains('open') && !pop.contains(e.target) && e.target !== btn){
+        pop.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // 3. Живая фильтрация по рубрикам и строке поиска
+  var chips = [].slice.call(document.querySelectorAll('.chip[data-cat]'));
+  var cards = [].slice.call(document.querySelectorAll('.art-card[data-cat]'));
+  var searchInput = document.getElementById('art-search');
+  var countEl = document.getElementById('art-count');
+  var activeCat = 'all';
+
+  function filterArticles(){
+    var q = (searchInput ? searchInput.value : '').trim().toLowerCase();
+    var visible = 0;
+    cards.forEach(function(card){
+      var matchCat = (activeCat === 'all' || card.getAttribute('data-cat') === activeCat);
+      var text = card.textContent.toLowerCase();
+      var matchQ = (!q || text.indexOf(q) !== -1);
+      var show = matchCat && matchQ;
+      card.style.display = show ? '' : 'none';
+      if(show) visible++;
+    });
+    if(countEl){
+      countEl.textContent = 'ПОКАЗАНО: ' + visible + (visible === 1 ? ' СТАТЬЯ' : (visible >= 2 && visible <= 4 ? ' СТАТЬИ' : ' СТАТЕЙ'));
+    }
+  }
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('on'); });
+      chip.classList.add('on');
+      activeCat = chip.getAttribute('data-cat') || 'all';
+      filterArticles();
+    });
+  });
+
+  if(searchInput){
+    searchInput.addEventListener('input', filterArticles);
+  }
+})();
+</script>
+</body>
+</html>
