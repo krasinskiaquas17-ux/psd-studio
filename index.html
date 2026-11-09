@@ -260,6 +260,16 @@
             "description": "Светлая и тёмная версии упаковки планшетов и смартфонов, руководство пользователя и единая система инфографики.",
             "image": "https://krasinskiaquas17-ux.github.io/psd-studio/assets/media/img_062.webp"
           }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Конвенция РЗФ V (г. Екатеринбург) — Разработка коммуникационных материалов, мерча, полиграфии и оформления площадки МТС Live Hall",
+            "description": "Комплексная разработка серии визуальных и видеоматериалов для соцсетей, сувенирной продукции и мерча, дизайна главной книги Конвенции, оформления площадки МТС Live Hall и полиграфии.",
+            "image": "https://krasinskiaquas17-ux.github.io/psd-studio/assets/media/img_067.jpg"
+          }
         }
       ]
     },
@@ -344,7 +354,7 @@ header .logo-link{display:inline-flex;align-items:center;margin-right:10px;opaci
 .stack{position:relative}
 .blk{position:sticky;top:0;height:100svh;min-height:100svh;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;color:#fff;will-change:transform;box-shadow:0 -30px 60px rgba(30,20,60,.25);isolation:isolate}
 .blk .half{position:relative;overflow:hidden}
-.blk .txt{display:flex;flex-direction:column;justify-content:center;padding:12vh 6vw 8vh;z-index:2}
+.blk .txt{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:12vh 6vw 8vh;z-index:2}
 .blk .txt.right{align-items:flex-start}
 .blk .content{will-change:transform}
 .layer{position:absolute;will-change:transform}
@@ -360,11 +370,14 @@ h2{font-size:clamp(18px,2.2vw,32px)}
   position:relative;
   display:inline-flex;
   align-items:center;
-  justify-content:center;
+  justify-content:flex-start;
+  align-self:flex-start;
+  width:fit-content;
+  max-width:100%;
   gap:10px;
-  min-width:clamp(160px,12.2vw,198px);
+  min-width:clamp(158px,11.6vw,192px);
   height:clamp(44px,3.3vw,52px);
-  padding:0 24px 0 8px;
+  padding:0 22px 0 8px;
   border:0;
   border-radius:9999px;
   font-family:"Unbounded","Montserrat",Arial,sans-serif;
@@ -495,6 +508,62 @@ h2{font-size:clamp(18px,2.2vw,32px)}
 .b1 .bgimg{position:absolute;left:0;right:0;top:-16%;bottom:-16%;background:var(--hero) left center/cover no-repeat;z-index:0}
 .b1 .half.l{background:none}
 .b1 .heroLogo{width:clamp(150px,21vw,300px);height:auto;display:block;margin:6px 0 24px -6px}
+.water-snd{
+  position:absolute;
+  right:clamp(18px,3.2vw,42px);
+  bottom:clamp(18px,3.2svh,36px);
+  z-index:6;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  height:36px;
+  padding:0 14px 0 6px;
+  border:1px solid rgba(255,255,255,0.34);
+  border-radius:9999px;
+  background:rgba(36,44,68,0.20);
+  -webkit-backdrop-filter:blur(28px) saturate(175%);
+  backdrop-filter:blur(28px) saturate(175%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.48),0 8px 24px rgba(10,20,45,0.28);
+  color:rgba(255,255,255,0.92);
+  font-family:"Unbounded","Montserrat",Arial,sans-serif;
+  font-size:9px;
+  font-weight:400;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  cursor:pointer;
+  user-select:none;
+  transition:background-color 220ms ease,border-color 220ms ease,transform 180ms ease,opacity 220ms ease;
+}
+.water-snd:hover{
+  background:rgba(46,56,86,0.30);
+  border-color:rgba(255,255,255,0.56);
+  transform:translateY(-1px);
+}
+.water-snd:active{transform:scale(0.96)}
+.water-snd .ws-ic{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:24px;
+  height:24px;
+  border-radius:9999px;
+  background:rgba(255,255,255,0.16);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.36);
+}
+.water-snd svg{
+  width:13px;
+  height:13px;
+  stroke:#fff;
+  fill:none;
+  stroke-width:1.9;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.water-snd .ws-off{display:none}
+.water-snd.muted{opacity:0.68;background:rgba(24,30,48,0.16);border-color:rgba(255,255,255,0.22)}
+.water-snd.muted .ws-on{display:none}
+.water-snd.muted .ws-off{display:block}
+@media (max-width:899px){.water-snd{display:none!important}}
 .b2{background:#a9a7d6}
 .b2 .bgimg{position:absolute;left:0;right:0;top:-16%;bottom:-16%;background:var(--bg2) center/cover no-repeat;z-index:0}
 .b2 .bust{--w:max(100%,177.78svh);position:absolute;bottom:0;left:calc((100% - var(--w))*.5);width:var(--w);height:auto;z-index:1;pointer-events:none}
@@ -502,6 +571,7 @@ h2{font-size:clamp(18px,2.2vw,32px)}
 @media (min-width:900px){
   .b2 .half,.b4 .half{position:static;overflow:visible}
   .b2 .txt,.b4 .txt{align-items:flex-end;text-align:right;padding:12vh 7vw 8vh 4vw}
+  .b2 .btn,.b4 .btn{align-self:flex-end}
   .b2 .zone{display:block;position:absolute;left:26%;width:62%;top:10%;bottom:0;z-index:1}
 }
 @media (min-width:900px) and (hover:hover){
@@ -1685,6 +1755,13 @@ body.hdr-dark header .logo{filter:invert(1)}
       <img class="heroLogo" src="assets/media/img_009.png" alt="PSD — Platonov Sergey Design">
       <a class="btn" href="#ab" id="ab-open"><span class="lg-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/><circle cx="12" cy="12" r="2.2"/></svg></span><span class="lg-tx"><span>О студии</span><i class="lg-ar">→</i></span><span class="lg-fl" aria-hidden="true"></span></a>
     </div>
+    <button class="water-snd" id="water-snd-btn" type="button" aria-pressed="true" aria-label="Отключить звук воды" title="Звук воды (вкл/выкл)">
+      <span class="ws-ic" aria-hidden="true">
+        <svg class="ws-on" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+        <svg class="ws-off" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/><line x1="3.5" y1="3.5" x2="20.5" y2="20.5"/></svg>
+      </span>
+      <span class="ws-lbl">Звук воды</span>
+    </button>
   <div class="smoke-trans"></div>
   </section>
 
@@ -1854,6 +1931,18 @@ body.hdr-dark header .logo{filter:invert(1)}
         <li>Концепция брендирования корпоративных гаджетов и аксессуаров</li>
         <li>Дизайн индивидуальной упаковки для подарочных боксов</li>
         <li>Подготовка производственных макетов под УФ-печать и гравировку</li>
+      </ul>
+    </article>
+    <article>
+      <h3>КОНВЕНЦИЯ РЗФ V — Разработка коммуникационных материалов, мерча, полиграфии и оформления площадки МТС Live Hall</h3>
+      <p>Заказчик: Оргкомитет Конвенции РЗФ V (г. Екатеринбург).</p>
+      <p>Задача: Разработка коммуникационных материалов для Конвенции РЗФ V в г. Екатеринбург.</p>
+      <ul>
+        <li>Разработка серии визуальных и видео материалов для публикаций в соцсетях</li>
+        <li>Разработка номенклатуры и дизайна сувенирной продукции</li>
+        <li>Разработка дизайна главной книги Конвенции</li>
+        <li>Разработка оформления площадки (флаги, баннеры, входная группа, фотозона, навигация) МТС Live Hall</li>
+        <li>Разработка дизайна полиграфии (постеры, листовки, лифлет)</li>
       </ul>
     </article>
   </div>
@@ -2057,7 +2146,7 @@ body.hdr-dark header .logo{filter:invert(1)}
 <script>(function(){
 var opened=false,inView=true;
 
-var S=[{"title": "ЦПА «Цель»", "text": "От сайта до буклетов. Как мы обновляли фирменный стиль психологического центра и выстраивали новый облик", "tint": "rgba(14,33,62,.95)", "imgs": {"a": "assets/media/img_025.webp", "b": "assets/media/img_026.webp", "c": "assets/media/img_027.webp", "d": "assets/media/img_028.webp", "e": "assets/media/img_029.webp"}, "client": "Центр практической аддиктологии «Цель» — психологический центр, который помогает людям с химическими и поведенческими зависимостями.", "task": "Обновить фирменный стиль центра и выстроить новый облик: единый на сайте, в печатных материалах и на офлайн-носителях.", "done": ["Обновлённый логотип и фирменный стиль", "Дизайн сайта центра", "Программа и буклеты", "Рекламный ролл-ап", "Презентация: цифры, реальные истории, этапы работы"], "result": "", "features": ""}, {"title": "Радиус Ремонта", "text": "Создание бренда с нуля и разработка важных носителей фирменного стиля для компании-производителя премиум-ремонтов", "tint": "rgba(27,63,54,.95)", "imgs": {"a": "assets/media/img_030.webp", "b": "assets/media/img_031.webp", "c": "assets/media/img_032.webp", "d": "assets/media/img_033.webp", "e": "assets/media/img_034.webp"}, "client": "«Радиус Ремонта» — компания-производитель премиум-ремонтов квартир в Москве.", "task": "Создать бренд с нуля и разработать важные носители фирменного стиля.", "done": ["Логотип и фирменный стиль", "Паспорт ремонта квартиры", "Визитки", "Оформление офиса и объёмная вывеска", "Презентация с примерами премиум-ремонтов"], "result": "", "features": ""}, {"title": "«224 летный отряд»", "text": "Разработка поздравительных материалов к 50-летию авиакомпании, подарков  отраслевым праздникам и Новому году.", "tint": "rgba(16,47,78,.95)", "imgs": {"a": "assets/media/img_035.webp", "b": "assets/media/img_036.webp", "c": "assets/media/img_037.webp", "d": "assets/media/img_038.webp", "e": "assets/media/img_039.webp"}, "client": "«224 летный отряд» — государственная авиакомпания.", "task": "Разработать поздравительные материалы к 50-летию авиакомпании, а также подарки к отраслевым праздникам и Новому году.", "done": ["Юбилейный знак «1971–2022. Мы рисуем небо»", "Настольный календарь на 2023 год", "Подарочный набор к Новому году", "Фирменная кружка", "Подарочный пакет"], "result": "", "features": ""}, {"title": "LUHTAA", "text": "Luhtaa: бутылка, в которую хочется заглянуть. Разработка образа, логотипа и полного оформления бутылки.", "tint": "rgba(30,65,102,.95)", "imgs": {"a": "assets/media/img_040.webp", "b": "assets/media/img_041.webp", "c": "assets/media/img_042.webp", "d": "assets/media/img_043.webp", "e": "assets/media/img_044.webp"}, "client": "Luhtaa — бренд водки Original Suomi Vodka.", "task": "Разработать образ, логотип и полное оформление бутылки — такой, в которую хочется заглянуть.", "done": ["Логотип LUHTAA", "Иллюстрация на бутылке: северная ночь, олень, луна и ели", "Этикетка и оформление горлышка", "Фотореалистичная визуализация бутылки"], "result": "", "features": ""}, {"title": "YAMAHA", "text": "Как из одной эмблемы вырастает целая рекламная кампания. Студия упаковала программу продлённой гарантии Yamaha.", "tint": "rgba(82,65,55,.95)", "imgs": {"a": "assets/media/img_045.webp", "b": "assets/media/img_046.webp", "c": "assets/media/img_047.webp", "d": "assets/media/img_048.webp", "e": "assets/media/img_049.webp"}, "client": "Yamaha — программа продлённой гарантии на новые и б/у лодочные моторы.", "task": "Показать, как из одной эмблемы вырастает целая рекламная кампания, и упаковать программу продлённой гарантии.", "done": ["Эмблема «Продлённая гарантия до 5 лет»", "Настольная рекламная конструкция", "Буклет с условиями программы", "Одежда и бейджи для сотрудников"], "result": "", "features": ""}, {"title": "MARENGO", "text": "Как мы упаковали 12 вкусов в один узнаваемый бренд:-кейс MARENGO/ Разработка торговой марки с нуля, продуктовая упаковка", "tint": "rgba(125,74,105,.95)", "imgs": {"a": "assets/media/img_050.webp", "b": "assets/media/img_051.webp", "c": "assets/media/img_052.webp", "d": "assets/media/img_053.webp", "e": "assets/media/img_054.webp"}, "client": "MARENGO — торговая марка со слоганом «На любой вкус».", "task": "Упаковать 12 вкусов в один узнаваемый бренд: разработать торговую марку с нуля и продуктовую упаковку.", "done": ["Торговая марка и логотип", "Упаковка для линейки из 12 вкусов", "Каталог продукции", "Сайт-презентация", "Мобильная версия сайта"], "result": "", "features": ""}, {"title": "ФЛЯГА", "text": "От идеи до бутылки на полке. Разработка дизайна этикеток для линейки бренда «ФЛЯГА».", "tint": "rgba(117,115,115,.95)", "imgs": {"a": "assets/media/img_055.webp", "b": "assets/media/img_056.webp", "c": "assets/media/img_057.webp", "d": "assets/media/img_058.webp", "e": "assets/media/img_059.webp"}, "client": "«ФЛЯГА» — бренд водки.", "task": "Пройти путь от идеи до бутылки на полке: разработать дизайн этикеток для линейки бренда.", "done": ["Этикетка с кожаной вставкой и металлическим шильдом", "Чертёж бутылки и работа с формой", "Этикетки для линейки: оранжевая и зелёная версии", "Милитари-вариант с тиснением на ткани", "Визуализация бутылки"], "result": "", "features": ""}, {"title": "ГАДЖЕТЫ", "text": "Разработка дизайна упаковки и инструкций для серии no-name линии мобильных планшетных компьютеров и смартфонов", "tint": "rgba(34,35,33,.95)", "imgs": {"a": "assets/media/img_060.webp", "b": "assets/media/img_061.webp", "c": "assets/media/img_062.webp", "d": "assets/media/img_063.webp", "e": "assets/media/img_064.webp"}, "client": "Серия no-name линии мобильных планшетных компьютеров и смартфонов.", "task": "Разработать дизайн упаковки и инструкций для серии.", "done": ["Упаковка планшетов: светлая и тёмная версии", "Упаковка смартфона", "Руководство пользователя", "Единая система иконок и описаний характеристик"], "result": "", "features": ""}];
+var S=[{"title": "Конвенция РЗФ V", "text": "Больше, чем путешествие. Комплексная разработка коммуникационных материалов, мерча, полиграфии и оформления площадки МТС Live Hall в Екатеринбурге", "tint": "rgba(38,31,16,.94)", "imgs": {"a": "assets/media/img_065.jpg", "b": "assets/media/img_066.jpg", "c": "assets/media/img_067.jpg", "d": "assets/media/img_068.jpg", "e": "assets/media/img_069.jpg"}, "moreImgs": ["assets/media/img_070.jpg", "assets/media/img_071.jpg", "assets/media/img_072.jpg"], "client": "Оргкомитет Конвенции РЗФ V (г. Екатеринбург).", "task": "Разработка коммуникационных материалов для Конвенции РЗФ V в г. Екатеринбург.", "done": ["Разработка серии визуальных и видео материалов для публикаций в соцсетях", "Разработка номенклатуры и дизайна сувенирной продукции", "Разработка дизайна главной книги Конвенции", "Разработка оформления площадки (флаги, баннеры, входная группа, фотозона, навигация) МТС Live Hall", "Разработка дизайна полиграфии (постеры, листовки, лифлет)"], "result": "Сформирована цельная уличная визуальная система в дерзкой чёрно-жёлтой графике с авторским граффити-леттерингом, объединившая более 3500 участников из 250+ городов на площадке МТС Live Hall.", "features": "Масштабное комплексное сопровождение федерального события: от диджитал-коммуникаций и многостраничной книги «Только сегодня» до лимитированной коллекции уличного мерча и застройки огромного концертного комплекса."}, {"title": "ЦПА «Цель»", "text": "От сайта до буклетов. Как мы обновляли фирменный стиль психологического центра и выстраивали новый облик", "tint": "rgba(14,33,62,.95)", "imgs": {"a": "assets/media/img_025.webp", "b": "assets/media/img_026.webp", "c": "assets/media/img_027.webp", "d": "assets/media/img_028.webp", "e": "assets/media/img_029.webp"}, "client": "Центр практической аддиктологии «Цель» — психологический центр, который помогает людям с химическими и поведенческими зависимостями.", "task": "Обновить фирменный стиль центра и выстроить новый облик: единый на сайте, в печатных материалах и на офлайн-носителях.", "done": ["Обновлённый логотип и фирменный стиль", "Дизайн сайта центра", "Программа и буклеты", "Рекламный ролл-ап", "Презентация: цифры, реальные истории, этапы работы"], "result": "", "features": ""}, {"title": "Радиус Ремонта", "text": "Создание бренда с нуля и разработка важных носителей фирменного стиля для компании-производителя премиум-ремонтов", "tint": "rgba(27,63,54,.95)", "imgs": {"a": "assets/media/img_030.webp", "b": "assets/media/img_031.webp", "c": "assets/media/img_032.webp", "d": "assets/media/img_033.webp", "e": "assets/media/img_034.webp"}, "client": "«Радиус Ремонта» — компания-производитель премиум-ремонтов квартир в Москве.", "task": "Создать бренд с нуля и разработать важные носители фирменного стиля.", "done": ["Логотип и фирменный стиль", "Паспорт ремонта квартиры", "Визитки", "Оформление офиса и объёмная вывеска", "Презентация с примерами премиум-ремонтов"], "result": "", "features": ""}, {"title": "«224 летный отряд»", "text": "Разработка поздравительных материалов к 50-летию авиакомпании, подарков  отраслевым праздникам и Новому году.", "tint": "rgba(16,47,78,.95)", "imgs": {"a": "assets/media/img_035.webp", "b": "assets/media/img_036.webp", "c": "assets/media/img_037.webp", "d": "assets/media/img_038.webp", "e": "assets/media/img_039.webp"}, "client": "«224 летный отряд» — государственная авиакомпания.", "task": "Разработать поздравительные материалы к 50-летию авиакомпании, а также подарки к отраслевым праздникам и Новому году.", "done": ["Юбилейный знак «1971–2022. Мы рисуем небо»", "Настольный календарь на 2023 год", "Подарочный набор к Новому году", "Фирменная кружка", "Подарочный пакет"], "result": "", "features": ""}, {"title": "LUHTAA", "text": "Luhtaa: бутылка, в которую хочется заглянуть. Разработка образа, логотипа и полного оформления бутылки.", "tint": "rgba(30,65,102,.95)", "imgs": {"a": "assets/media/img_040.webp", "b": "assets/media/img_041.webp", "c": "assets/media/img_042.webp", "d": "assets/media/img_043.webp", "e": "assets/media/img_044.webp"}, "client": "Luhtaa — бренд водки Original Suomi Vodka.", "task": "Разработать образ, логотип и полное оформление бутылки — такой, в которую хочется заглянуть.", "done": ["Логотип LUHTAA", "Иллюстрация на бутылке: северная ночь, олень, луна и ели", "Этикетка и оформление горлышка", "Фотореалистичная визуализация бутылки"], "result": "", "features": ""}, {"title": "YAMAHA", "text": "Как из одной эмблемы вырастает целая рекламная кампания. Студия упаковала программу продлённой гарантии Yamaha.", "tint": "rgba(82,65,55,.95)", "imgs": {"a": "assets/media/img_045.webp", "b": "assets/media/img_046.webp", "c": "assets/media/img_047.webp", "d": "assets/media/img_048.webp", "e": "assets/media/img_049.webp"}, "client": "Yamaha — программа продлённой гарантии на новые и б/у лодочные моторы.", "task": "Показать, как из одной эмблемы вырастает целая рекламная кампания, и упаковать программу продлённой гарантии.", "done": ["Эмблема «Продлённая гарантия до 5 лет»", "Настольная рекламная конструкция", "Буклет с условиями программы", "Одежда и бейджи для сотрудников"], "result": "", "features": ""}, {"title": "MARENGO", "text": "Как мы упаковали 12 вкусов в один узнаваемый бренд:-кейс MARENGO/ Разработка торговой марки с нуля, продуктовая упаковка", "tint": "rgba(125,74,105,.95)", "imgs": {"a": "assets/media/img_050.webp", "b": "assets/media/img_051.webp", "c": "assets/media/img_052.webp", "d": "assets/media/img_053.webp", "e": "assets/media/img_054.webp"}, "client": "MARENGO — торговая марка со слоганом «На любой вкус».", "task": "Упаковать 12 вкусов в один узнаваемый бренд: разработать торговую марку с нуля и продуктовую упаковку.", "done": ["Торговая марка и логотип", "Упаковка для линейки из 12 вкусов", "Каталог продукции", "Сайт-презентация", "Мобильная версия сайта"], "result": "", "features": ""}, {"title": "ФЛЯГА", "text": "От идеи до бутылки на полке. Разработка дизайна этикеток для линейки бренда «ФЛЯГА».", "tint": "rgba(117,115,115,.95)", "imgs": {"a": "assets/media/img_055.webp", "b": "assets/media/img_056.webp", "c": "assets/media/img_057.webp", "d": "assets/media/img_058.webp", "e": "assets/media/img_059.webp"}, "client": "«ФЛЯГА» — бренд водки.", "task": "Пройти путь от идеи до бутылки на полке: разработать дизайн этикеток для линейки бренда.", "done": ["Этикетка с кожаной вставкой и металлическим шильдом", "Чертёж бутылки и работа с формой", "Этикетки для линейки: оранжевая и зелёная версии", "Милитари-вариант с тиснением на ткани", "Визуализация бутылки"], "result": "", "features": ""}, {"title": "ГАДЖЕТЫ", "text": "Разработка дизайна упаковки и инструкций для серии no-name линии мобильных планшетных компьютеров и смартфонов", "tint": "rgba(34,35,33,.95)", "imgs": {"a": "assets/media/img_060.webp", "b": "assets/media/img_061.webp", "c": "assets/media/img_062.webp", "d": "assets/media/img_063.webp", "e": "assets/media/img_064.webp"}, "client": "Серия no-name линии мобильных планшетных компьютеров и смартфонов.", "task": "Разработать дизайн упаковки и инструкций для серии.", "done": ["Упаковка планшетов: светлая и тёмная версии", "Упаковка смартфона", "Руководство пользователя", "Единая система иконок и описаний характеристик"], "result": "", "features": ""}];
 var AUTOPLAY=true, DELAY=6500;
 var tiles={},order=['a','b','c','d','e'],cur=0,busy=false,timer,grid=document.getElementById('pf-grid');
 order.forEach(function(k){tiles[k]=grid.querySelector('.'+k)});
@@ -2107,10 +2196,11 @@ function blk(n,t,v){return '<div class="pfb rv"><h3><i>'+n+'</i>'+t+'</h3><p'+(v
 function lst(n,t,a){return '<div class="pfb rv"><h3><i>'+n+'</i>'+t+'</h3><ol>'+a.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ol></div>'}
 function render(i){
   var c=S[i],nx=S[(i+1)%S.length];
+  var gList=['a','b','d','e'].map(function(k){return c.imgs[k]}).concat(c.moreImgs||[]);
   det.innerHTML='<div class="dbar"><button class="glass dback" id="pf-dback">← Назад</button><span class="dcount">'+('0'+(i+1)).slice(-2)+' / '+('0'+S.length).slice(-2)+'</span></div>'+
   '<section class="hero" style="--ac:'+c.tint+'"><img src="'+c.imgs.c+'" alt=""><div class="hc"><h1>'+c.title+'</h1><p>'+c.text+'</p></div></section>'+
   '<section class="info"><div>'+blk('01','Клиент',c.client)+blk('02','Задача',c.task)+'</div><div>'+lst('03','Что было сделано',c.done)+blk('04','Результат',c.result)+blk('05','Особенности проекта',c.features)+'</div></section>'+
-  '<section class="gal">'+['a','b','d','e'].map(function(k){return '<figure class="rv"><img src="'+c.imgs[k]+'" alt=""></figure>'}).join('')+'</section>'+
+  '<section class="gal">'+gList.map(function(src){return '<figure class="rv"><img src="'+src+'" alt=""></figure>'}).join('')+'</section>'+
   '<section class="nx"><a href="#" id="pf-dnext" class="rv"><small>Следующий кейс</small><b>'+nx.title+'</b></a></section>';
   det.style.setProperty('--ac',c.tint);
   document.getElementById('pf-dback').onclick=closeCase;
@@ -2256,6 +2346,105 @@ new IntersectionObserver(function(es){inView=es[0].isIntersecting;if(inView)rest
   im.src=m[1];
   // анимация только пока есть волны и экран виден
   var queue=[],last=null,run=false,until=0,vis=true;
+  // Мягкий органический звук прикосновения к глади воды (Web Audio API) + кнопка отключения
+  var sndBtn=document.getElementById('water-snd-btn'),sndMuted=false,actx=null,noiseBuf=null,lastDropAt=0,lastSkimAt=0;
+  try{sndMuted=localStorage.getItem('psd_water_muted')==='1'}catch(e){}
+  function syncSndBtn(){
+    if(!sndBtn)return;
+    sndBtn.classList.toggle('muted',sndMuted);
+    sndBtn.setAttribute('aria-pressed',sndMuted?'false':'true');
+    sndBtn.setAttribute('aria-label',sndMuted?'Включить звук воды':'Отключить звук воды');
+    var lbl=sndBtn.querySelector('.ws-lbl');
+    if(lbl)lbl.textContent=sndMuted?'Звук выкл':'Звук воды';
+  }
+  syncSndBtn();
+  function ensureAudio(){
+    if(sndMuted)return null;
+    if(!actx){
+      var AC=window.AudioContext||window.webkitAudioContext;
+      if(!AC)return null;
+      try{actx=new AC()}catch(e){return null}
+    }
+    if(actx.state==='suspended'){try{actx.resume()}catch(e){}}
+    if(!noiseBuf&&actx){
+      var sr=actx.sampleRate,len=Math.floor(sr*0.35);
+      noiseBuf=actx.createBuffer(1,len,sr);
+      var d=noiseBuf.getChannelData(0),b0=0,b1=0,b2=0;
+      for(var i=0;i<len;i++){
+        var w=Math.random()*2-1;
+        b0=0.997*b0+w*0.029;
+        b1=0.985*b1+w*0.032;
+        b2=0.950*b2+w*0.048;
+        d[i]=(b0+b1+b2)*0.32;
+      }
+    }
+    return actx;
+  }
+  function playWaterTouch(intensity,isDown){
+    if(sndMuted||!vis)return;
+    var now=performance.now();
+    var minGap=isDown?95:165;
+    if(now-lastDropAt<minGap)return;
+    var ctx=ensureAudio();
+    if(!ctx||ctx.state!=='running')return;
+    lastDropAt=now;
+    var t=ctx.currentTime;
+    var amp=Math.min(1,Math.max(0.18,intensity||0.45));
+    // 1. Мягкий гидро-импульс капли (чирп вверх с бархатным затуханием, как при касании пальцем живой воды)
+    var osc=ctx.createOscillator(),g=ctx.createGain(),flt=ctx.createBiquadFilter();
+    var f0=(isDown?310:370)+Math.random()*135;
+    var f1=f0*(1.62+Math.random()*0.28);
+    var dur=0.075+Math.random()*0.035;
+    osc.type='sine';
+    osc.frequency.setValueAtTime(f0,t);
+    osc.frequency.exponentialRampToValueAtTime(f1,t+dur*0.78);
+    flt.type='lowpass';
+    flt.frequency.setValueAtTime(1350,t);
+    var peak=(isDown?0.042:0.024)*amp;
+    g.gain.setValueAtTime(0.0001,t);
+    g.gain.linearRampToValueAtTime(peak,t+0.009);
+    g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+    osc.connect(flt);flt.connect(g);g.connect(ctx.destination);
+    osc.start(t);osc.stop(t+dur+0.01);
+    // 2. Вторичный тёплый обертон круга на воде (чуть тише и с микро-задержкой)
+    if(amp>0.38||isDown){
+      var osc2=ctx.createOscillator(),g2=ctx.createGain();
+      var d2=t+0.032+Math.random()*0.018,dur2=0.065;
+      var f20=f0*1.28;
+      osc2.type='sine';
+      osc2.frequency.setValueAtTime(f20,d2);
+      osc2.frequency.exponentialRampToValueAtTime(f20*1.45,d2+dur2*0.8);
+      g2.gain.setValueAtTime(0.0001,d2);
+      g2.gain.linearRampToValueAtTime(peak*0.46,d2+0.008);
+      g2.gain.exponentialRampToValueAtTime(0.0001,d2+dur2);
+      osc2.connect(g2);g2.connect(ctx.destination);
+      osc2.start(d2);osc2.stop(d2+dur2+0.01);
+    }
+    // 3. Едва уловимый шелест водной глади при движении
+    if(noiseBuf&&now-lastSkimAt>210){
+      lastSkimAt=now;
+      var ns=ctx.createBufferSource(),bp=ctx.createBiquadFilter(),ng=ctx.createGain();
+      ns.buffer=noiseBuf;
+      bp.type='bandpass';
+      bp.frequency.setValueAtTime(620+Math.random()*260,t);
+      bp.Q.setValueAtTime(2.6,t);
+      var nDur=0.14+Math.random()*0.06;
+      ng.gain.setValueAtTime(0.0001,t);
+      ng.gain.linearRampToValueAtTime(peak*0.36,t+0.025);
+      ng.gain.exponentialRampToValueAtTime(0.0001,t+nDur);
+      ns.connect(bp);bp.connect(ng);ng.connect(ctx.destination);
+      ns.start(t);ns.stop(t+nDur+0.01);
+    }
+  }
+  if(sndBtn){
+    sndBtn.addEventListener('click',function(e){
+      e.stopPropagation();
+      sndMuted=!sndMuted;
+      try{localStorage.setItem('psd_water_muted',sndMuted?'1':'0')}catch(err){}
+      syncSndBtn();
+      if(!sndMuted){ensureAudio();playWaterTouch(0.65,true)}
+    });
+  }
   function frame(t){
     if(!vis||!ready){run=false;return}
     for(var i=0;i<3;i++)step(queue.length?queue.shift():null);
@@ -2264,7 +2453,7 @@ new IntersectionObserver(function(es){inView=es[0].isIntersecting;if(inView)rest
   }
   function wake(){until=performance.now()+4500;if(!run&&ready){run=true;requestAnimationFrame(frame)}}
   function handlePointer(e){
-    if(!ready||!e.target.closest||!e.target.closest('.b1'))return;
+    if(!ready||!e.target.closest||!e.target.closest('.b1')||e.target.closest('.water-snd')||e.target.closest('.btn'))return;
     var r=cv.getBoundingClientRect(),u=(e.clientX-r.left)/r.width,v=1-(e.clientY-r.top)/r.height;
     if(u<0||u>1||v<0||v>1){last=null;return}
     var sp=last?Math.hypot((u-last[0])*r.width,(v-last[1])*r.height):0;
@@ -2272,6 +2461,7 @@ new IntersectionObserver(function(es){inView=es[0].isIntersecting;if(inView)rest
     if(last&&sp>0){var n=Math.min(10,Math.ceil(sp/8)),per=pw/Math.sqrt(n);for(var i=1;i<=n;i++){var k=i/n;queue.push([last[0]+(u-last[0])*k,last[1]+(v-last[1])*k,per])}}
     else queue.push([u,v,pw*1.2]);
     if(queue.length>40)queue.splice(0,queue.length-40);
+    if(e.type==='pointerdown'||sp>5.5)playWaterTouch(Math.min(1,sp/42+(e.type==='pointerdown'?0.5:0)),e.type==='pointerdown');
     last=[u,v];wake();
   }
   document.addEventListener('pointermove',handlePointer,{passive:true});
