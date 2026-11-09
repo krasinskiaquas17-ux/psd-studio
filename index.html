@@ -86,7 +86,7 @@ h2{font-size:clamp(18px,2.2vw,32px)}
   .b4 .txt{padding-right:12vw}
   .b4 .stage img.cm,
   .b4 .stage img.fx{display:none}
-  .b4 .stage img.as{left:37%;top:-7%;width:50%;height:107%;object-fit:contain;object-position:center bottom}
+  .b4 .stage img.as{left:37%;top:-11%;width:50%;height:105%;object-fit:contain;object-position:center bottom}
 }
 
 .ph{display:flex;align-items:center;justify-content:center;text-align:center;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85);border:1px dashed rgba(255,255,255,.6);border-radius:18px;background:rgba(255,255,255,.12)}
@@ -127,25 +127,121 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     padding: 0 !important;
   }
 
-  /* 1. Нативный стеклянный хедер поверх экранов */
+  /* 1. Нативный стеклянный хедер с кнопкой-бургером (три чёрточки) и всплывающим стеклянным меню */
   header {
     display: flex !important;
     align-items: center !important;
-    justify-content: center !important;
-    gap: clamp(10px, 3.2vw, 22px) !important;
-    font-size: clamp(8.5px, 2.3vw, 11px) !important;
-    letter-spacing: 0.06em !important;
-    padding: calc(10px + env(safe-area-inset-top, 0px)) 3vw 10px !important;
-    background: rgba(255, 255, 255, 0.16) !important;
+    justify-content: space-between !important;
+    padding: calc(10px + env(safe-area-inset-top, 0px)) 5vw 10px !important;
+    background: rgba(255, 255, 255, 0.14) !important;
     -webkit-backdrop-filter: blur(18px) saturate(140%) !important;
     backdrop-filter: blur(18px) saturate(140%) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.28) !important;
-    z-index: 30 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.26) !important;
+    z-index: 40 !important;
   }
   header .logo {
-    height: 21px !important;
+    height: 23px !important;
     width: auto !important;
-    margin-right: 4px !important;
+    margin: 0 !important;
+  }
+  header > a {
+    display: none !important;
+  }
+  .mob-menu-btn {
+    display: inline-flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 4.5px !important;
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.55) !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+    backdrop-filter: blur(14px) saturate(140%) !important;
+    box-shadow: 0 4px 16px rgba(20, 35, 70, 0.16) !important;
+    cursor: pointer !important;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.25s ease !important;
+  }
+  .mob-menu-btn span {
+    display: block !important;
+    width: 18px !important;
+    height: 1.8px !important;
+    border-radius: 2px !important;
+    background: #ffffff !important;
+    transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.25s ease, background 0.3s ease !important;
+  }
+  .mob-menu-btn.open span:nth-child(1) {
+    transform: translateY(6.3px) rotate(45deg) !important;
+  }
+  .mob-menu-btn.open span:nth-child(2) {
+    opacity: 0 !important;
+  }
+  .mob-menu-btn.open span:nth-child(3) {
+    transform: translateY(-6.3px) rotate(-45deg) !important;
+  }
+  body.hdr-dark .mob-menu-btn {
+    border-color: rgba(29, 29, 31, 0.24) !important;
+    background: rgba(29, 29, 31, 0.08) !important;
+  }
+  body.hdr-dark .mob-menu-btn span {
+    background: #1d1d1f !important;
+  }
+  .mob-menu-pop {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    position: fixed !important;
+    top: calc(64px + env(safe-area-inset-top, 0px)) !important;
+    right: 5vw !important;
+    left: 5vw !important;
+    padding: 18px 20px !important;
+    border-radius: 22px !important;
+    border: 1px solid rgba(255, 255, 255, 0.48) !important;
+    background: rgba(58, 92, 132, 0.44) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(160%) !important;
+    backdrop-filter: blur(24px) saturate(160%) !important;
+    box-shadow: 0 18px 44px rgba(10, 20, 45, 0.36) !important;
+    z-index: 39 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateY(-12px) scale(0.96) !important;
+    transform-origin: top right !important;
+    transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  }
+  .mob-menu-pop.open {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) scale(1) !important;
+  }
+  .mob-menu-pop a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 12px 16px !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    background: rgba(255, 255, 255, 0.14) !important;
+    color: #ffffff !important;
+    font-family: "Unbounded", sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    transition: background 0.25s ease, border-color 0.25s ease !important;
+  }
+  .mob-menu-pop a:active,
+  .mob-menu-pop a:hover {
+    background: rgba(255, 255, 255, 0.22) !important;
+    border-color: rgba(255, 255, 255, 0.45) !important;
+  }
+  .mob-menu-pop a::after {
+    content: "→" !important;
+    font-size: 13px !important;
+    opacity: 0.75 !important;
   }
 
   /* Скрываем старый десктопный WebGL-канвас на мобилке, чтобы он не рисовал монитор поверх чашки */
@@ -182,17 +278,17 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
      ======================================================== */
   .blk.b1 {
     display: block !important;
-    background: #7ab1d8 !important;
+    background: #d8c8e0 !important;
   }
   .blk.b1 .layer.bgimg {
     display: block !important;
     position: absolute !important;
     left: 0 !important;
     right: 0 !important;
-    top: -15svh !important;
+    top: -8svh !important;
     width: 100% !important;
-    height: 130svh !important;
-    background: url("assets/media/mob_bg_screen1.jpg") center 58% / 100% auto no-repeat !important;
+    height: 116svh !important;
+    background: url("assets/media/mob_bg_screen1.jpg") center center / 100% 100% no-repeat !important;
     z-index: 1 !important;
     pointer-events: none !important;
   }
@@ -272,7 +368,7 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
      ======================================================== */
   .blk.b2 {
     display: block !important;
-    background: #779ebb !important;
+    background: #d9c2db !important;
   }
   .blk.b2::before,
   .blk.b2 .smoke-top,
@@ -284,10 +380,10 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     position: absolute !important;
     left: 0 !important;
     right: 0 !important;
-    top: -15svh !important;
+    top: -8svh !important;
     width: 100% !important;
-    height: 130svh !important;
-    background: url("assets/media/mob_bg_screen2.jpg") center 76% / 100% auto no-repeat !important;
+    height: 116svh !important;
+    background: url("assets/media/mob_bg_screen2.jpg") center bottom / 100% 100% no-repeat !important;
     z-index: 1 !important;
     pointer-events: none !important;
   }
@@ -349,7 +445,7 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
   }
 
   /* ========================================================
-     ЭКРАН 3: ТИПОГРАФИКА СЛЕВА + БЕЛЫЙ ШАРИК С ДЕСКТОПА
+     ЭКРАН 3: ТИПОГРАФИКА СЛЕВА + БЕЛЫЙ ШАРИК ПО ЦЕНТРУ ВЫСОТЫ
      ======================================================== */
   .blk.b3 {
     display: block !important;
@@ -364,23 +460,25 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     position: absolute !important;
     left: 0 !important;
     right: 0 !important;
-    top: -15svh !important;
+    top: -8svh !important;
     width: 100% !important;
-    height: 130svh !important;
-    background: url("assets/media/mob_bg_screen3.jpg") center 46% / 100% auto no-repeat !important;
+    height: 116svh !important;
+    background: url("assets/media/mob_bg_screen3.jpg") center center / 100% 100% no-repeat !important;
     z-index: 1 !important;
     pointer-events: none !important;
   }
   .blk.b3 .txt.content {
     position: absolute !important;
-    top: clamp(78px, 16svh, 130px) !important;
+    top: 0 !important;
+    bottom: 0 !important;
     left: 39.6% !important;
     right: 0 !important;
-    padding: 0 4.5vw 0 5.2vw !important;
+    padding: 4svh 4.5vw 4svh 5.2vw !important;
     box-sizing: border-box !important;
     z-index: 3 !important;
     display: flex !important;
     flex-direction: column !important;
+    justify-content: center !important;
     align-items: flex-start !important;
     text-align: left !important;
     background: transparent !important;
@@ -471,7 +569,7 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
   }
 
   /* ========================================================
-     ЭКРАН 4: ФОН НЕБА + ОТДЕЛЬНЫЙ PNG КОСМОНАВТА С ЛИНИЯМИ
+     ЭКРАН 4: ФОН НЕБА С МЕТЕОРАМИ + КОСМОНАВТ ВЫШЕ + ТЕКСТ НИЖЕ
      ======================================================== */
   .blk.b4 {
     display: block !important;
@@ -485,10 +583,10 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     position: absolute !important;
     left: 0 !important;
     right: 0 !important;
-    top: -15svh !important;
+    top: -8svh !important;
     width: 100% !important;
-    height: 130svh !important;
-    background: url("assets/media/mob_bg_screen4.jpg") center 48% / 100% auto no-repeat !important;
+    height: 116svh !important;
+    background: url("assets/media/mob_bg_screen4.jpg") center center / 100% 100% no-repeat !important;
     z-index: 1 !important;
     pointer-events: none !important;
   }
@@ -521,24 +619,25 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
   .blk.b4 .stage .zone {
     display: none !important;
   }
-  /* PNG/WebP секвенция астронавта (697x1024) ложится поверх фона со скролл-анимацией */
+  /* Космонавт поднят выше от нижнего края экрана */
   .blk.b4 .stage img.as {
     display: block !important;
     position: absolute !important;
     left: 1% !important;
-    bottom: -2svh !important;
+    bottom: 5.5svh !important;
     top: auto !important;
-    width: 112% !important;
+    width: 106% !important;
     height: auto !important;
-    max-height: 98svh !important;
+    max-height: 88svh !important;
     object-fit: contain !important;
     object-position: center bottom !important;
     pointer-events: none !important;
     z-index: 2 !important;
   }
+  /* Надписи с кнопкой опущены чуть ниже */
   .blk.b4 .txt.content {
     position: absolute !important;
-    top: clamp(54px, 10.5svh, 88px) !important;
+    top: clamp(96px, 16.5svh, 145px) !important;
     left: 39.6% !important;
     right: 0 !important;
     padding: 0 4.5vw 0 5.2vw !important;
@@ -590,6 +689,51 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     letter-spacing: 0.04em !important;
     text-decoration: none !important;
   }
+}
+
+/* Падающие метеоры на 4-м экране (и на десктопе, и на мобилке) + скрытие мобильного бургера на десктопе */
+.mob-menu-btn, .mob-menu-pop { display: none; }
+.b4 .meteors {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.b4 .meteors i {
+  position: absolute;
+  width: clamp(90px, 12vw, 175px);
+  height: 1.5px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.45) 35%, rgba(255,255,255,0) 100%);
+  border-radius: 999px;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.8));
+  transform: rotate(-38deg) translate3d(0,0,0);
+  opacity: 0;
+  animation: psdMeteor 5.6s cubic-bezier(0.2, 0.6, 0.35, 1) infinite;
+}
+.b4 .meteors i::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 3.5px;
+  height: 3.5px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translate(-30%, -50%);
+  box-shadow: 0 0 10px 2px rgba(255,255,255,0.95);
+}
+.b4 .meteors i:nth-child(1) { top: 14%; left: 78%; animation-delay: 0.2s; animation-duration: 4.8s; }
+.b4 .meteors i:nth-child(2) { top: 26%; left: 92%; width: clamp(110px, 14vw, 210px); animation-delay: 1.9s; animation-duration: 5.4s; }
+.b4 .meteors i:nth-child(3) { top: 8%;  left: 58%; width: clamp(75px, 9vw, 135px); animation-delay: 3.3s; animation-duration: 4.5s; }
+.b4 .meteors i:nth-child(4) { top: 38%; left: 86%; width: clamp(85px, 11vw, 155px); animation-delay: 2.6s; animation-duration: 6.1s; }
+.b4 .meteors i:nth-child(5) { top: 19%; left: 42%; width: clamp(70px, 8.5vw, 125px); animation-delay: 4.1s; animation-duration: 5.2s; }
+.b4 .meteors i:nth-child(6) { top: 48%; left: 94%; width: clamp(95px, 12vw, 165px); animation-delay: 0.9s; animation-duration: 5.8s; }
+@keyframes psdMeteor {
+  0% { opacity: 0; transform: rotate(-38deg) translateX(60px) scaleX(0.4); }
+  8% { opacity: 0.95; transform: rotate(-38deg) translateX(0px) scaleX(1); }
+  28% { opacity: 0; transform: rotate(-38deg) translateX(-260px) scaleX(0.7); }
+  100% { opacity: 0; transform: rotate(-38deg) translateX(-260px) scaleX(0.7); }
 }
 
 @media (prefers-reduced-motion:reduce){.layer,.content,.blk{transform:none!important}}
@@ -1055,7 +1199,14 @@ body.hdr-dark header .logo{filter:invert(1)}
 <header>
   <img class="logo" src="assets/media/img_008.svg" alt="PSD">
   <a href="#about">О студии</a><a href="#portfolio">Портфолио</a><a href="#services">Услуги</a><a href="#contacts">Контакты</a>
+  <button class="mob-menu-btn" id="mob-menu-btn" type="button" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
 </header>
+<nav class="mob-menu-pop" id="mob-menu-pop" aria-label="Мобильное меню">
+  <a href="#about">О студии</a>
+  <a href="#portfolio">Портфолио</a>
+  <a href="#services">Услуги</a>
+  <a href="#contacts">Контакты</a>
+</nav>
 
 <main class="stack">
 
@@ -1210,6 +1361,7 @@ body.hdr-dark header .logo{filter:invert(1)}
 
   <section class="blk b4 rev" id="contacts">
     <div class="layer bgimg" data-speed="0.12"></div>
+    <div class="meteors" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <div class="fade"></div>
     <div class="txt content">
       <h2>Связаться<br>с нами легко</h2>
@@ -1305,7 +1457,9 @@ body.hdr-dark header .logo{filter:invert(1)}
       var nx=blks[i+1],cov=nx?Math.max(0,Math.min(1,1-nx.getBoundingClientRect().top/vh)):0;
       b.querySelectorAll('.layer').forEach(function(l){
         var s=parseFloat(l.dataset.speed)||0;
-        l.style.transform='translate3d(0,'+(d*s-cov*vh*s*0.45)+'px,0)';
+        var ty=d*s-cov*vh*s*0.45;
+        if(window.innerWidth<900&&l.classList.contains('bgimg')){var lim=vh*0.075;if(ty>lim)ty=lim;if(ty<-lim)ty=-lim;}
+        l.style.transform='translate3d(0,'+ty+'px,0)';
         if(l.dataset.shade){var k=Math.max(0,Math.min(1,d/vh));l.style.opacity=1-0.55*k;}
       });
       // Когда следующий блок наезжает, текущий уходит медленнее и темнеет
@@ -1855,6 +2009,24 @@ try {
   localStorage.removeItem('psd_preview_mode');
   document.body.classList.remove('preview-mobile');
 } catch(e){}
+(function(){
+  var btn=document.getElementById('mob-menu-btn'),pop=document.getElementById('mob-menu-pop');
+  if(!btn||!pop)return;
+  function closeMenu(){btn.classList.remove('open');pop.classList.remove('open');btn.setAttribute('aria-expanded','false')}
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var o=pop.classList.toggle('open');
+    btn.classList.toggle('open',o);
+    btn.setAttribute('aria-expanded',o?'true':'false');
+  });
+  pop.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){closeMenu()});
+  });
+  document.addEventListener('click',function(e){
+    if(pop.classList.contains('open')&&!pop.contains(e.target)&&e.target!==btn)closeMenu();
+  });
+  window.addEventListener('scroll',function(){if(pop.classList.contains('open'))closeMenu()},{passive:true});
+})();
 </script>
 </body>
 </html>
