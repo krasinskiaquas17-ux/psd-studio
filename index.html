@@ -337,7 +337,8 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Unbounded","Mo
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:19}
 header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:center;gap:clamp(14px,2.4vw,34px);padding:calc(12px + env(safe-area-inset-top,0px)) 4vw 12px;color:#fff;font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.16);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid rgba(255,255,255,.28);box-shadow:0 6px 24px rgba(20,40,70,.08)}
 header a{color:#fff;text-decoration:none;opacity:.9}
-.logo{height:30px;width:auto;display:block;margin-right:10px}
+header .logo-link{display:inline-flex;align-items:center;margin-right:10px;opacity:1}
+.logo{height:30px;width:auto;display:block}
 
 /* Блоки со сменой через parallax: каждый следующий наезжает на предыдущий */
 .stack{position:relative}
@@ -461,7 +462,7 @@ footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
     width: auto !important;
     margin: 0 !important;
   }
-  header > a {
+  header > a:not(.logo-link) {
     display: none !important;
   }
   .mob-menu-btn {
@@ -1566,7 +1567,7 @@ body.hdr-dark header .logo{filter:invert(1)}
 </head>
 <body>
 <header>
-  <img class="logo" src="assets/media/img_008.svg" alt="PSD">
+  <a class="logo-link" href="#about" aria-label="Наверх"><img class="logo" src="assets/media/img_008.svg" alt="PSD"></a>
   <a href="#about">О студии</a><a href="#portfolio">Портфолио</a><a href="#services">Услуги</a><a href="articles/index.html">Статьи</a><a href="#contacts">Контакты</a>
   <button class="mob-menu-btn" id="mob-menu-btn" type="button" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
 </header>
@@ -1581,6 +1582,7 @@ body.hdr-dark header .logo{filter:invert(1)}
 <main class="stack">
 
 
+<div id="nav-about" style="height:0"></div>
   <section class="blk b1" id="about">
     <div class="layer bgimg" data-speed="0.12"></div>
     <div class="half l"></div>
@@ -1643,6 +1645,7 @@ body.hdr-dark header .logo{filter:invert(1)}
     <div class="abdots" id="ab-dots"><button class="on" aria-label="Слайд 1"></button><button aria-label="Слайд 2"></button><button aria-label="Слайд 3"></button><button aria-label="Слайд 4"></button></div>
     <button class="abclose" id="ab-close" aria-label="Свернуть"><span>Свернуть</span><i><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg></i></button>
   </div></div></section>
+<div id="nav-portfolio" style="height:0"></div>
   <section class="blk b2 rev" id="portfolio">
     <div class="smoke-top"></div>
     <div class="layer bgimg" data-speed="0.12"></div>
@@ -1762,6 +1765,7 @@ body.hdr-dark header .logo{filter:invert(1)}
   </div>
 </div>
   </div></div></section>
+<div id="nav-services" style="height:0"></div>
   <section class="blk b3" id="services">
     <div class="layer bgimg" data-speed="0.12"></div>
     <div class="half">
@@ -1815,6 +1819,7 @@ body.hdr-dark header .logo{filter:invert(1)}
     </section>
   </div></div></section>
 
+<div id="nav-contacts" style="height:0"></div>
   <section class="blk b4 rev" id="contacts">
     <div class="layer bgimg" data-speed="0.12"></div>
     <div class="meteors" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -2487,6 +2492,54 @@ try {
     if(pop.classList.contains('open')&&!pop.contains(e.target)&&e.target!==btn)closeMenu();
   });
   window.addEventListener('scroll',function(){if(pop.classList.contains('open'))closeMenu()},{passive:true});
+})();
+(function(){
+  // Навигация по 4 главным экранам (#about, #portfolio, #services, #contacts), которые имеют position:sticky;top:0
+  var map={
+    '#about':'nav-about',
+    '#portfolio':'nav-portfolio',
+    '#services':'nav-services',
+    '#contacts':'nav-contacts'
+  };
+  function scrollToScreen(hash,smooth){
+    var anchorId=map[hash];
+    if(!anchorId)return false;
+    var el=document.getElementById(anchorId);
+    if(!el)return false;
+    var y=el.getBoundingClientRect().top+window.pageYOffset;
+    window.scrollTo({top:Math.max(0,y),behavior:smooth?'smooth':'auto'});
+    return true;
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');
+    if(!a)return;
+    var href=a.getAttribute('href')||'';
+    var hIdx=href.indexOf('#');
+    if(hIdx===-1)return;
+    var base=href.slice(0,hIdx);
+    if(base&&base!=='index.html'&&base!=='./index.html'&&base!=='/')return;
+    var hash=href.slice(hIdx);
+    if(map[hash]){
+      e.preventDefault();
+      if(history.pushState)history.pushState(null,'',hash);
+      else location.hash=hash;
+      scrollToScreen(hash,true);
+    }
+  });
+  function checkInitialHash(){
+    var h=window.location.hash;
+    if(map[h]){
+      scrollToScreen(h,false);
+      setTimeout(function(){scrollToScreen(h,false)},80);
+      setTimeout(function(){scrollToScreen(h,false)},260);
+    }
+  }
+  window.addEventListener('DOMContentLoaded',checkInitialHash);
+  window.addEventListener('load',checkInitialHash);
+  window.addEventListener('hashchange',function(){
+    var h=window.location.hash;
+    if(map[h])scrollToScreen(h,true);
+  });
 })();
 </script>
 </body>

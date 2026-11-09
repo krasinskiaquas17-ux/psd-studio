@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Предпечатная подготовка макетов (Prepress): чек-лист для полиграфии — PSD Studio</title>
+<meta name="description" content="Полный гид по предпечатной подготовке полиграфических макетов (Prepress): вылеты под обрез, CMYK и Pantone, разрешение 300 DPI, треппинг, оверпринт и требования типографий от арт-директора PSD Studio.">
+<meta name="keywords" content="предпечатная подготовка макетов, prepress полиграфия, требования типографии к макетам, вылеты под обрез, перевод RGB в CMYK, печать пантонами pantone, верстка полиграфии москва, PSD Studio">
+<meta name="author" content="Сергей Платонов — PSD Studio">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://krasinskiaquas17-ux.github.io/psd-studio/articles/predpechatnaya-podgotovka-maketov-prepress.html">
+<link rel="icon" type="image/svg+xml" href="../assets/media/img_008.svg">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="PSD — Студия графического дизайна">
+<meta property="og:title" content="Предпечатная подготовка макетов (Prepress): чек-лист, который спасёт тираж в типографии">
+<meta property="og:description" content="Вылеты под обрез, цветовой профиль CMYK vs Pantone, сумма красок (TIL), оверпринт и разрешение 300 DPI — всё, что нужно знать перед отправкой в печать.">
+<meta property="og:url" content="https://krasinskiaquas17-ux.github.io/psd-studio/articles/predpechatnaya-podgotovka-maketov-prepress.html">
+<meta property="og:image" content="https://krasinskiaquas17-ux.github.io/psd-studio/assets/media/img_045.webp">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://krasinskiaquas17-ux.github.io/psd-studio/articles/predpechatnaya-podgotovka-maketov-prepress.html#article",
+      "headline": "Предпечатная подготовка макетов (Prepress): чек-лист, который спасёт тираж в типографии",
+      "description": "Техническое руководство по подготовке полиграфии и упаковки к офсетной и цифровой печати: цветоделение, вылеты, шрифты в кривых и спецотделка.",
+      "image": "https://krasinskiaquas17-ux.github.io/psd-studio/assets/media/img_045.webp",
+      "datePublished": "2026-11-09",
+      "dateModified": "2026-11-09",
+      "author": { "@type": "Person", "name": "Сергей Платонов", "jobTitle": "Основатель и арт-директор PSD Studio" },
+      "publisher": { "@type": "Organization", "name": "PSD — Студия графического дизайна" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://krasinskiaquas17-ux.github.io/psd-studio/" },
+        { "@type": "ListItem", "position": 2, "name": "Статьи и база знаний", "item": "https://krasinskiaquas17-ux.github.io/psd-studio/articles/" },
+        { "@type": "ListItem", "position": 3, "name": "Предпечатная подготовка макетов", "item": "https://krasinskiaquas17-ux.github.io/psd-studio/articles/predpechatnaya-podgotovka-maketov-prepress.html" }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+:root {
+  --teal: #18a2c0; --pink: #eaabcd; --lav: #a9a7c7;
+  --bg: #ffffff; --bg-alt: #f2f2f5; --text: #4a4a52; --text-dark: #1d1d1f; --muted: #878787; --line: #d4d4d8;
+  box-sizing: border-box; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: "Unbounded", "Montserrat", Arial, sans-serif; font-weight: 300; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 40; display: flex; align-items: center; justify-content: center;
+  gap: clamp(14px, 2.4vw, 34px); padding: calc(12px + env(safe-area-inset-top, 0px)) 4vw 12px;
+  color: #fff; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.16); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28); box-shadow: 0 6px 24px rgba(20, 40, 70, 0.08);
+  transition: color 0.45s ease, filter 0.45s ease, background 0.45s ease, border-color 0.45s ease;
+}
+header a { color: #fff; text-decoration: none; opacity: 0.9; transition: 0.25s; }
+header a:hover, header a.active { opacity: 1; }
+header a.active { font-weight: 600; text-decoration: underline; text-underline-offset: 6px; }
+header .logo-link { display: inline-flex; align-items: center; margin-right: 10px; opacity: 1; }
+header .logo { height: 30px; width: auto; display: block; transition: filter 0.45s ease; }
+body.hdr-dark header { color: #1d1d1f; background: rgba(255, 255, 255, 0.78); border-bottom-color: rgba(0, 0, 0, 0.08); }
+body.hdr-dark header a { color: #1d1d1f; }
+body.hdr-dark header .logo { filter: invert(1); }
+.mob-menu-btn, .mob-menu-pop { display: none; }
+
+.hero {
+  position: relative; padding: calc(120px + env(safe-area-inset-top, 0px)) max(6vw, calc((100% - 1360px) / 2)) 72px;
+  overflow: hidden; color: #fff;
+  background: linear-gradient(to top right, #18a2c0 0%, #63a4c3 30%, #a9a7c7 62%, #caa8c9 84%, #eaabcd 100%);
+}
+.hero .rays {
+  position: absolute; left: 92%; top: 12%; width: max(900px, 74vw); aspect-ratio: 1; translate: -50% -50%;
+  background: repeating-conic-gradient(rgba(255, 255, 255, 0.2) 0 5deg, rgba(255, 255, 255, 0) 5deg 11deg);
+  -webkit-mask-image: radial-gradient(circle, #000 0, rgba(0, 0, 0, 0.6) 30%, transparent 66%);
+  mask-image: radial-gradient(circle, #000 0, rgba(0, 0, 0, 0.6) 30%, transparent 66%);
+  animation: pr-rot 140s linear infinite; pointer-events: none;
+}
+@keyframes pr-rot { to { rotate: 360deg; } }
+.hero-inner { position: relative; z-index: 2; max-width: 1080px; }
+.breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255, 255, 255, 0.85); margin-bottom: 24px; }
+.breadcrumbs a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.4); }
+.art-badge-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-bottom: 20px; }
+.art-pill { padding: 7px 16px; border-radius: 99px; border: 1px solid rgba(255, 255, 255, 0.65); background: rgba(255, 255, 255, 0.2); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); font-size: 10px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+.art-meta-top { font-size: 11px; opacity: 0.9; }
+.hero h1 { margin: 0 0 22px; font-weight: 700; font-size: clamp(26px, 3.8vw, 54px); line-height: 1.12; letter-spacing: -0.015em; }
+.hero .lead { margin: 0; max-width: 820px; font-size: clamp(13px, 1.15vw, 18px); line-height: 1.65; color: rgba(255, 255, 255, 0.95); }
+
+.article-sec { padding: 72px max(6vw, calc((100% - 1360px) / 2)); }
+.article-layout { display: grid; grid-template-columns: 300px 1fr; gap: clamp(32px, 4.5vw, 72px); align-items: start; }
+.toc-box { position: sticky; top: 96px; padding: 26px; border-radius: 24px; background: var(--bg-alt); border: 1px solid rgba(0, 0, 0, 0.06); }
+.toc-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dark); margin: 0 0 16px; }
+.toc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
+.toc-list a { display: block; font-size: 11.5px; line-height: 1.45; color: var(--text); text-decoration: none; padding-left: 12px; border-left: 2px solid transparent; transition: 0.25s; }
+.toc-list a:hover { color: var(--teal); border-left-color: var(--teal); }
+.toc-cta { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
+.toc-cta p { margin: 0 0 12px; font-size: 11px; line-height: 1.5; color: var(--text); }
+.toc-cta a { display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 12px 16px; border-radius: 14px; background: var(--teal); color: #fff; font-size: 10.5px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; }
+
+.prose { max-width: 820px; }
+.prose .cover-img { width: 100%; border-radius: 26px; overflow: hidden; margin-bottom: 36px; box-shadow: 0 18px 44px rgba(20, 30, 55, 0.1); }
+.prose .cover-img img { width: 100%; height: auto; display: block; }
+.prose h2 { margin: 44px 0 18px; font-size: clamp(20px, 2.2vw, 32px); font-weight: 600; line-height: 1.2; color: var(--text-dark); }
+.prose h2:first-of-type { margin-top: 0; }
+.prose h3 { margin: 28px 0 12px; font-size: clamp(16px, 1.5vw, 22px); font-weight: 600; line-height: 1.28; color: var(--text-dark); }
+.prose p { margin: 0 0 18px; font-size: clamp(13.5px, 1.05vw, 16px); line-height: 1.78; color: var(--text); }
+.prose ul, .prose ol { margin: 0 0 24px; padding-left: 22px; font-size: clamp(13.5px, 1.05vw, 16px); line-height: 1.75; }
+.prose li { margin-bottom: 10px; }
+.prose strong, .prose b { font-weight: 600; color: var(--text-dark); }
+.prose .callout { margin: 30px 0; padding: 26px 30px; border-radius: 22px; border-left: 4px solid var(--teal); background: linear-gradient(135deg, rgba(24, 162, 192, 0.08), rgba(234, 171, 205, 0.14)); }
+.prose .callout b { display: block; font-size: 14px; margin-bottom: 8px; color: var(--text-dark); }
+.prose .case-showcase { margin: 36px 0; padding: 28px; border-radius: 26px; background: #161b24; color: #fff; display: grid; grid-template-columns: 1fr 1.1fr; gap: 24px; align-items: center; }
+.prose .case-showcase img { width: 100%; border-radius: 16px; display: block; }
+.prose .case-showcase h4 { margin: 0 0 10px; font-size: 18px; font-weight: 600; color: #fff; }
+.prose .case-showcase p { margin: 0 0 16px; font-size: 12.5px; line-height: 1.6; color: rgba(255,255,255,0.82); }
+.prose .case-showcase a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.6); background: rgba(255,255,255,0.14); color: #fff; font-size: 10.5px; font-weight: 500; text-transform: uppercase; text-decoration: none; }
+.prose .key-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line); }
+.prose .key-tags span { padding: 6px 14px; border-radius: 99px; background: var(--bg-alt); font-size: 10.5px; color: var(--muted); }
+
+.related-sec { background: var(--bg-alt); padding: 68px max(6vw, calc((100% - 1360px) / 2)); }
+.related-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.related-head h2 { margin: 0; font-size: clamp(18px, 2vw, 28px); font-weight: 600; color: var(--text-dark); }
+.related-head a { font-size: 11px; font-weight: 500; color: var(--teal); text-decoration: none; text-transform: uppercase; }
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.rel-card { background: #fff; border-radius: 22px; padding: 24px; text-decoration: none; color: inherit; border: 1px solid rgba(0,0,0,0.07); transition: 0.35s; display: flex; flex-direction: column; justify-content: space-between; }
+.rel-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(20,30,55,0.1); }
+.rel-card span { font-size: 10px; color: var(--teal); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.rel-card h3 { margin: 10px 0 12px; font-size: 15.5px; font-weight: 600; line-height: 1.3; color: var(--text-dark); }
+.rel-card p { margin: 0; font-size: 12px; line-height: 1.55; color: var(--text); }
+
+.closing-cta {
+  padding: 84px max(6vw, calc((100% - 1360px) / 2)); color: #fff;
+  background: radial-gradient(ellipse 35% 55% at 48% 8%, rgba(244, 174, 207, 1) 0%, rgba(222, 170, 203, 0.9) 28%, rgba(180, 166, 203, 0.5) 58%, rgba(22, 161, 191, 0) 100%), radial-gradient(ellipse 40% 65% at 44% 40%, rgba(166, 166, 203, 0.5) 0%, rgba(80, 164, 195, 0.25) 55%, rgba(22, 161, 191, 0) 100%), #16a1bf;
+}
+.closing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.glass-box { padding: clamp(28px, 3.5vw, 48px); border-radius: 32px; border: 1px solid rgba(255, 255, 255, 0.65); background: rgba(255, 255, 255, 0.2); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); box-shadow: 0 18px 48px rgba(15, 35, 65, 0.14); }
+.closing-cta h2 { margin: 0 0 16px; font-size: clamp(26px, 3.2vw, 48px); font-weight: 600; line-height: 1.12; }
+.closing-cta h2 span { display: block; font-weight: 200; }
+.closing-cta p { margin: 0 0 28px; font-size: clamp(13px, 1.1vw, 17px); line-height: 1.6; }
+.cta-btns { display: flex; flex-wrap: wrap; gap: 14px; }
+.cta-btn { display: inline-flex; align-items: center; justify-content: center; padding: 15px 28px; border-radius: 99px; border: 1px solid #fff; background: rgba(255, 255, 255, 0.28); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: #fff; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
+.cta-btn.sec { background: transparent; border-color: rgba(255, 255, 255, 0.65); }
+footer { background: #d9d9d9; padding: 36px max(20px, calc((100% - 520px) / 2)) calc(36px + env(safe-area-inset-bottom, 0px)); color: #8d8d96; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+footer .logo { height: 30px; width: auto; display: block; margin: 0 0 16px; filter: invert(0.6); opacity: 0.8; }
+footer a { display: block; color: #8d8d96; text-decoration: none; margin-bottom: 8px; }
+
+@media (max-width: 899px) {
+  header { justify-content: space-between; padding: calc(10px + env(safe-area-inset-top, 0px)) 5vw 10px; }
+  header .logo { height: 23px; margin: 0; }
+  header > a:not(.logo-link) { display: none; }
+  .mob-menu-btn { display: inline-flex; flex-direction: column; justify-content: center; align-items: center; gap: 4.5px; width: 40px; height: 40px; padding: 0; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.55); background: rgba(255, 255, 255, 0.18); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); cursor: pointer; }
+  .mob-menu-btn span { display: block; width: 18px; height: 1.8px; border-radius: 2px; background: #fff; transition: 0.3s; }
+  .mob-menu-btn.open span:nth-child(1) { transform: translateY(6.3px) rotate(45deg); }
+  .mob-menu-btn.open span:nth-child(2) { opacity: 0; }
+  .mob-menu-btn.open span:nth-child(3) { transform: translateY(-6.3px) rotate(-45deg); }
+  body.hdr-dark .mob-menu-btn { border-color: rgba(29, 29, 31, 0.24); background: rgba(29, 29, 31, 0.08); }
+  body.hdr-dark .mob-menu-btn span { background: #1d1d1f; }
+  .mob-menu-pop { display: flex; flex-direction: column; gap: 8px; position: fixed; top: calc(64px + env(safe-area-inset-top, 0px)); right: 5vw; left: 5vw; padding: 18px 20px; border-radius: 22px; border: 1px solid rgba(255, 255, 255, 0.48); background: rgba(58, 92, 132, 0.48); -webkit-backdrop-filter: blur(24px) saturate(160%); backdrop-filter: blur(24px) saturate(160%); box-shadow: 0 18px 44px rgba(10, 20, 45, 0.36); z-index: 39; opacity: 0; pointer-events: none; transform: translateY(-12px) scale(0.96); transition: 0.3s; }
+  .mob-menu-pop.open { opacity: 1; pointer-events: auto; transform: none; }
+  .mob-menu-pop a { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(255, 255, 255, 0.14); color: #fff; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
+  .mob-menu-pop a::after { content: "→"; font-size: 13px; opacity: 0.75; }
+  .hero { padding: calc(100px + env(safe-area-inset-top, 0px)) 6vw 48px; }
+  .article-sec, .related-sec, .closing-cta { padding: 48px 6vw; }
+  .article-layout, .prose .case-showcase, .related-grid, .closing-grid { grid-template-columns: 1fr; }
+  .toc-box { position: relative; top: 0; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo-link" href="../index.html#about" aria-label="На главную PSD Studio"><img class="logo" src="../assets/media/img_008.svg" alt="PSD"></a>
+  <a href="../index.html#about">О студии</a>
+  <a href="../index.html#portfolio">Портфолио</a>
+  <a href="../index.html#services">Услуги</a>
+  <a href="index.html" class="active">Статьи</a>
+  <a href="../index.html#contacts">Контакты</a>
+  <button class="mob-menu-btn" id="mob-menu-btn" type="button" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<nav class="mob-menu-pop" id="mob-menu-pop" aria-label="Мобильное меню">
+  <a href="../index.html#about">О студии</a>
+  <a href="../index.html#portfolio">Портфолио</a>
+  <a href="../index.html#services">Услуги</a>
+  <a href="index.html">Статьи</a>
+  <a href="../index.html#contacts">Контакты</a>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="rays"></div>
+    <div class="hero-inner">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a href="../index.html">Главная</a><span>/</span>
+        <a href="index.html">Статьи</a><span>/</span>
+        <span>Полиграфия и Prepress</span>
+      </nav>
+      <div class="art-badge-row">
+        <span class="art-pill">04 | ПОЛИГРАФИЯ И ПЕЧАТЬ</span>
+        <span class="art-meta-top">Время чтения: 9 минут • Автор: Сергей Платонов (Арт-директор PSD)</span>
+      </div>
+      <h1>Предпечатная подготовка макетов (Prepress): чек-лист, который спасёт тираж в типографии</h1>
+      <p class="lead">Даже гениальный дизайн буклета, коробки или каталога можно испортить за одну минуту на печатном станке, если макет сдан с ошибками цветоделения, без вылетов или с неправильным чёрным цветом.</p>
+    </div>
+  </section>
+
+  <section class="article-sec">
+    <div class="article-layout">
+      <aside class="toc-box" aria-label="Содержание статьи">
+        <p class="toc-title">Содержание статьи</p>
+        <ul class="toc-list">
+          <li><a href="#sec-1">1. Цветовая модель: почему RGB тускнеет в печати</a></li>
+          <li><a href="#sec-2">2. Вылеты под обрез (Bleed) и безопасные поля</a></li>
+          <li><a href="#sec-3">3. Секреты идеального чёрного и сумма красок (TIL)</a></li>
+          <li><a href="#sec-4">4. Разрешение 300 DPI, вектор и шрифты в кривых</a></li>
+        </ul>
+        <div class="toc-cta">
+          <p>Нужен макет, готовый к передаче в типографию?</p>
+          <a href="../index.html#services">Посмотреть прайс →</a>
+        </div>
+      </aside>
+
+      <article class="prose">
+        <div class="cover-img">
+          <img src="../assets/media/img_045.webp" alt="Кейс YAMAHA — полиграфия и рекламные материалы в студии PSD">
+        </div>
+
+        <h2 id="sec-1">1. Цветовая модель: почему экранный RGB тускнеет в печати и когда нужен Pantone</h2>
+        <p>Монитор компьютера и смартфона светится сам — он складывает цвета в модели <strong>RGB</strong> (Red, Green, Blue). Бумага в типографии не светится, а лишь отражает свет через слои краски <strong>CMYK</strong> (Cyan, Magenta, Yellow, Key/Black). Из-за этого кислотно-зелёные, ярко-синие и неоново-розовые оттенки с экрана при автоматическом переводе в CMYK становятся глухими и грязными.</p>
+        <p>В студии PSD мы изначально строим полиграфические макеты в профиле <code>CMYK (FOGRA39 / ISO Coated v2)</code>, вручную контролируя чистоту каждой краски. А если бренду нужен эталонный корпоративный цвет, металлик (золото, серебро) или флуоресцентный акцент — закладываем отдельную смесевую плашку <strong>Pantone</strong>.</p>
+
+        <h2 id="sec-2">2. Вылеты под обрез (Bleed) и охранные зоны</h2>
+        <p>В типографии стопка отпечатанных листов режется гильотинным ножом. У любого оборудования есть физический допуск смещения ножа от 1 до 3 мм. Если дизайнер обрезал фон макета ровно по границе формата (например, <code>210×297 мм</code> для А4), то при малейшем сдвиге ножа по краю готового буклета или визитки появится тонкая белая полоса некрашеной бумаги.</p>
+        <ul>
+          <li><strong>Вылеты наружу (Bleed):</strong> все фоновые изображения и плашки обязательно выпускаются за линию реза на <code>2–5 мм</code> с каждой стороны.</li>
+          <li><strong>Внутреннее охранное поле (Safe Margin):</strong> все важные тексты, логотипы, телефоны и колонцифры отодвигаются внутрь от края реза минимум на <code>4–5 мм</code> (а в многостраничных каталогах на термобиндере — на <code>12–15 мм</code> от корешка).</li>
+        </ul>
+
+        <div class="case-showcase">
+          <img src="../assets/media/img_047.webp" alt="Кейс YAMAHA — разработка буклетов, POS-материалов и полиграфии">
+          <div>
+            <h4>Кейс PSD: «YAMAHA — программа продлённой гарантии»</h4>
+            <p>Для дилерской сети Yamaha мы разработали юбилейную эмблему, настольные рекламные конструкции (POSM), многополосные буклеты и корпоративную форму — с безупречной предпечатной подготовкой и высечкой каждого элемента.</p>
+            <a href="../index.html#portfolio">Смотреть кейс в портфолио →</a>
+          </div>
+        </div>
+
+        <h2 id="sec-3">3. Секреты идеального чёрного цвета и сумма красок (Total Ink Limit)</h2>
+        <p>В полиграфии есть два совершенно разных «чёрных» цвета, путаница между которыми губит тиражи:</p>
+        <ol>
+          <li><strong>Мелкий текст, штрихкоды и тонкие линии:</strong> должны краситься <strong>строго в одну чёрную краску</strong> (<code>C:0 M:0 Y:0 K:100</code>) с включённым атрибутом <code>Overprint</code>. Если сделать мелкий шрифт составным из четырёх красок, при малейшем несовмещении печатных валов вокруг букв появится цветной радужный ореол.</li>
+          <li><strong>Крупные чёрные фоны и плашки:</strong> если залить большую плашку просто <code>K:100</code>, на бумаге она получится тёмно-серой и блеклой. Для глубокого бархатного чёрного используется <strong>составной чёрный (Rich Black)</strong> — например, <code>C:50 M:40 Y:40 K:95</code>, при этом общая сумма красок (TIL) не должна превышать <code>280–300%</code>, чтобы листы не отмарывались друг об друга в стопке.</li>
+        </ol>
+
+        <h2 id="sec-4">4. Разрешение 300 DPI, векторная графика и перевод шрифтов в кривые</h2>
+        <p>Для кристально чёткой печати все растровые фотографии в макете должны иметь реальное разрешение <strong>300 точек на дюйм (300 DPI) в масштабе 1:1</strong>. Все логотипы, плашки, схемы, штрихкоды и мелкие тексты создаются строго в векторе, а перед записью печатного файла <code>PDF/X-1a</code> или <code>PDF/X-4</code> все шрифты переводятся в кривые (Outlines), чтобы в типографии не слетела ни одна буква.</p>
+
+        <div class="callout">
+          <b>💡 В студии PSD предпечатная подготовка уже включена в стоимость:</b>
+          Заказывая у нас визитку, лифлет, буклет, меню, папку или упаковку, вы получаете не просто картинку, а полностью проверенный технический макет, готовый к немедленной отправке на печатную машину.
+        </div>
+
+        <div class="key-tags">
+          <span>#предпечатная подготовка</span>
+          <span>#prepress макетов</span>
+          <span>#дизайн полиграфии</span>
+          <span>#вылеты под обрез</span>
+          <span>#печать буклетов и каталогов</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="related-sec">
+    <div class="related-head">
+      <h2>Читайте также в Базе знаний</h2>
+      <a href="index.html">Все статьи →</a>
+    </div>
+    <div class="related-grid">
+      <a class="rel-card" href="dizajn-prezentacij-i-katalogov.html">
+        <div>
+          <span>Многостраничные</span>
+          <h3>Как создать коммерческую презентацию или каталог для B2B</h3>
+          <p>Структура, модульная сетка и вёрстка многостраничных изданий.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="dizajn-upakovki-i-etiketki.html">
+        <div>
+          <span>Упаковка</span>
+          <h3>Дизайн упаковки, который продаёт с полки и на маркетплейсах</h3>
+          <p>Разработка коробок, бутылок, этикеток и штампов под высечку.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="korporativnyj-merch-i-suvenirnaya-produkciya.html">
+        <div>
+          <span>Мерч</span>
+          <h3>Корпоративный мерч, который носят с гордостью</h3>
+          <p>Календари, подарочные наборы и брендированная продукция.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="closing-cta">
+    <div class="closing-grid">
+      <div>
+        <h2>Нужна безупречная полиграфия?<span>Подготовим к печати.</span></h2>
+        <p>Разработаем дизайн визиток, бланков, папок, листовок, буклетов и ресторанных меню с 100% соблюдением технических требований вашей типографии.</p>
+        <div class="cta-btns">
+          <a class="cta-btn" href="../index.html#contacts">Заказать полиграфию</a>
+          <a class="cta-btn sec" href="../index.html#services">Смотреть прайс-лист</a>
+        </div>
+      </div>
+      <div class="glass-box">
+        <h3 style="margin:0 0 14px;font-size:clamp(18px,2vw,26px);font-weight:600">От 1 500 ₽ за фирменный носитель</h3>
+        <p style="margin:0;font-size:13.5px;line-height:1.65;color:rgba(255,255,255,0.92)">Фирменная документация, рекламные лифлеты и буклеты, сертификаты, открытки и многополосные меню — в срок от 3 рабочих дней.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <img class="logo" src="../assets/media/img_024.svg" alt="PSD">
+  <a href="../index.html#about">О студии</a>
+  <a href="../index.html#portfolio">Портфолио</a>
+  <a href="../index.html#services">Услуги</a>
+  <a href="index.html">Статьи</a>
+  <a href="../index.html#contacts">Контакты</a>
+</footer>
+
+<script>
+(function(){
+  var hero = document.querySelector('.hero');
+  function syncHdr(){ if(hero) document.body.classList.toggle('hdr-dark', hero.getBoundingClientRect().bottom <= 68); }
+  window.addEventListener('scroll', syncHdr, {passive: true});
+  window.addEventListener('resize', syncHdr);
+  syncHdr();
+  var btn = document.getElementById('mob-menu-btn'), pop = document.getElementById('mob-menu-pop');
+  if(btn && pop){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var o = pop.classList.toggle('open');
+      btn.classList.toggle('open', o);
+      btn.setAttribute('aria-expanded', o ? 'true' : 'false');
+    });
+    document.addEventListener('click', function(e){
+      if(pop.classList.contains('open') && !pop.contains(e.target) && e.target !== btn){
+        pop.classList.remove('open'); btn.classList.remove('open'); btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
