@@ -887,6 +887,58 @@ body.pfdopen #pf .pfwrap{transform:translateX(-14%);opacity:0;pointer-events:non
 #ab .lt .abclose i{border-color:rgba(29,29,27,.5)}
 #ab .lt .abclose:hover i{background:rgba(29,29,27,.07)}
 #ab .lt .abclose svg{stroke:#1d1d1b}
+@media (max-width:899px){
+  #ab .abst{inset:0;left:0;top:0;width:100%;height:100%;aspect-ratio:auto;translate:none}
+  #ab .abclose{right:18px;top:calc(62px + env(safe-area-inset-top,0px));font-size:11px;gap:10px}
+  #ab .abclose i{width:38px;height:38px}
+  #ab .abnav{width:40px;height:40px;top:auto;bottom:calc(16px + env(safe-area-inset-bottom,0px));translate:none;z-index:6}
+  #ab .abnav.prev{left:14vw}#ab .abnav.next{right:14vw}
+  #ab .abnav svg{width:22px;height:22px}
+  #ab .abdots{bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+  /* Слайд 1: Портрет основателя и манифест */
+  #ab .sl:nth-child(1)::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,10,10,0) 32%,rgba(2,10,10,.52) 56%,rgba(2,10,10,.78) 100%);pointer-events:none}
+  #ab .sl:nth-child(1) .ln{left:8%!important;width:84%!important;height:1px}
+  #ab .sl:nth-child(1) .ln:nth-of-type(1){top:49%!important}
+  #ab .sl:nth-child(1) .ln:nth-of-type(2){top:63.5%!important}
+  #ab .sl:nth-child(1) p.u:nth-of-type(1){top:52.2%!important;font-size:clamp(13px,3.85vw,18px)!important;padding:0 6vw;white-space:normal}
+  #ab .sl:nth-child(1) p.u:nth-of-type(2){top:57.2%!important;font-size:clamp(13px,3.85vw,18px)!important;padding:0 5vw;white-space:normal}
+  #ab .sl:nth-child(1) p:nth-of-type(3){top:66.6%!important;font-size:clamp(8.5px,2.35vw,11px)!important;letter-spacing:.26em!important;padding-left:.26em!important;white-space:normal}
+  #ab .sl:nth-child(1) .lkw{left:50%!important;top:81.5%!important;width:auto!important;min-width:168px;height:28px!important;translate:-50% 0;font-size:clamp(11px,3vw,13.5px)!important}
+  #ab .sl:nth-child(1) .lkw .bar{height:5px;top:auto;bottom:0}
+  /* Слайд 2: Наши возможности */
+  #ab .sl:nth-child(2) p.hv{top:23%!important;font-size:clamp(11.5px,3.1vw,14px)!important;letter-spacing:.08em}
+  #ab .sl:nth-child(2) i.bar{left:50%!important;top:26.5%!important;width:136px!important;height:5px!important;translate:-50% 0}
+  #ab .sl:nth-child(2) p.u{font-size:clamp(13px,3.7vw,17.5px)!important;letter-spacing:.01em}
+  #ab .sl:nth-child(2) p.u:nth-of-type(2){left:0!important;width:100%!important;top:38.5%!important;text-align:center;white-space:pre}
+  #ab .sl:nth-child(2) p.u:nth-of-type(3){left:7%!important;top:46%!important}
+  #ab .sl:nth-child(2) p.u:nth-of-type(4){left:51.5%!important;top:46%!important}
+  #ab .sl:nth-child(2) p.u:nth-of-type(5){left:auto!important;right:7%!important;top:46%!important}
+  #ab .sl:nth-child(2) p.u:nth-of-type(6){left:7%!important;top:53.5%!important}
+  #ab .sl:nth-child(2) p.u:nth-of-type(7){left:28.5%!important;top:53.5%!important}
+  #ab .sl:nth-child(2) p.u:nth-of-type(8){left:auto!important;right:7%!important;top:53.5%!important}
+  #ab .sl:nth-child(2) p.c:last-of-type{top:67%!important;font-size:clamp(11px,2.9vw,13.5px)!important;letter-spacing:.06em}
+  #ab .sl:nth-child(2) i.ln{left:50%!important;top:70.6%!important;width:110px!important;height:1px!important;translate:-50% 0}
+  /* Слайд 3: 2021 — Год основания студии */
+  #ab .sl:nth-child(3) .circ{left:50%!important;top:62%!important;width:min(58vw,228px)!important;translate:-50% -50%}
+  #ab .sl:nth-child(3) p.dk:nth-of-type(1){top:calc(62% - 32px)!important;font-size:clamp(21px,5.8vw,26px)!important}
+  #ab .sl:nth-child(3) .ln{left:50%!important;top:62%!important;width:min(34vw,132px)!important;height:1px!important;translate:-50% 0}
+  #ab .sl:nth-child(3) p.dk:nth-of-type(2){top:calc(62% + 11px)!important;font-size:clamp(10.5px,2.85vw,13px)!important}
+  #ab .sl:nth-child(3) p.dk:nth-of-type(3){top:calc(62% + 28px)!important;font-size:clamp(10.5px,2.85vw,13px)!important}
+  /* Слайд 4: Ценности и философия (3 блока вертикально) */
+  #ab .sl.s4{--b:.35s;display:flex;flex-direction:column;justify-content:center;gap:clamp(10px,1.8svh,18px);padding:calc(104px + env(safe-area-inset-top,0px)) 7vw calc(68px + env(safe-area-inset-bottom,0px))}
+  #ab .sl.s4.on{background:#fff}
+  #ab .sl.s4 .shp{left:7vw!important;top:calc(68px + env(safe-area-inset-top,0px))!important;width:72px!important}
+  #ab .sl.s4 .vl{display:none!important}
+  #ab .sl.s4 .hl,#ab .sl.s4 .hd,#ab .sl.s4 .bd{position:relative!important;left:auto!important;top:auto!important;width:100%!important}
+  #ab .sl.s4 .hl{height:1px!important;background:rgba(29,29,27,.22)}
+  #ab .sl.s4 .hl:nth-of-type(3),#ab .sl.s4 .hl:nth-of-type(6),#ab .sl.s4 .hl:nth-of-type(9){display:none!important}
+  #ab .sl.s4 .hd{font-size:clamp(11.5px,3.15vw,14px)!important;line-height:1.28;margin:2px 0 -2px}
+  #ab .sl.s4 .bd{font-size:clamp(10.5px,2.75vw,12.5px)!important;line-height:1.45!important;color:#2b2b29}
+  #ab .sl.s4 .bd .jl{display:none!important}
+  #ab .sl.s4 .bd:nth-of-type(1)::after{content:"• честность / открытость / прозрачность — константы нашего отношения\A• компетенция — мы эксперты только в том, в чем имеем опыт\A• мы не делаем свою работу плохо\A• мы не принимаем плохую работу\A• мы не передаём плохую работу";white-space:pre-line;display:block}
+  #ab .sl.s4 .bd:nth-of-type(2)::after{content:"Это наш девиз и жизненная философия, заложенные в систему ценностей всех, вовлеченных в процесс специалистов для решения задач наших заказчиков в компетентной для нас сфере.";display:block}
+  #ab .sl.s4 .bd:nth-of-type(3)::after{content:"Когда ты любишь то, что ты делаешь, ты просто делаешь это, на 100%. Ты ничем не обмениваешься, ничем не торгуешь. Мы честно помогаем развитию бизнеса тем, кто к нам обращается и гордимся тем, что делаем.";display:block}
+}
 header,header a,header .logo{transition:color .45s ease,filter .45s ease,background .45s ease,border-color .45s ease}
 body.hdr-dark header{color:#1d1d1f;background:rgba(255,255,255,.6);border-bottom-color:rgba(0,0,0,.08)}
 body.hdr-dark header a{color:#1d1d1f}
@@ -1765,13 +1817,18 @@ new IntersectionObserver(function(es){inView=es[0].isIntersecting;if(inView)rest
       return true;
     }catch(e){console.warn('about: webgl',e);return false}
   }
+  function uvRect(idx,A,I){
+    if(A>I)return[1,I/A,0,(1-I/A)/2];
+    var ox=(idx===2&&cv.width<900)?(1-A/I)*0.18:(1-A/I)/2;
+    return[A/I,1,ox,0];
+  }
   function draw(p,dir,t){
     if(!ok||cv.width<4)return;
     gl.viewport(0,0,cv.width,cv.height);gl.useProgram(prog);
     gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tx[prev]);gl.uniform1i(U.uA,0);
     gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,tx[cur]);gl.uniform1i(U.uB,1);
-    var A=cv.width/cv.height,I=16/9,c=A>I?[1,I/A,0,(1-I/A)/2]:[A/I,1,(1-A/I)/2,0];
-    gl.uniform4f(U.uC,c[0],c[1],c[2],c[3]);gl.uniform1f(U.uP,p);gl.uniform1f(U.uD,dir);gl.uniform1f(U.uT,t);
+    var A=cv.width/cv.height,I=16/9,ca=uvRect(prev,A,I),cb=uvRect(cur,A,I);
+    gl.uniform4f(U.uC,ca[0]+(cb[0]-ca[0])*p,ca[1]+(cb[1]-ca[1])*p,ca[2]+(cb[2]-ca[2])*p,ca[3]+(cb[3]-ca[3])*p);gl.uniform1f(U.uP,p);gl.uniform1f(U.uD,dir);gl.uniform1f(U.uT,t);
     gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
   }
   function resize(){var w=inner.clientWidth,h=inner.clientHeight;if(w<4||h<4)return;var dpr=Math.min(devicePixelRatio||1,1.25),k=Math.min(1,2200/(w*dpr));cv.width=Math.round(w*dpr*k);cv.height=Math.round(h*dpr*k);draw(1,1,0)}
