@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0d1828"/>
+      <stop offset="50%" stop-color="#183854"/>
+      <stop offset="100%" stop-color="#42365d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="72%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#18a2c0" stop-opacity="0.48"/>
+      <stop offset="55%" stop-color="#eaabcd" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#0d1828" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.06"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#18a2c0"/>
+      <stop offset="100%" stop-color="#eaabcd"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="135%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#040914" flood-opacity="0.58"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect width="1200" height="750" fill="url(#glow)"/>
+
+  <!-- DESKTOP MULTI-PAGE BROWSER WINDOW -->
+  <g filter="url(#shadow)" transform="translate(76, 86)">
+    <rect width="760" height="490" rx="24" fill="#101a2b" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.5"/>
+    <!-- Browser Top Bar -->
+    <rect width="760" height="48" rx="24" fill="#18253b"/>
+    <circle cx="28" cy="24" r="6" fill="#ff5f56"/>
+    <circle cx="48" cy="24" r="6" fill="#ffbd2e"/>
+    <circle cx="68" cy="24" r="6" fill="#27c93f"/>
+    <!-- URL Bar -->
+    <rect x="104" y="11" width="430" height="26" rx="13" fill="#0d1523" stroke="#ffffff" stroke-opacity="0.14"/>
+    <text x="126" y="28" fill="#18a2c0" font-family="monospace" font-size="11">https://psd-studio.ru/articles/ • SEO TOP-10</text>
+    <!-- Navigation Tabs in Header -->
+    <g transform="translate(36, 68)" font-family="Unbounded, Arial, sans-serif" font-size="10" fill="#ffffff">
+      <text x="0" y="16" font-weight="800" fill="#18a2c0">PSD</text>
+      <text x="68" y="16" fill-opacity="0.75">О СТУДИИ</text>
+      <text x="158" y="16" fill-opacity="0.75">ПОРТФОЛИО</text>
+      <text x="262" y="16" fill-opacity="0.75">УСЛУГИ</text>
+      <rect x="334" y="2" width="76" height="22" rx="11" fill="#18a2c0"/>
+      <text x="372" y="16" font-weight="700" text-anchor="middle">СТАТЬИ</text>
+      <text x="430" y="16" fill-opacity="0.75">КОНТАКТЫ</text>
+    </g>
+
+    <!-- Hero Wireframe Inside Browser -->
+    <g transform="translate(36, 108)">
+      <rect width="436" height="196" rx="18" fill="url(#accent)" fill-opacity="0.22" stroke="#18a2c0" stroke-opacity="0.5"/>
+      <rect x="24" y="24" width="140" height="20" rx="10" fill="#ffffff" fill-opacity="0.18"/>
+      <text x="94" y="38" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="8.5" font-weight="600" text-anchor="middle">UI / UX ARCHITECTURE</text>
+      <text x="24" y="76" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="22" font-weight="700">ЛЕНДИНГ ИЛИ</text>
+      <text x="24" y="104" fill="#eaabcd" font-family="Unbounded, Arial, sans-serif" font-size="22" font-weight="700">МНОГОСТРАНИЧНИК</text>
+      <rect x="24" y="132" width="164" height="38" rx="19" fill="url(#accent)"/>
+      <text x="106" y="155" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="10" font-weight="700" text-anchor="middle">РАССЧИТАТЬ ПРОЕКТ →</text>
+    </g>
+
+    <!-- Sitemap / Multi-page Cluster Tree on Right of Browser -->
+    <g transform="translate(492, 108)">
+      <rect width="232" height="196" rx="18" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.18"/>
+      <text x="20" y="30" fill="#eaabcd" font-family="Unbounded, Arial, sans-serif" font-size="9.5" font-weight="700">СТРУКТУРА ИНДЕКСАЦИИ</text>
+      <!-- Root Node -->
+      <rect x="76" y="46" width="80" height="26" rx="6" fill="#18a2c0"/>
+      <text x="116" y="63" fill="#ffffff" font-family="monospace" font-size="10" font-weight="700" text-anchor="middle">/index.html</text>
+      <!-- Connector Lines -->
+      <path d="M116 72 V92 M48 92 H184 M48 92 V108 M116 92 V108 M184 92 V108" stroke="#ffffff" stroke-opacity="0.45" stroke-width="1.5" fill="none"/>
+      <!-- Child Pages -->
+      <rect x="16" y="108" width="64" height="26" rx="6" fill="#ffffff" fill-opacity="0.14"/>
+      <text x="48" y="125" fill="#ffffff" font-family="monospace" font-size="9" text-anchor="middle">/services</text>
+      <rect x="84" y="108" width="64" height="26" rx="6" fill="#eaabcd" fill-opacity="0.3" stroke="#eaabcd"/>
+      <text x="116" y="125" fill="#ffffff" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">/articles</text>
+      <rect x="152" y="108" width="64" height="26" rx="6" fill="#ffffff" fill-opacity="0.14"/>
+      <text x="184" y="125" fill="#ffffff" font-family="monospace" font-size="9" text-anchor="middle">/cases</text>
+      <text x="20" y="164" fill="#ffffff" fill-opacity="0.75" font-family="Unbounded, Arial, sans-serif" font-size="9.5">+300% семантический</text>
+      <text x="20" y="180" fill="#18a2c0" font-family="Unbounded, Arial, sans-serif" font-size="9.5" font-weight="700">охват в Яндексе и Google</text>
+    </g>
+
+    <!-- Bottom Cards Row inside Browser -->
+    <g transform="translate(36, 324)">
+      <rect width="218" height="132" rx="16" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14"/>
+      <text x="20" y="34" fill="#18a2c0" font-family="Unbounded, Arial, sans-serif" font-size="11" font-weight="700">ЛЕНДИНГ (LANDING PAGE)</text>
+      <text x="20" y="60" fill="#ffffff" fill-opacity="0.8" font-family="Unbounded, Arial, sans-serif" font-size="10">Фокус на 1 оффер и быстрый</text>
+      <text x="20" y="76" fill="#ffffff" fill-opacity="0.8" font-family="Unbounded, Arial, sans-serif" font-size="10">запуск платного трафика</text>
+      <text x="20" y="110" fill="#eaabcd" font-family="Unbounded, Arial, sans-serif" font-size="12" font-weight="700">35 000 – 50 000 ₽</text>
+
+      <rect x="236" width="236" height="132" rx="16" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14"/>
+      <text x="256" y="34" fill="#eaabcd" font-family="Unbounded, Arial, sans-serif" font-size="11" font-weight="700">МНОГОСТРАНИЧНЫЙ САЙТ</text>
+      <text x="256" y="60" fill="#ffffff" fill-opacity="0.8" font-family="Unbounded, Arial, sans-serif" font-size="10">Органический SEO-трафик,</text>
+      <text x="256" y="76" fill="#ffffff" fill-opacity="0.8" font-family="Unbounded, Arial, sans-serif" font-size="10">база знаний и доверие B2B</text>
+      <text x="256" y="110" fill="#18a2c0" font-family="Unbounded, Arial, sans-serif" font-size="12" font-weight="700">от 70 000 ₽</text>
+
+      <rect x="492" width="232" height="132" rx="16" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14"/>
+      <text x="512" y="34" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="11" font-weight="700">РОСТ ОРГАНИКИ SEO</text>
+      <polyline points="512,108 548,96 584,82 620,60 656,48 696,28" fill="none" stroke="#27c93f" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="696" cy="28" r="5" fill="#27c93f"/>
+      <text x="512" y="120" fill="#27c93f" font-family="monospace" font-size="10" font-weight="700">▲ TOP-3 YANDEX SEARCH</text>
+    </g>
+  </g>
+
+  <!-- FLOATING MOBILE SMARTPHONE UI CARD ON RIGHT -->
+  <g filter="url(#shadow)" transform="translate(868, 134)">
+    <rect width="256" height="520" rx="38" fill="#0b1320" stroke="#ffffff" stroke-opacity="0.55" stroke-width="2"/>
+    <rect x="12" y="12" width="232" height="496" rx="30" fill="url(#glass)"/>
+    <!-- Dynamic Island Pill -->
+    <rect x="88" y="24" width="80" height="18" rx="9" fill="#0b1320"/>
+    <!-- Mobile Screen Content -->
+    <rect x="28" y="64" width="200" height="136" rx="16" fill="url(#accent)" fill-opacity="0.35"/>
+    <text x="44" y="102" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="14" font-weight="700">MOBILE</text>
+    <text x="44" y="122" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="14" font-weight="700">FIRST 100%</text>
+    <rect x="44" y="144" width="112" height="32" rx="16" fill="#ffffff" fill-opacity="0.25" stroke="#ffffff" stroke-opacity="0.7"/>
+    <text x="100" y="164" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="8.5" font-weight="700" text-anchor="middle">LIQUID GLASS</text>
+
+    <rect x="28" y="220" width="200" height="76" rx="14" fill="#ffffff" fill-opacity="0.1"/>
+    <text x="44" y="250" fill="#18a2c0" font-family="Unbounded, Arial, sans-serif" font-size="10.5" font-weight="700">Core Web Vitals</text>
+    <text x="44" y="274" fill="#ffffff" font-family="monospace" font-size="12" font-weight="700">99 / 100 SPEED</text>
+
+    <rect x="28" y="312" width="200" height="76" rx="14" fill="#ffffff" fill-opacity="0.1"/>
+    <text x="44" y="342" fill="#eaabcd" font-family="Unbounded, Arial, sans-serif" font-size="10.5" font-weight="700">Schema.org JSON-LD</text>
+    <text x="44" y="366" fill="#ffffff" font-family="monospace" font-size="11">Rich Snippets Ready</text>
+
+    <rect x="28" y="412" width="200" height="54" rx="27" fill="url(#accent)"/>
+    <text x="128" y="444" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">ЗАКАЗАТЬ САЙТ →</text>
+  </g>
+</svg>

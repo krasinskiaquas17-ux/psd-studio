@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#111622"/>
+      <stop offset="50%" stop-color="#1d2b44"/>
+      <stop offset="100%" stop-color="#3c3358"/>
+    </linearGradient>
+    <radialGradient id="glowR" cx="76%" cy="46%" r="48%">
+      <stop offset="0%" stop-color="#18a2c0" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#eaabcd" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#111622" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.07"/>
+    </linearGradient>
+    <linearGradient id="glassBorder" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18a2c0"/>
+      <stop offset="100%" stop-color="#eaabcd"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="135%">
+      <feDropShadow dx="0" dy="20" stdDeviation="22" flood-color="#050912" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect width="1200" height="750" fill="url(#glowR)"/>
+
+  <!-- LEFT PANEL: OUTDATED / LEGACY VISUAL (BEFORE) -->
+  <g transform="translate(86, 136)" opacity="0.72">
+    <rect width="410" height="478" rx="26" fill="#1a1f2b" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1.5" stroke-dasharray="6 6"/>
+    <rect x="28" y="28" width="132" height="28" rx="14" fill="#ffffff" fill-opacity="0.1"/>
+    <text x="94" y="46" fill="#a0a6b5" font-family="Unbounded, Arial, sans-serif" font-size="10" font-weight="600" text-anchor="middle">ДО РЕБРЕНДИНГА</text>
+
+    <!-- Old Fragmented Logo Box -->
+    <rect x="44" y="84" width="322" height="146" rx="12" fill="#252b39" stroke="#ffffff" stroke-opacity="0.08"/>
+    <polygon points="116,126 146,184 86,184" fill="#636978"/>
+    <rect x="164" y="134" width="144" height="16" rx="3" fill="#6e7585"/>
+    <rect x="164" y="160" width="96" height="12" rx="3" fill="#525866"/>
+    <!-- Red Cross Outlines -->
+    <line x1="70" y1="106" x2="340" y2="206" stroke="#ff6b7b" stroke-width="2" stroke-opacity="0.55"/>
+
+    <!-- 5 Signs of Outdated Brand -->
+    <g transform="translate(44, 262)" fill="#9da3b4" font-family="Unbounded, Arial, sans-serif" font-size="11.5">
+      <text x="0" y="20">✕ Устаревшая перегруженная графика</text>
+      <text x="0" y="54">✕ Разнобой на сайте и в полиграфии</text>
+      <text x="0" y="88">✕ Низкая конверсия в B2B и премиуме</text>
+      <text x="0" y="122">✕ Слияние с серыми конкурентами</text>
+      <text x="0" y="156">✕ Нечитаемость на экранах смартфонов</text>
+    </g>
+  </g>
+
+  <!-- CENTER TRANSFORMATION ARROW PILL -->
+  <g filter="url(#shadow)" transform="translate(526, 332)">
+    <rect width="148" height="86" rx="43" fill="url(#brandGrad)"/>
+    <path d="M48 43 H98 M80 25 L98 43 L80 61" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- RIGHT PANEL: NEW PREMIUM BRAND SYSTEM (AFTER) -->
+  <g filter="url(#shadow)" transform="translate(604, 96)">
+    <rect width="510" height="558" rx="30" fill="url(#glass)" stroke="url(#glassBorder)" stroke-width="1.8"/>
+    <rect x="34" y="30" width="184" height="30" rx="15" fill="url(#brandGrad)"/>
+    <text x="126" y="49" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">ПОСЛЕ ОБНОВЛЕНИЯ</text>
+    <text x="476" y="49" fill="#ffffff" fill-opacity="0.7" font-family="monospace" font-size="12" text-anchor="end">+38% КОНВЕРСИЯ</text>
+
+    <!-- New Cohesive Brand Showcase -->
+    <rect x="34" y="82" width="442" height="210" rx="22" fill="#0d1829" fill-opacity="0.78" stroke="#18a2c0" stroke-opacity="0.5"/>
+    <circle cx="118" cy="187" r="52" fill="url(#brandGrad)"/>
+    <circle cx="118" cy="187" r="24" fill="#0d1829"/>
+    <path d="M118 135 A52 52 0 0 1 170 187" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+    <text x="196" y="166" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="1">NEW ERA</text>
+    <text x="196" y="192" fill="#18a2c0" font-family="Unbounded, Arial, sans-serif" font-size="11" font-weight="500" letter-spacing="2">BRAND ARCHITECTURE</text>
+    <rect x="196" y="212" width="118" height="28" rx="14" fill="#ffffff" fill-opacity="0.14"/>
+    <text x="255" y="230" fill="#eaabcd" font-family="monospace" font-size="10.5" font-weight="700" text-anchor="middle">WEB • PRINT • PACK</text>
+
+    <!-- 3 Cards: Website, Identity, Guidelines -->
+    <g transform="translate(34, 316)">
+      <rect width="136" height="128" rx="16" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.24"/>
+      <text x="18" y="32" fill="#18a2c0" font-family="Unbounded, Arial, sans-serif" font-size="18" font-weight="700">01</text>
+      <text x="18" y="64" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="11.5" font-weight="600">Новый</text>
+      <text x="18" y="82" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="11.5" font-weight="600">логотип</text>
+      <text x="18" y="106" fill="#ffffff" fill-opacity="0.65" font-family="monospace" font-size="9.5">Чистая геометрия</text>
+
+      <rect x="153" width="136" height="128" rx="16" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.24"/>
+      <text x="171" y="32" fill="#eaabcd" font-family="Unbounded, Arial, sans-serif" font-size="18" font-weight="700">02</text>
+      <text x="171" y="64" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="11.5" font-weight="600">Дизайн</text>
+      <text x="171" y="82" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="11.5" font-weight="600">сайта и UI</text>
+      <text x="171" y="106" fill="#ffffff" fill-opacity="0.65" font-family="monospace" font-size="9.5">Адаптив 100%</text>
+
+      <rect x="306" width="136" height="128" rx="16" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.24"/>
+      <text x="324" y="32" fill="#18a2c0" font-family="Unbounded, Arial, sans-serif" font-size="18" font-weight="700">03</text>
+      <text x="324" y="64" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="11.5" font-weight="600">Носители</text>
+      <text x="324" y="82" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="11.5" font-weight="600">и гайдлайн</text>
+      <text x="324" y="106" fill="#ffffff" fill-opacity="0.65" font-family="monospace" font-size="9.5">Единый стандарт</text>
+    </g>
+
+    <!-- Bottom Metric Bar -->
+    <rect x="34" y="468" width="442" height="56" rx="16" fill="#0d1829" fill-opacity="0.55" stroke="#ffffff" stroke-opacity="0.18"/>
+    <text x="56" y="501" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="12" font-weight="500">КОМПЛЕКСНЫЙ РЕБРЕНДИНГ КОМПАНИИ</text>
+    <text x="454" y="501" fill="#eaabcd" font-family="Unbounded, Arial, sans-serif" font-size="12" font-weight="700" text-anchor="end">PSD →</text>
+  </g>
+</svg>

@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0d1726"/>
+      <stop offset="45%" stop-color="#142d47"/>
+      <stop offset="82%" stop-color="#2c4368"/>
+      <stop offset="100%" stop-color="#4e456e"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="78%" cy="22%" r="52%">
+      <stop offset="0%" stop-color="#eaabcd" stop-opacity="0.48"/>
+      <stop offset="50%" stop-color="#a9a7c7" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#18a2c0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="20%" cy="80%" r="55%">
+      <stop offset="0%" stop-color="#18a2c0" stop-opacity="0.52"/>
+      <stop offset="60%" stop-color="#18a2c0" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0d1726" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.06"/>
+    </linearGradient>
+    <linearGradient id="glassBorder" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.12"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18a2c0"/>
+      <stop offset="55%" stop-color="#a9a7c7"/>
+      <stop offset="100%" stop-color="#eaabcd"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="135%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#050b16" flood-opacity="0.55"/>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.7" stroke-opacity="0.06"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect width="1200" height="750" fill="url(#glow1)"/>
+  <rect width="1200" height="750" fill="url(#glow2)"/>
+  <rect width="1200" height="750" fill="url(#grid)"/>
+
+  <!-- Background Technical Rings -->
+  <circle cx="380" cy="360" r="290" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6 6"/>
+  <circle cx="380" cy="360" r="220" fill="none" stroke="#18a2c0" stroke-opacity="0.2" stroke-width="1"/>
+
+  <!-- MAIN BRANDBOOK / LOGO CONSTRUCTION CARD -->
+  <g filter="url(#shadow)" transform="translate(88, 92)">
+    <rect width="610" height="460" rx="28" fill="url(#glass)" stroke="url(#glassBorder)" stroke-width="1.5"/>
+    <rect x="28" y="26" width="148" height="28" rx="14" fill="#ffffff" fill-opacity="0.14"/>
+    <circle cx="46" cy="40" r="5" fill="#18a2c0"/>
+    <text x="60" y="44" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="10" font-weight="600" letter-spacing="1.2">BRANDBOOK v2.4</text>
+    <text x="568" y="44" fill="#ffffff" fill-opacity="0.5" font-family="monospace" font-size="12" text-anchor="end">GRID // 1:1.618</text>
+
+    <!-- Construction Grid Area -->
+    <g transform="translate(42, 76)">
+      <rect width="320" height="280" rx="18" fill="#091322" fill-opacity="0.62" stroke="#ffffff" stroke-opacity="0.16"/>
+      <!-- Fine Golden Ratio Lines -->
+      <line x1="0" y1="70" x2="320" y2="70" stroke="#18a2c0" stroke-opacity="0.32" stroke-dasharray="4 4"/>
+      <line x1="0" y1="210" x2="320" y2="210" stroke="#18a2c0" stroke-opacity="0.32" stroke-dasharray="4 4"/>
+      <line x1="90" y1="0" x2="90" y2="280" stroke="#18a2c0" stroke-opacity="0.32" stroke-dasharray="4 4"/>
+      <line x1="230" y1="0" x2="230" y2="280" stroke="#18a2c0" stroke-opacity="0.32" stroke-dasharray="4 4"/>
+      <line x1="40" y1="240" x2="280" y2="40" stroke="#eaabcd" stroke-opacity="0.35" stroke-width="1"/>
+
+      <!-- Geometric Logo Mark Construction Circles -->
+      <circle cx="160" cy="140" r="70" fill="none" stroke="#ffffff" stroke-opacity="0.28" stroke-width="1.2"/>
+      <circle cx="160" cy="140" r="42" fill="none" stroke="#eaabcd" stroke-opacity="0.55" stroke-width="1.2" stroke-dasharray="3 3"/>
+      <circle cx="195" cy="140" r="35" fill="none" stroke="#18a2c0" stroke-opacity="0.55" stroke-width="1.2"/>
+
+      <!-- Bold Brand Mark -->
+      <path d="M118 98 H168 A42 42 0 0 1 168 182 H144 V204 H118 Z" fill="url(#accentGrad)" fill-opacity="0.9"/>
+      <circle cx="168" cy="140" r="18" fill="#091322"/>
+
+      <!-- Anchor Points -->
+      <rect x="114" y="94" width="8" height="8" fill="#ffffff" stroke="#18a2c0" stroke-width="2"/>
+      <rect x="206" y="136" width="8" height="8" fill="#ffffff" stroke="#18a2c0" stroke-width="2"/>
+      <rect x="114" y="200" width="8" height="8" fill="#ffffff" stroke="#eaabcd" stroke-width="2"/>
+
+      <!-- Dimension Labels -->
+      <text x="16" y="262" fill="#18a2c0" font-family="monospace" font-size="11" font-weight="700">SAFE ZONE: 2X</text>
+      <text x="304" y="262" fill="#eaabcd" font-family="monospace" font-size="11" text-anchor="end">R = 42pt</text>
+    </g>
+
+    <!-- Typography Hierarchy Spec on Right -->
+    <g transform="translate(384, 76)">
+      <rect width="194" height="132" rx="16" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.18"/>
+      <text x="20" y="30" fill="#ffffff" fill-opacity="0.55" font-family="Unbounded, Arial, sans-serif" font-size="9" letter-spacing="1">TYPOGRAPHY</text>
+      <text x="20" y="84" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="44" font-weight="700">Aa</text>
+      <text x="108" y="66" fill="#18a2c0" font-family="Unbounded, Arial, sans-serif" font-size="11" font-weight="600">Unbounded</text>
+      <text x="108" y="84" fill="#ffffff" fill-opacity="0.7" font-family="monospace" font-size="10">Bold / Light</text>
+      <line x1="20" y1="102" x2="174" y2="102" stroke="#ffffff" stroke-opacity="0.15"/>
+      <text x="20" y="118" fill="#ffffff" fill-opacity="0.65" font-family="monospace" font-size="10">H1 • H2 • BODY • CAPTION</text>
+
+      <!-- Clearspace / Guidelines Mini Box -->
+      <rect y="148" width="194" height="132" rx="16" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.18"/>
+      <text x="20" y="178" fill="#ffffff" fill-opacity="0.55" font-family="Unbounded, Arial, sans-serif" font-size="9" letter-spacing="1">LOGO VERSIONS</text>
+      <rect x="20" y="192" width="72" height="32" rx="7" fill="#18a2c0" fill-opacity="0.28" stroke="#18a2c0" stroke-opacity="0.7"/>
+      <text x="56" y="212" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="10" font-weight="700" text-anchor="middle">PRIMARY</text>
+      <rect x="102" y="192" width="72" height="32" rx="7" fill="#ffffff" fill-opacity="0.9"/>
+      <text x="138" y="212" fill="#0d1726" font-family="Unbounded, Arial, sans-serif" font-size="10" font-weight="700" text-anchor="middle">INVERSE</text>
+      <rect x="20" y="234" width="154" height="28" rx="7" fill="#091322" fill-opacity="0.6" stroke="#ffffff" stroke-opacity="0.22"/>
+      <text x="97" y="252" fill="#eaabcd" font-family="monospace" font-size="10" text-anchor="middle">MONOCHROME • VECTOR AI/SVG</text>
+    </g>
+
+    <!-- Bottom Status Bar inside Main Card -->
+    <g transform="translate(42, 378)">
+      <rect width="536" height="52" rx="14" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.14"/>
+      <text x="22" y="31" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="12" font-weight="500">СИСТЕМА ВИЗУАЛЬНОЙ ИДЕНТИФИКАЦИИ БРЕНДА</text>
+      <rect x="424" y="12" width="96" height="28" rx="14" fill="url(#accentGrad)"/>
+      <text x="472" y="30" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="9.5" font-weight="700" text-anchor="middle">PSD STUDIO</text>
+    </g>
+  </g>
+
+  <!-- FLOATING PANTONE / COLOR SWATCH CARDS ON RIGHT -->
+  <g filter="url(#shadow)" transform="translate(744, 118) rotate(3)">
+    <rect width="176" height="236" rx="20" fill="#ffffff"/>
+    <rect x="12" y="12" width="152" height="138" rx="12" fill="#18a2c0"/>
+    <text x="20" y="176" fill="#141821" font-family="Unbounded, Arial, sans-serif" font-size="13" font-weight="700">PANTONE</text>
+    <text x="20" y="196" fill="#4a4a52" font-family="monospace" font-size="11">3125 C • #18A2C0</text>
+    <text x="20" y="216" fill="#878787" font-family="monospace" font-size="10">CMYK 78 / 0 / 16 / 0</text>
+  </g>
+
+  <g filter="url(#shadow)" transform="translate(932, 168) rotate(8)">
+    <rect width="176" height="236" rx="20" fill="#ffffff"/>
+    <rect x="12" y="12" width="152" height="138" rx="12" fill="#eaabcd"/>
+    <text x="20" y="176" fill="#141821" font-family="Unbounded, Arial, sans-serif" font-size="13" font-weight="700">PANTONE</text>
+    <text x="20" y="196" fill="#4a4a52" font-family="monospace" font-size="11">700 C • #EAABCD</text>
+    <text x="20" y="216" fill="#878787" font-family="monospace" font-size="10">CMYK 4 / 36 / 2 / 0</text>
+  </g>
+
+  <!-- FLOATING BUSINESS CARD & STATIONERY MOCKUP BOTTOM RIGHT -->
+  <g filter="url(#shadow)" transform="translate(650, 430)">
+    <rect width="460" height="228" rx="24" fill="url(#glass)" stroke="url(#glassBorder)" stroke-width="1.5"/>
+    <!-- Dark VIP Business Card -->
+    <g transform="translate(28, 30)">
+      <rect width="246" height="148" rx="14" fill="#101827" stroke="#ffffff" stroke-opacity="0.22"/>
+      <circle cx="52" cy="54" r="18" fill="url(#accentGrad)"/>
+      <text x="82" y="52" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="13" font-weight="700">IDENTITY</text>
+      <text x="82" y="68" fill="#18a2c0" font-family="Unbounded, Arial, sans-serif" font-size="8.5" letter-spacing="1.5">GUIDELINE SYSTEM</text>
+      <line x1="34" y1="98" x2="212" y2="98" stroke="#ffffff" stroke-opacity="0.14"/>
+      <text x="34" y="120" fill="#ffffff" fill-opacity="0.7" font-family="monospace" font-size="10">01. LOGO  02. COLOR  03. PRINT</text>
+    </g>
+    <!-- Spec Checklist -->
+    <g transform="translate(296, 40)">
+      <text x="0" y="16" fill="#eaabcd" font-family="Unbounded, Arial, sans-serif" font-size="10" font-weight="700">СОСТАВ БРЕНДБУКА</text>
+      <text x="0" y="46" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="11">✓ Логобук и сетка</text>
+      <text x="0" y="74" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="11">✓ Паспорт цветов</text>
+      <text x="0" y="102" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="11">✓ Шрифтовая пара</text>
+      <text x="0" y="130" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="11">✓ Деловые носители</text>
+      <text x="0" y="158" fill="#18a2c0" font-family="Unbounded, Arial, sans-serif" font-size="11" font-weight="600">✓ 100% Вектор</text>
+    </g>
+  </g>
+</svg>

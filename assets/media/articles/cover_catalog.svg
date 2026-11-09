@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#101827"/>
+      <stop offset="50%" stop-color="#1f344d"/>
+      <stop offset="100%" stop-color="#483a62"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#eaabcd" stop-opacity="0.38"/>
+      <stop offset="55%" stop-color="#18a2c0" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#101827" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18a2c0"/>
+      <stop offset="100%" stop-color="#eaabcd"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="135%">
+      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#050a14" flood-opacity="0.58"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect width="1200" height="750" fill="url(#glow)"/>
+
+  <!-- OPEN MULTI-PAGE CATALOG SPREAD (РАЗВОРОТ КАТАЛОГА ПО МОДУЛЬНОЙ СЕТКЕ) -->
+  <g filter="url(#shadow)" transform="translate(84, 96)">
+    <!-- Left Page of Spread -->
+    <path d="M0 18 Q240 0 490 18 V518 Q240 500 0 518 Z" fill="#f7f8fa"/>
+    <!-- Right Page of Spread -->
+    <path d="M490 18 Q740 0 980 18 V518 Q740 500 490 518 Z" fill="#ffffff"/>
+    <!-- Center Spine Shadow -->
+    <rect x="484" y="14" width="12" height="504" fill="#0d1522" fill-opacity="0.18"/>
+
+    <!-- Swiss Modular Grid Overlay on Left Page -->
+    <g transform="translate(42, 52)">
+      <rect width="406" height="24" rx="6" fill="#141821"/>
+      <text x="14" y="16" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1">01 // EXECUTIVE B2B PRESENTATION</text>
+      <text x="0" y="76" fill="#141821" font-family="Unbounded, Arial, sans-serif" font-size="30" font-weight="800">КАТАЛОГИ И</text>
+      <text x="0" y="112" fill="#18a2c0" font-family="Unbounded, Arial, sans-serif" font-size="30" font-weight="800">ПРЕЗЕНТАЦИИ</text>
+      <text x="0" y="144" fill="#4a4a52" font-family="Unbounded, Arial, sans-serif" font-size="11.5">Модульная сетка • Инфографика • Вёрстка</text>
+
+      <!-- Big Key Metric Callout -->
+      <rect y="172" width="192" height="126" rx="16" fill="#141821"/>
+      <text x="20" y="226" fill="#eaabcd" font-family="Unbounded, Arial, sans-serif" font-size="36" font-weight="800">+42%</text>
+      <text x="20" y="254" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="10.5" font-weight="500">Конверсия КП</text>
+      <text x="20" y="272" fill="#ffffff" fill-opacity="0.65" font-family="monospace" font-size="9.5">в закрытые B2B-сделки</text>
+
+      <rect x="210" y="172" width="196" height="126" rx="16" fill="#eef1f6" stroke="#d4d8e2"/>
+      <text x="228" y="204" fill="#141821" font-family="Unbounded, Arial, sans-serif" font-size="11" font-weight="700">СТРУКТУРА СЛАЙДА</text>
+      <rect x="228" y="220" width="156" height="10" rx="5" fill="#18a2c0"/>
+      <rect x="228" y="238" width="124" height="10" rx="5" fill="#a9a7c7"/>
+      <rect x="228" y="256" width="142" height="10" rx="5" fill="#eaabcd"/>
+
+      <!-- Editorial Columns at Bottom Left -->
+      <rect y="318" width="192" height="96" rx="10" fill="#e9ecf2"/>
+      <rect x="210" y="318" width="196" height="96" rx="10" fill="#e9ecf2"/>
+      <text x="16" y="346" fill="#141821" font-family="Unbounded, Arial, sans-serif" font-size="10" font-weight="700">Швейцарская сетка</text>
+      <text x="16" y="368" fill="#4a4a52" font-family="Unbounded, Arial, sans-serif" font-size="9.5">Чёткий ритм полос и</text>
+      <text x="16" y="384" fill="#4a4a52" font-family="Unbounded, Arial, sans-serif" font-size="9.5">акцентов внимания</text>
+      <text x="226" y="346" fill="#141821" font-family="Unbounded, Arial, sans-serif" font-size="10" font-weight="700">PDF + Print Prepress</text>
+      <text x="226" y="368" fill="#4a4a52" font-family="Unbounded, Arial, sans-serif" font-size="9.5">Версия для почты и</text>
+      <text x="226" y="384" fill="#4a4a52" font-family="Unbounded, Arial, sans-serif" font-size="9.5">тиража в типографии</text>
+    </g>
+
+    <!-- Right Page: Data Visualization, Charts & Product Matrix -->
+    <g transform="translate(532, 52)">
+      <text x="0" y="18" fill="#878787" font-family="monospace" font-size="11" font-weight="700">02 // DATA VISUALIZATION &amp; PRODUCT MATRIX</text>
+      <line x1="0" y1="30" x2="406" y2="30" stroke="#d4d8e2"/>
+
+      <!-- Bar Chart Card -->
+      <rect y="48" width="406" height="196" rx="18" fill="#141821"/>
+      <text x="24" y="80" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="12" font-weight="700">ДИНАМИКА И ИНФОГРАФИКА ПРОЕКТА</text>
+      <!-- Bars -->
+      <rect x="34" y="168" width="44" height="48" rx="6" fill="#ffffff" fill-opacity="0.22"/>
+      <rect x="98" y="144" width="44" height="72" rx="6" fill="#a9a7c7"/>
+      <rect x="162" y="114" width="44" height="102" rx="6" fill="#18a2c0"/>
+      <rect x="226" y="88" width="44" height="128" rx="6" fill="url(#accent)"/>
+      <!-- Donut Chart on Right -->
+      <circle cx="340" cy="148" r="44" fill="none" stroke="#ffffff" stroke-opacity="0.15" stroke-width="14"/>
+      <circle cx="340" cy="148" r="44" fill="none" stroke="#18a2c0" stroke-width="14" stroke-dasharray="195 280" stroke-linecap="round"/>
+      <text x="340" y="153" fill="#ffffff" font-family="Unbounded, Arial, sans-serif" font-size="14" font-weight="700" text-anchor="middle">86%</text>
+
+      <!-- Technical Spec Table on Right Page -->
+      <g transform="translate(0, 266)">
+        <rect width="406" height="42" rx="8" fill="#18a2c0" fill-opacity="0.14"/>
+        <text x="16" y="26" fill="#141821" font-family="Unbounded, Arial, sans-serif" font-size="10.5" font-weight="700">Презентация компании (Pitch Deck)</text>
+        <text x="390" y="26" fill="#18a2c0" font-family="Unbounded, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end">от 15 000 ₽</text>
+
+        <rect y="52" width="406" height="42" rx="8" fill="#eaabcd" fill-opacity="0.18"/>
+        <text x="16" y="78" fill="#141821" font-family="Unbounded, Arial, sans-serif" font-size="10.5" font-weight="700">Многостраничный каталог продукции</text>
+        <text x="390" y="78" fill="#141821" font-family="Unbounded, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end">от 25 000 ₽</text>
+
+        <rect y="104" width="406" height="42" rx="8" fill="#eef1f6"/>
+        <text x="16" y="130" fill="#141821" font-family="Unbounded, Arial, sans-serif" font-size="10.5" font-weight="700">Книга / Годовой отчёт / Бренд-издание</text>
+        <text x="390" y="130" fill="#141821" font-family="Unbounded, Arial, sans-serif" font-size="11" font-weight="700" text-anchor="end">от 50 000 ₽</text>
+      </g>
+    </g>
+  </g>
+</svg>
