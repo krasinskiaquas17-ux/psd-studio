@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /scratch/
+
+User-agent: Yandex
+Allow: /
+Disallow: /scratch/
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid /
+
+Host: https://krasinskiaquas17-ux.github.io
+Sitemap: https://krasinskiaquas17-ux.github.io/psd-studio/sitemap.xml
