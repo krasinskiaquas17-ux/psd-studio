@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Пользовательское соглашение — PSD Студия графического дизайна</title>
+  <meta name="robots" content="noindex,follow">
+  <meta name="description" content="Пользовательское соглашение сайта студии графического дизайна PSD (ИП Платонов Сергей)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --teal:#2aa6c4;
+      --pink:#f1b6d2;
+      --lav:#a9a7d6;
+      --dark:#1a1a2e;
+      --text:#3a3a46;
+    }
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Unbounded',sans-serif;
+      background:#f0eff5;
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+    header{
+      position:sticky;top:0;z-index:100;
+      backdrop-filter:blur(18px) saturate(1.4);
+      -webkit-backdrop-filter:blur(18px) saturate(1.4);
+      background:rgba(255,255,255,0.55);
+      border-bottom:1px solid rgba(255,255,255,0.4);
+      box-shadow:0 2px 24px rgba(42,166,196,0.08);
+      padding:0 40px;
+      height:64px;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:20px;
+    }
+    header .logo-link{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+    header .logo-link img{height:36px;width:auto}
+    header nav{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+    header nav a{
+      font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+      color:var(--text);text-decoration:none;opacity:.7;
+      transition:opacity .2s,color .2s;white-space:nowrap;
+    }
+    header nav a:hover{opacity:1;color:var(--teal)}
+    main{flex:1;padding:60px 20px 80px}
+    .legal-wrap{
+      max-width:800px;margin:0 auto;
+      background:rgba(255,255,255,0.75);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,0.6);
+      box-shadow:0 8px 40px rgba(42,166,196,0.1);
+      padding:48px 56px;
+    }
+    .breadcrumb{margin-bottom:32px}
+    .breadcrumb a{
+      font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+      color:var(--teal);text-decoration:none;
+      display:inline-flex;align-items:center;gap:6px;
+      transition:opacity .2s;
+    }
+    .breadcrumb a:hover{opacity:.7}
+    .breadcrumb a::before{content:'←';font-size:14px}
+    h1{
+      font-size:clamp(18px,3vw,28px);font-weight:600;
+      color:var(--dark);line-height:1.25;margin-bottom:8px;
+    }
+    .legal-date{
+      font-size:11px;font-weight:300;letter-spacing:.06em;
+      color:var(--teal);text-transform:uppercase;margin-bottom:40px;
+    }
+    h2{
+      font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+      color:var(--dark);margin:36px 0 12px;
+      padding-bottom:8px;border-bottom:1px solid rgba(42,166,196,0.2);
+    }
+    p{font-size:13px;font-weight:300;line-height:1.9;color:var(--text);margin-bottom:12px}
+    ul{margin:0 0 16px 20px}
+    ul li{font-size:13px;font-weight:300;line-height:1.9;color:var(--text);margin-bottom:4px}
+    a{color:var(--teal);text-decoration:none}
+    a:hover{text-decoration:underline}
+    strong{font-weight:600}
+    .highlight-box{
+      background:rgba(42,166,196,0.07);
+      border-left:3px solid var(--teal);
+      border-radius:0 12px 12px 0;
+      padding:16px 20px;margin:20px 0;
+    }
+    .highlight-box p{margin-bottom:0}
+    .warning-box{
+      background:rgba(241,182,210,0.12);
+      border-left:3px solid var(--pink);
+      border-radius:0 12px 12px 0;
+      padding:16px 20px;margin:20px 0;
+    }
+    .warning-box p{margin-bottom:0}
+    footer{
+      background:#d9d9d9;
+      padding:28px 40px;
+      display:flex;align-items:center;flex-wrap:wrap;gap:16px 32px;
+    }
+    footer img{height:28px;width:auto;opacity:.6}
+    footer a{
+      font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+      color:#4a4a52;text-decoration:none;opacity:.6;
+      transition:opacity .2s,color .2s;white-space:nowrap;
+    }
+    footer a:hover{opacity:1;color:var(--teal)}
+    footer .legal-links{display:flex;flex-wrap:wrap;gap:12px 24px;margin-left:auto}
+    @media(max-width:640px){
+      header{padding:0 20px}
+      header nav{gap:14px}
+      .legal-wrap{padding:32px 24px}
+      footer{padding:20px 20px;flex-direction:column;align-items:flex-start}
+      footer .legal-links{margin-left:0}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo-link" href="../index.html" aria-label="PSD студия — на главную">
+    <img src="../assets/media/img_008.svg" alt="PSD">
+  </a>
+  <nav>
+    <a href="../index.html#about">О студии</a>
+    <a href="../index.html#portfolio">Портфолио</a>
+    <a href="../index.html#services">Услуги</a>
+    <a href="../articles/index.html">Статьи</a>
+    <a href="../index.html#contacts">Контакты</a>
+  </nav>
+</header>
+
+<main>
+  <div class="legal-wrap">
+    <nav class="breadcrumb"><a href="../index.html">На главную</a></nav>
+
+    <h1>Пользовательское соглашение</h1>
+    <p class="legal-date">Редакция от 10 ноября 2026 г.</p>
+
+    <div class="highlight-box">
+      <p>Настоящее Пользовательское соглашение регулирует условия использования сайта студии графического дизайна <strong>PSD</strong>. Используя сайт, вы подтверждаете согласие с условиями данного соглашения.</p>
+    </div>
+
+    <h2>1. Стороны соглашения</h2>
+    <p><strong>Владелец сайта (Администрация):</strong> ИП Платонов Сергей (студия графического дизайна PSD), г. Москва.</p>
+    <p><strong>Пользователь:</strong> любое физическое лицо, осуществляющее доступ к сайту и использующее его функциональные возможности.</p>
+    <p><strong>Сайт:</strong> <a href="https://krasinskiaquas17-ux.github.io/psd-studio/" target="_blank">krasinskiaquas17-ux.github.io/psd-studio</a></p>
+
+    <h2>2. Предмет соглашения</h2>
+    <p>Настоящее соглашение определяет права и обязанности Пользователя при использовании Сайта, а также условия, на которых Администрация предоставляет доступ к материалам и функциям Сайта.</p>
+    <p>Начало использования Сайта означает безоговорочное принятие Пользователем всех условий настоящего соглашения.</p>
+
+    <h2>3. Права и обязанности пользователя</h2>
+    <p>Пользователь вправе:</p>
+    <ul>
+      <li>Просматривать материалы Сайта в личных, некоммерческих целях;</li>
+      <li>Использовать форму обратной связи для направления запросов;</li>
+      <li>Знакомиться со статьями и публикациями Сайта.</li>
+    </ul>
+    <p>Пользователь обязуется <strong>не осуществлять</strong> следующие действия:</p>
+    <ul>
+      <li>Копирование, воспроизведение, распространение материалов Сайта (текстов, изображений, дизайна, кода) без письменного согласия Администрации;</li>
+      <li>Автоматизированный парсинг и сбор данных с Сайта;</li>
+      <li>Использование материалов Сайта в коммерческих целях без разрешения Администрации;</li>
+      <li>Любые действия, нарушающие работоспособность Сайта или ущемляющие права других пользователей.</li>
+    </ul>
+
+    <h2>4. Интеллектуальная собственность</h2>
+    <p>Все материалы, размещённые на Сайте, включая тексты, изображения, логотипы, дизайн-решения, работы портфолио и программный код, являются объектами интеллектуальной собственности <strong>ИП Платонова Сергея (PSD)</strong> и охраняются законодательством Российской Федерации об авторском праве.</p>
+
+    <div class="warning-box">
+      <p>Любое использование материалов Сайта без письменного разрешения Администрации является нарушением авторских прав и влечёт ответственность в соответствии с действующим законодательством РФ.</p>
+    </div>
+
+    <h2>5. Условия оказания услуг</h2>
+    <p>Сайт является презентационным ресурсом студии. Информация, размещённая на Сайте, носит информационный характер и не является публичной офертой в смысле ст. 437 ГК РФ. Конкретные условия оказания услуг согласовываются индивидуально.</p>
+
+    <h2>6. Ограничение ответственности</h2>
+    <p>Администрация не несёт ответственности за:</p>
+    <ul>
+      <li>Временную недоступность Сайта по техническим причинам;</li>
+      <li>Возможные ошибки или неточности в публикациях;</li>
+      <li>Содержание внешних сайтов, на которые могут вести ссылки с данного Сайта;</li>
+      <li>Любые убытки, возникшие у Пользователя вследствие использования или невозможности использования Сайта.</li>
+    </ul>
+
+    <h2>7. Персональные данные</h2>
+    <p>Порядок сбора и обработки персональных данных Пользователей регулируется отдельным документом — <a href="privacy.html">Политикой обработки персональных данных</a>.</p>
+
+    <h2>8. Применимое право и разрешение споров</h2>
+    <p>Настоящее соглашение регулируется и толкуется в соответствии с законодательством <strong>Российской Федерации</strong>. Все споры, возникающие из настоящего соглашения или в связи с ним, разрешаются путём переговоров, а при невозможности достижения согласия — в судебном порядке по месту нахождения Администрации.</p>
+
+    <h2>9. Изменения соглашения</h2>
+    <p>Администрация оставляет за собой право вносить изменения в настоящее соглашение в любое время без предварительного уведомления Пользователей. Актуальная редакция соглашения размещается на данной странице. Продолжение использования Сайта после внесения изменений означает согласие Пользователя с обновлённой редакцией.</p>
+
+    <h2>10. Контактная информация</h2>
+    <p>По всем вопросам, связанным с настоящим соглашением, обращайтесь:</p>
+    <p>E-mail: <a href="mailto:platonovartdir@yandex.ru">platonovartdir@yandex.ru</a><br>
+    Телефон: <a href="tel:+79011802297">+7 901 180-22-97</a></p>
+
+  </div>
+</main>
+
+<footer>
+  <img src="../assets/media/img_024.svg" alt="PSD">
+  <a href="../index.html#about">О студии</a>
+  <a href="../index.html#portfolio">Портфолио</a>
+  <a href="../index.html#services">Услуги</a>
+  <a href="../articles/index.html">Статьи</a>
+  <a href="../index.html#contacts">Контакты</a>
+  <div class="legal-links">
+    <a href="consent.html">Согласие на обработку данных</a>
+    <a href="privacy.html">Политика конфиденциальности</a>
+    <a href="terms.html">Пользовательское соглашение</a>
+  </div>
+</footer>
+
+</body>
+</html>

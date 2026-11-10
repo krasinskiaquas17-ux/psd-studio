@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Политика обработки персональных данных — PSD Студия графического дизайна</title>
+  <meta name="robots" content="noindex,follow">
+  <meta name="description" content="Политика обработки персональных данных студии PSD (ИП Платонов Сергей)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --teal:#2aa6c4;
+      --pink:#f1b6d2;
+      --lav:#a9a7d6;
+      --dark:#1a1a2e;
+      --text:#3a3a46;
+    }
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Unbounded',sans-serif;
+      background:#f0eff5;
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+    header{
+      position:sticky;top:0;z-index:100;
+      backdrop-filter:blur(18px) saturate(1.4);
+      -webkit-backdrop-filter:blur(18px) saturate(1.4);
+      background:rgba(255,255,255,0.55);
+      border-bottom:1px solid rgba(255,255,255,0.4);
+      box-shadow:0 2px 24px rgba(42,166,196,0.08);
+      padding:0 40px;
+      height:64px;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:20px;
+    }
+    header .logo-link{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+    header .logo-link img{height:36px;width:auto}
+    header nav{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+    header nav a{
+      font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+      color:var(--text);text-decoration:none;opacity:.7;
+      transition:opacity .2s,color .2s;white-space:nowrap;
+    }
+    header nav a:hover{opacity:1;color:var(--teal)}
+    main{flex:1;padding:60px 20px 80px}
+    .legal-wrap{
+      max-width:800px;margin:0 auto;
+      background:rgba(255,255,255,0.75);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,0.6);
+      box-shadow:0 8px 40px rgba(42,166,196,0.1);
+      padding:48px 56px;
+    }
+    .breadcrumb{margin-bottom:32px}
+    .breadcrumb a{
+      font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+      color:var(--teal);text-decoration:none;
+      display:inline-flex;align-items:center;gap:6px;
+      transition:opacity .2s;
+    }
+    .breadcrumb a:hover{opacity:.7}
+    .breadcrumb a::before{content:'←';font-size:14px}
+    h1{
+      font-size:clamp(18px,3vw,28px);font-weight:600;
+      color:var(--dark);line-height:1.25;margin-bottom:8px;
+    }
+    .legal-date{
+      font-size:11px;font-weight:300;letter-spacing:.06em;
+      color:var(--teal);text-transform:uppercase;margin-bottom:40px;
+    }
+    h2{
+      font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+      color:var(--dark);margin:36px 0 12px;
+      padding-bottom:8px;border-bottom:1px solid rgba(42,166,196,0.2);
+    }
+    p{font-size:13px;font-weight:300;line-height:1.9;color:var(--text);margin-bottom:12px}
+    ul{margin:0 0 16px 20px}
+    ul li{font-size:13px;font-weight:300;line-height:1.9;color:var(--text);margin-bottom:4px}
+    a{color:var(--teal);text-decoration:none}
+    a:hover{text-decoration:underline}
+    strong{font-weight:600}
+    .highlight-box{
+      background:rgba(42,166,196,0.07);
+      border-left:3px solid var(--teal);
+      border-radius:0 12px 12px 0;
+      padding:16px 20px;margin:20px 0;
+    }
+    .highlight-box p{margin-bottom:0}
+    table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:12px;font-weight:300}
+    th{font-weight:600;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+      color:var(--dark);border-bottom:2px solid rgba(42,166,196,0.3);padding:8px 12px;text-align:left}
+    td{padding:8px 12px;border-bottom:1px solid rgba(42,166,196,0.1);color:var(--text);line-height:1.6}
+    footer{
+      background:#d9d9d9;
+      padding:28px 40px;
+      display:flex;align-items:center;flex-wrap:wrap;gap:16px 32px;
+    }
+    footer img{height:28px;width:auto;opacity:.6}
+    footer a{
+      font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+      color:#4a4a52;text-decoration:none;opacity:.6;
+      transition:opacity .2s,color .2s;white-space:nowrap;
+    }
+    footer a:hover{opacity:1;color:var(--teal)}
+    footer .legal-links{display:flex;flex-wrap:wrap;gap:12px 24px;margin-left:auto}
+    @media(max-width:640px){
+      header{padding:0 20px}
+      header nav{gap:14px}
+      .legal-wrap{padding:32px 24px}
+      table{font-size:11px}
+      th,td{padding:6px 8px}
+      footer{padding:20px 20px;flex-direction:column;align-items:flex-start}
+      footer .legal-links{margin-left:0}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo-link" href="../index.html" aria-label="PSD студия — на главную">
+    <img src="../assets/media/img_008.svg" alt="PSD">
+  </a>
+  <nav>
+    <a href="../index.html#about">О студии</a>
+    <a href="../index.html#portfolio">Портфолио</a>
+    <a href="../index.html#services">Услуги</a>
+    <a href="../articles/index.html">Статьи</a>
+    <a href="../index.html#contacts">Контакты</a>
+  </nav>
+</header>
+
+<main>
+  <div class="legal-wrap">
+    <nav class="breadcrumb"><a href="../index.html">На главную</a></nav>
+
+    <h1>Политика обработки персональных данных</h1>
+    <p class="legal-date">Редакция от 10 ноября 2026 г.</p>
+
+    <div class="highlight-box">
+      <p>Настоящая Политика разработана в соответствии с требованиями Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных» и определяет порядок обработки персональных данных в студии графического дизайна <strong>PSD</strong>.</p>
+    </div>
+
+    <h2>1. Оператор персональных данных</h2>
+    <p><strong>ИП Платонов Сергей</strong> (студия графического дизайна PSD), г. Москва.</p>
+    <p>Сайт: <a href="https://krasinskiaquas17-ux.github.io/psd-studio/" target="_blank">krasinskiaquas17-ux.github.io/psd-studio</a><br>
+    E-mail: <a href="mailto:platonovartdir@yandex.ru">platonovartdir@yandex.ru</a><br>
+    Телефон: <a href="tel:+79011802297">+7 901 180-22-97</a></p>
+
+    <h2>2. Категории субъектов персональных данных</h2>
+    <p>Оператор обрабатывает персональные данные следующих категорий субъектов:</p>
+    <ul>
+      <li>Потенциальные клиенты — физические лица, оставившие заявку на сайте;</li>
+      <li>Посетители сайта, взаимодействующие с формой обратной связи.</li>
+    </ul>
+
+    <h2>3. Категории обрабатываемых данных</h2>
+    <table>
+      <thead>
+        <tr><th>Категория данных</th><th>Состав</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Идентификационные</td><td>Имя (имя и/или фамилия)</td></tr>
+        <tr><td>Контактные</td><td>Номер телефона, мессенджер или адрес электронной почты</td></tr>
+        <tr><td>Содержательные</td><td>Краткое описание проекта (если указано субъектом)</td></tr>
+      </tbody>
+    </table>
+    <p>Оператор <strong>не обрабатывает</strong> специальные категории персональных данных (сведения о расовой, национальной принадлежности, политических взглядах, религиозных убеждениях, состоянии здоровья и т.п.).</p>
+
+    <h2>4. Цели обработки персональных данных</h2>
+    <ul>
+      <li>Ответ на обращение субъекта персональных данных;</li>
+      <li>Запись на первичную консультацию по услугам дизайн-студии;</li>
+      <li>Уточнение деталей проекта и подготовка коммерческого предложения;</li>
+      <li>Оказание услуг графического дизайна по договору.</li>
+    </ul>
+
+    <h2>5. Правовые основания обработки</h2>
+    <p>Обработка персональных данных осуществляется на следующих правовых основаниях:</p>
+    <ul>
+      <li>Согласие субъекта персональных данных (ст. 6 ч. 1 п. 1, ст. 9 Федерального закона № 152-ФЗ);</li>
+      <li>Исполнение договора, стороной которого является субъект персональных данных (ст. 6 ч. 1 п. 5 Федерального закона № 152-ФЗ).</li>
+    </ul>
+
+    <h2>6. Способы и условия обработки</h2>
+    <p>Обработка персональных данных осуществляется с использованием средств автоматизации. Персональные данные хранятся в электронном виде и защищены организационными и техническими мерами:</p>
+    <ul>
+      <li>Передача данных по зашифрованному соединению (SSL/TLS);</li>
+      <li>Ограниченный доступ к данным — исключительно для Оператора;</li>
+      <li>Регулярное обновление программного обеспечения.</li>
+    </ul>
+
+    <h2>7. Срок хранения персональных данных</h2>
+    <p>Персональные данные хранятся в течение <strong>1 (одного) года</strong> с момента их получения, либо до отзыва согласия субъектом персональных данных. По истечении срока данные уничтожаются.</p>
+
+    <h2>8. Передача персональных данных третьим лицам</h2>
+    <p>Персональные данные <strong>не передаются</strong> третьим лицам, не раскрываются публично, не используются в маркетинговых рассылках без отдельного согласия субъекта. Трансграничная передача данных <strong>не осуществляется</strong>.</p>
+
+    <h2>9. Файлы cookie и аналитика</h2>
+    <p>Сайт может использовать технические cookies, необходимые для корректной работы. Cookies не содержат персональных данных и не передаются третьим лицам. При необходимости пользователь может отключить cookies в настройках браузера.</p>
+
+    <h2>10. Права субъектов персональных данных</h2>
+    <p>В соответствии с Федеральным законом № 152-ФЗ субъект персональных данных имеет право:</p>
+    <ul>
+      <li>Получить подтверждение факта обработки персональных данных Оператором;</li>
+      <li>Получить сведения об Операторе, о целях и способах обработки данных;</li>
+      <li>Потребовать уточнения своих персональных данных, их блокирования или уничтожения;</li>
+      <li>Отозвать согласие на обработку персональных данных;</li>
+      <li>Обжаловать действия (бездействие) Оператора в Федеральную службу по надзору в сфере связи, информационных технологий и массовых коммуникаций (Роскомнадзор);</li>
+      <li>Осуществлять защиту своих прав в судебном порядке.</li>
+    </ul>
+
+    <h2>11. Порядок обращения по вопросам обработки данных</h2>
+    <p>Запросы и обращения субъектов персональных данных принимаются по адресу: <a href="mailto:platonovartdir@yandex.ru">platonovartdir@yandex.ru</a>.</p>
+    <p>Оператор рассматривает обращения в течение <strong>30 (тридцати) рабочих дней</strong> с момента получения.</p>
+
+    <h2>12. Изменения в политике</h2>
+    <p>Оператор оставляет за собой право вносить изменения в настоящую Политику. Актуальная редакция размещается на данной странице. Дата последнего обновления указана в начале документа.</p>
+
+    <h2>13. Контактная информация</h2>
+    <p>По всем вопросам, связанным с обработкой персональных данных:</p>
+    <p>E-mail: <a href="mailto:platonovartdir@yandex.ru">platonovartdir@yandex.ru</a><br>
+    Телефон: <a href="tel:+79011802297">+7 901 180-22-97</a></p>
+
+  </div>
+</main>
+
+<footer>
+  <img src="../assets/media/img_024.svg" alt="PSD">
+  <a href="../index.html#about">О студии</a>
+  <a href="../index.html#portfolio">Портфолио</a>
+  <a href="../index.html#services">Услуги</a>
+  <a href="../articles/index.html">Статьи</a>
+  <a href="../index.html#contacts">Контакты</a>
+  <div class="legal-links">
+    <a href="consent.html">Согласие на обработку данных</a>
+    <a href="privacy.html">Политика конфиденциальности</a>
+    <a href="terms.html">Пользовательское соглашение</a>
+  </div>
+</footer>
+
+</body>
+</html>
