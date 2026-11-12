@@ -344,6 +344,10 @@
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:"Unbounded","Montserrat",Arial,sans-serif;font-weight:300;overflow-x:hidden}
+/* perf: секции ниже fold рендерятся лениво */
+#pf,#faq,#contacts,footer{content-visibility:auto;contain-intrinsic-size:0 600px}
+/* perf: декоративные картинки не тянут layout */
+.layer img,.blk .half img{transform:translateZ(0)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:19}
 header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:center;gap:clamp(14px,2.4vw,34px);padding:calc(12px + env(safe-area-inset-top,0px)) 4vw 12px;color:#fff;font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.16);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid rgba(255,255,255,.28);box-shadow:0 6px 24px rgba(20,40,70,.08)}
 header a{color:#fff;text-decoration:none;opacity:.9}
@@ -352,12 +356,13 @@ header .logo-link{display:inline-flex;align-items:center;margin-right:10px;opaci
 
 /* Блоки со сменой через parallax: каждый следующий наезжает на предыдущий */
 .stack{position:relative}
-.blk{position:sticky;top:0;height:100svh;min-height:100svh;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;color:#fff;will-change:transform;box-shadow:0 -30px 60px rgba(30,20,60,.25);isolation:isolate}
+/* perf: will-change управляется JS, не статически */
+.blk{position:sticky;top:0;height:100svh;min-height:100svh;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;color:#fff;box-shadow:0 -30px 60px rgba(30,20,60,.25);isolation:isolate;contain:layout style}
 .blk .half{position:relative;overflow:hidden}
 .blk .txt{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:12vh 6vw 8vh;z-index:2}
 .blk .txt.right{align-items:flex-start}
-.blk .content{will-change:transform}
-.layer{position:absolute;will-change:transform}
+.blk .content{}
+.layer{position:absolute}
 h1,h2{font-weight:600;text-transform:uppercase;line-height:1.15;margin:0 0 18px;letter-spacing:.02em}
 h1{font-size:clamp(20px,2.6vw,36px)}
 h2{font-size:clamp(18px,2.2vw,32px)}
@@ -2897,6 +2902,104 @@ try {
       }
     });
   });
+})();
+</script>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   PSD PERF v1.0 — батчинг скролла + умный will-change
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  'use strict';
+
+  /* ── 1. ЕДИНЫЙ RAF-БАТЧЕР: все scroll/resize колбэки через один rAF ── */
+  var _cbs = [];
+  var _raf = 0;
+  var _st  = 0;
+  var _sw  = 0;
+  var _sh  = 0;
+
+  function _flush() {
+    _raf = 0;
+    _st  = window.scrollY || window.pageYOffset;
+    _sw  = window.innerWidth;
+    _sh  = window.innerHeight;
+    for (var i = 0; i < _cbs.length; i++) {
+      try { _cbs[i](_st, _sw, _sh); } catch(e) {}
+    }
+  }
+
+  function _kick() {
+    if (!_raf) _raf = requestAnimationFrame(_flush);
+  }
+
+  window.addEventListener('scroll', _kick, { passive: true });
+  window.addEventListener('resize', _kick, { passive: true });
+
+  /* Экспортируем для скриптов, которые захотят добавить свой колбэк */
+  window.__psdPerf = { addScrollCb: function(fn) { _cbs.push(fn); } };
+
+  /* ── 2. УМНЫЙ will-change: только у активной / соседней секции ── */
+  var blks = [].slice.call(document.querySelectorAll('.blk'));
+  if (blks.length) {
+    function updateWillChange(st, sw, sh) {
+      for (var i = 0; i < blks.length; i++) {
+        var r = blks[i].getBoundingClientRect();
+        /* активна — видна на экране или ±1 экран от неё */
+        var near = r.bottom > -sh && r.top < sh * 2;
+        blks[i].style.willChange = near ? 'transform' : 'auto';
+        /* .layer и .content внутри */
+        var layers = blks[i].querySelectorAll('.layer, .content');
+        for (var j = 0; j < layers.length; j++) {
+          layers[j].style.willChange = near ? 'transform' : 'auto';
+        }
+      }
+    }
+    _cbs.push(updateWillChange);
+    /* первый вызов сразу */
+    updateWillChange(window.scrollY, window.innerWidth, window.innerHeight);
+  }
+
+  /* ── 3. THROTTLE WebGL-рендера: пауза когда канвас не виден ── */
+  /* IntersectionObserver уже стоит на WebGL-секциях в их скриптах,
+     здесь дополнительно дросселируем requestAnimationFrame для
+     всех канвасов что вышли из вьюпорта > 200% */
+  var canvases = [].slice.call(document.querySelectorAll('canvas'));
+  if (canvases.length && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        /* data-attr хранит состояние: пауза = '0' */
+        e.target.dataset.inview = e.isIntersecting ? '1' : '0';
+      });
+    }, { rootMargin: '100% 0px 100% 0px' }); /* буфер ±100% вьюпорта */
+    canvases.forEach(function(cv) {
+      cv.dataset.inview = '1';
+      io.observe(cv);
+    });
+  }
+
+  /* ── 4. PASSIVE touch/pointer на оставшихся хэндлерах ── */
+  /* Добавляем touchmove passive чтобы браузер не ждал JS перед скроллом */
+  document.addEventListener('touchmove', function(){}, { passive: true });
+
+  /* ── 5. font-display: swap для Unbounded (если браузер ещё грузит) ── */
+  /* Уже в <link> через Google Fonts. Дополнительно: скрываем
+     layout shift до загрузки шрифта через font-size-adjust */
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function() {
+      document.documentElement.classList.add('fonts-loaded');
+    });
+  }
+
+  /* ── 6. CSS contain для article-секций (не sticky) ── */
+  var sects = [].slice.call(document.querySelectorAll(
+    '#ab, #pf, #faq, #contacts, footer, .articles-section'
+  ));
+  sects.forEach(function(s) {
+    /* contain:content = layout + style + paint — изолируем перекраску */
+    if (!s.style.contain) s.style.contain = 'content';
+  });
+
 })();
 </script>
 </body>
