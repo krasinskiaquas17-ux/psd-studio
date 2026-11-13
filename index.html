@@ -578,12 +578,9 @@ h2{font-size:clamp(18px,2.2vw,32px)}
   .b2 .txt,.b4 .txt{align-items:flex-end;text-align:right;padding:12vh 7vw 8vh 4vw}
   .b2 .btn,.b4 .btn{align-self:flex-end}
   .b2 .zone{display:block;position:absolute;left:26%;width:62%;top:10%;bottom:0;z-index:1}
-  /* Буст не выходит за центральную линию влево — clip ровно по 50% его ширины = 50vw */
-  .b2 .bust{clip-path:inset(0 0 0 50%)}
 }
 @media (min-width:900px) and (hover:hover){
-  /* transform-origin:50% — clip-point не смещается при scale, линия остаётся на 50vw */
-  .b2 .bust{scale:.82;transform-origin:50% 100%;transition:scale .55s cubic-bezier(.2,.7,.2,1)}
+  .b2 .bust{scale:.82;transform-origin:58% 100%;transition:scale .55s cubic-bezier(.2,.7,.2,1)}
   .b2 .zone:hover + .bust{scale:1}
 }
 .b3{background:#a6a6d3}
