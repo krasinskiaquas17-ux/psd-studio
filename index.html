@@ -2771,7 +2771,16 @@ new IntersectionObserver(function(es){inView=es[0].isIntersecting;if(inView)rest
       if(bad){ok.textContent='Пожалуйста, заполните отмеченные поля и подтвердите согласия.';return}
       var data={};[].forEach.call(f.elements,function(el){if(el.name&&el.type!=='checkbox')data[el.name]=el.value});
       document.dispatchEvent(new CustomEvent('price:request',{detail:data}));
-      f.querySelector('.send').textContent='Заявка отправлена';f.querySelector('.send').disabled=true;ok.textContent='Спасибо! Мы свяжемся с вами в ближайшее время.';
+      var btn=f.querySelector('.send');
+      btn.textContent='Отправка...';btn.disabled=true;ok.textContent='';
+      fetch('https://formspree.io/f/meagovel',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(data)
+      }).then(function(r){
+        if(r.ok){btn.textContent='Заявка отправлена';ok.textContent='Спасибо! Мы свяжемся с вами в ближайшее время.';}
+        else{btn.textContent='Отправить';btn.disabled=false;ok.textContent='Ошибка отправки. Напишите напрямую: platonovartdir@yandex.ru';}
+      }).catch(function(){btn.textContent='Отправить';btn.disabled=false;ok.textContent='Ошибка сети. Напишите напрямую: platonovartdir@yandex.ru';});
     });
     f.addEventListener('input',function(e){var l=e.target.closest('.fld,.cons');if(l)l.classList.remove('err')});
   }
