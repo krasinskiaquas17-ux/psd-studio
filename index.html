@@ -2100,24 +2100,26 @@ body.hdr-dark header .logo{filter:invert(1)}
   function tick(){
     if(window.__tw)return;
     var vh=window.innerHeight;
+    // Читаем ВСЕ getBoundingClientRect за один проход (batch read → no forced reflow)
+    var rects=blks.map(function(b){return b.getBoundingClientRect();});
+    var isMob=window.innerWidth<900;
     blks.forEach(function(b,i){
-      var r=b.getBoundingClientRect();
-      // Слои внутри блока двигаются с разной скоростью (глубина)
+      var r=rects[i];
       var d=Math.max(-vh,Math.min(vh,r.top));
-      var nx=blks[i+1],cov=nx?Math.max(0,Math.min(1,1-nx.getBoundingClientRect().top/vh)):0;
+      var cov=rects[i+1]?Math.max(0,Math.min(1,1-rects[i+1].top/vh)):0;
       b.querySelectorAll('.layer').forEach(function(l){
         var s=parseFloat(l.dataset.speed)||0;
         var ty=d*s-cov*vh*s*0.45;
-        if(window.innerWidth<900&&l.classList.contains('bgimg')){var lim=vh*0.075;if(ty>lim)ty=lim;if(ty<-lim)ty=-lim;}
+        if(isMob&&l.classList.contains('bgimg')){var lim=vh*0.075;if(ty>lim)ty=lim;if(ty<-lim)ty=-lim;}
         l.style.transform='translate3d(0,'+ty+'px,0)';
         if(l.dataset.shade){var k=Math.max(0,Math.min(1,d/vh));l.style.opacity=1-0.55*k;}
       });
       // Когда следующий блок наезжает, текущий уходит медленнее и темнеет
-      var next=blks[i+1],c=b.querySelector('.content'),p=0;
-      if(next){
-        p=Math.max(0,Math.min(1,1-next.getBoundingClientRect().top/vh));
+      var c=b.querySelector('.content'),p=0;
+      if(rects[i+1]){
+        p=Math.max(0,Math.min(1,1-rects[i+1].top/vh));
         if(c)c.style.transform='translate3d(0,'+(-p*vh*0.18)+'px,0)';
-        b.style.filter=window.innerWidth<900?'':'brightness('+(1-p*0.35)+')';
+        b.style.filter=isMob?'':'brightness('+(1-p*0.35)+')';
       }else{
         if(c)c.style.transform='';
         b.style.filter='';
@@ -2192,8 +2194,19 @@ more.onclick=function(e){e.preventDefault();openCase(cur);document.dispatchEvent
 addEventListener('keydown',function(e){if(!opened||!inView)return;if(document.body.classList.contains('pfdopen')){if(e.key==='Escape')closeCase();return}if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1)});
 var x0=null;grid.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
 grid.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(cur+(dx<0?1:-1));x0=null});
-// лёгкий параллакс изображений за курсором
-grid.addEventListener('mousemove',function(e){var r=grid.getBoundingClientRect();grid.style.setProperty('--px',((e.clientX-r.left)/r.width-.5)*-1);grid.style.setProperty('--py',((e.clientY-r.top)/r.height-.5)*-1)});
+// лёгкий параллакс изображений за курсором (RAF-throttle: не чаще 1 раза за кадр)
+var _mmRaf=0,_mmE=null;
+grid.addEventListener('mousemove',function(e){
+  _mmE=e;
+  if(_mmRaf)return;
+  _mmRaf=requestAnimationFrame(function(){
+    _mmRaf=0;
+    var ev=_mmE;if(!ev)return;
+    var r=grid.getBoundingClientRect();
+    grid.style.setProperty('--px',((ev.clientX-r.left)/r.width-.5)*-1);
+    grid.style.setProperty('--py',((ev.clientY-r.top)/r.height-.5)*-1);
+  });
+},{passive:true});
 grid.addEventListener('mouseleave',function(){grid.style.setProperty('--px',0);grid.style.setProperty('--py',0);restart()});
 grid.addEventListener('mouseenter',function(){clearInterval(timer)});
 // ===== Экран описания кейса =====
@@ -2575,16 +2588,20 @@ new IntersectionObserver(function(es){inView=es[0].isIntersecting;if(inView)rest
       function(){body.style.height='0px';ab.classList.remove('open');sl[cur].classList.remove('on')});
   }
   // светлая тема управления и хедера, когда под ними белый слайд, портфолио или светлые блоки прайса
+  // Используем IntersectionObserver вместо elementsFromPoint на каждый скролл (нет reflow)
+  var _darkSects=new Set();
+  function _applyHdrDark(){document.body.classList.toggle('hdr-dark',_darkSects.size>0);}
+  if(window.IntersectionObserver){
+    var _hdrIO=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting)_darkSects.add(e.target);else _darkSects.delete(e.target);});
+      _applyHdrDark();
+    },{rootMargin:'-56px 0px calc(-100% + 65px) 0px',threshold:0});
+    ['#pf','#faq'].forEach(function(sel){var el=document.querySelector(sel);if(el)_hdrIO.observe(el);});
+  }
   function hdr(){
     var light=(cur===3&&(!busy||pr>.5))||(prev===3&&busy&&pr<=.5);
     inner.classList.toggle('lt',light);
-    var dark=false;
-    if(document.elementsFromPoint){
-      var els=document.elementsFromPoint(innerWidth/2,64),el=null;
-      for(var i=0;i<els.length;i++){if(!els[i].closest('header')){el=els[i];break}}
-      if(el)dark=!!(el.closest('#pf')||el.closest('#faq')||(light&&el.closest('#ab'))||(el.closest('#pr')&&!el.closest('.hero,.closing')));
-    }
-    document.body.classList.toggle('hdr-dark',dark);
+    _applyHdrDark();
   }
   var hq=0;function hsch(){if(!hq){hq=1;requestAnimationFrame(function(){hq=0;hdr()})}}
   addEventListener('scroll',hsch,{passive:true});addEventListener('resize',hsch);
