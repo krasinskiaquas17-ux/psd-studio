@@ -345,7 +345,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:"Unbounded","Montserrat",Arial,sans-serif;font-weight:300;overflow-x:hidden}
 /* perf: секции ниже fold рендерятся лениво */
-#pf,#faq,#contacts,footer{content-visibility:auto;contain-intrinsic-size:0 600px}
+#faq,footer{content-visibility:auto;contain-intrinsic-size:0 600px}
 /* perf: декоративные картинки не тянут layout */
 .layer img,.blk .half img{transform:translateZ(0)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:19}
@@ -2588,20 +2588,16 @@ new IntersectionObserver(function(es){inView=es[0].isIntersecting;if(inView)rest
       function(){body.style.height='0px';ab.classList.remove('open');sl[cur].classList.remove('on')});
   }
   // светлая тема управления и хедера, когда под ними белый слайд, портфолио или светлые блоки прайса
-  // Используем IntersectionObserver вместо elementsFromPoint на каждый скролл (нет reflow)
-  var _darkSects=new Set();
-  function _applyHdrDark(){document.body.classList.toggle('hdr-dark',_darkSects.size>0);}
-  if(window.IntersectionObserver){
-    var _hdrIO=new IntersectionObserver(function(es){
-      es.forEach(function(e){if(e.isIntersecting)_darkSects.add(e.target);else _darkSects.delete(e.target);});
-      _applyHdrDark();
-    },{rootMargin:'-56px 0px calc(-100% + 65px) 0px',threshold:0});
-    ['#pf','#faq'].forEach(function(sel){var el=document.querySelector(sel);if(el)_hdrIO.observe(el);});
-  }
   function hdr(){
     var light=(cur===3&&(!busy||pr>.5))||(prev===3&&busy&&pr<=.5);
     inner.classList.toggle('lt',light);
-    _applyHdrDark();
+    var dark=false;
+    if(document.elementsFromPoint){
+      var els=document.elementsFromPoint(innerWidth/2,64),el=null;
+      for(var i=0;i<els.length;i++){if(!els[i].closest('header')){el=els[i];break}}
+      if(el)dark=!!(el.closest('#pf')||el.closest('#faq')||(light&&el.closest('#ab'))||(el.closest('#pr')&&!el.closest('.hero,.closing')));
+    }
+    document.body.classList.toggle('hdr-dark',dark);
   }
   var hq=0;function hsch(){if(!hq){hq=1;requestAnimationFrame(function(){hq=0;hdr()})}}
   addEventListener('scroll',hsch,{passive:true});addEventListener('resize',hsch);
@@ -3019,7 +3015,7 @@ try {
 
   /* ── 6. CSS contain для article-секций (не sticky) ── */
   var sects = [].slice.call(document.querySelectorAll(
-    '#ab, #pf, #faq, #contacts, footer, .articles-section'
+    '#faq, footer, .articles-section'
   ));
   sects.forEach(function(s) {
     /* contain:content = layout + style + paint — изолируем перекраску */
