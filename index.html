@@ -3028,5 +3028,49 @@ try {
 
 })();
 </script>
+
+<!-- ═══ LENIS SMOOTH SCROLL ═══ -->
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+<script>
+(function(){
+  /* Не включаем на мобилке и при prefers-reduced-motion */
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(window.innerWidth < 900) return;
+
+  var lenis = new Lenis({
+    lerp: 0.045,         /* 0.045 — очень вязкий, премиум */
+    smoothWheel: true,
+    syncTouch: false,    /* touch на мобилке — нативный (важно!) */
+    prevent: function(node){
+      /* Не перехватываем скролл внутри модальных оверлеев */
+      return !!(node && (
+        node.id === 'pfd' ||
+        node.id === 'phone-inner' ||
+        (node.closest && node.closest('#pfd, #ct, #ab, #pr'))
+      ));
+    }
+  });
+
+  /* RAF-loop: вызываем Lenis каждый кадр */
+  function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+
+  /* Существующий parallax tick() слушает 'scroll' — Lenis его триггерит
+     через window.scrollTo, нативный event прилетает автоматически.
+     На всякий случай дублируем dispatch: */
+  lenis.on('scroll', function(){
+    window.dispatchEvent(new Event('scroll'));
+  });
+
+  /* Стопим Lenis когда открыт оверлей (детальная карточка портфолио) */
+  var obs = new MutationObserver(function(){
+    var locked = document.body.classList.contains('pfdopen') ||
+                 document.body.classList.contains('ctopen') ||
+                 document.body.classList.contains('abopen');
+    locked ? lenis.stop() : lenis.start();
+  });
+  obs.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+})();
+</script>
 </body>
 </html>
