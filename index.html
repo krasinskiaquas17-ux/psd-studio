@@ -626,7 +626,7 @@ h2{font-size:clamp(18px,2.2vw,32px)}
 /* Тексты-«облако» из блока 3 */
 .cloud{left:-5%;top:20%;width:110%;font-size:clamp(9px,1.1vw,14px);line-height:1.35;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.55);transform-origin:left center}
 
-.faq{--bg:#fff;--text:#4a4a52;--muted:#8d8d96;--field:#ececec;--fieldtext:#8d8d96;color-scheme:light;position:relative;z-index:5;background:#fff;padding:70px 20px 80px}
+.faq{--bg:#fff;--text:#4a4a52;--muted:#8d8d96;--field:#ececec;--fieldtext:#8d8d96;color-scheme:light;position:relative;z-index:10;background:#fff;padding:70px 20px 80px}
 .faq .in{max-width:520px;margin:0 auto}
 .faq h3{text-align:center;color:var(--muted);font-weight:600;font-size:clamp(16px,2vw,24px);text-transform:uppercase;margin:0 0 30px}
 details{background:var(--field);border-radius:12px;margin-bottom:10px;color:var(--fieldtext);font-size:11px}
@@ -640,7 +640,7 @@ details p{margin:0;padding:0 18px 14px;line-height:1.6}
 .row input{flex:1 1 160px}
 .send{display:block;margin:16px auto 0;font:inherit;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:#6fc3ea;border:0;border-radius:99px;padding:8px 26px;cursor:pointer}
 
-footer{position:relative;z-index:5;background:#d9d9d9;color-scheme:light;padding:36px max(20px,calc((100% - 520px)/2)) calc(36px + env(safe-area-inset-bottom,0px));color:#8d8d96;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+footer{position:relative;z-index:10;background:#d9d9d9;color-scheme:light;padding:36px max(20px,calc((100% - 520px)/2)) calc(36px + env(safe-area-inset-bottom,0px));color:#8d8d96;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
 footer .logo{display:block;margin:0 0 16px;filter:invert(.6);opacity:.8}
 footer a{display:block;color:#8d8d96;text-decoration:none;margin-bottom:8px}
 
@@ -1743,7 +1743,7 @@ body.hdr-dark header .logo{filter:invert(1)}
 <body>
 <header>
   <a class="logo-link" href="#about" aria-label="Наверх"><img class="logo" src="assets/media/img_008.svg" alt="PSD"></a>
-  <a href="#about">О студии</a><a href="#portfolio">Портфолио</a><a href="#services">Услуги</a><a href="articles/index.html">Статьи</a><a href="#contacts">Контакты</a>
+  <a href="#about">О студии</a><a href="#portfolio">Портфолио</a><a href="#services">Услуги</a><a href="articles/index.html">Статьи</a><a href="#contacts">Контакты</a><a href="#faq">FAQ</a>
   <button class="mob-menu-btn" id="mob-menu-btn" type="button" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
 </header>
 <nav class="mob-menu-pop" id="mob-menu-pop" aria-label="Мобильное меню">
@@ -1752,6 +1752,7 @@ body.hdr-dark header .logo{filter:invert(1)}
   <a href="#services">Услуги</a>
   <a href="articles/index.html">Статьи</a>
   <a href="#contacts">Контакты</a>
+  <a href="#faq">FAQ</a>
 </nav>
 
 <main class="stack">
@@ -2074,7 +2075,7 @@ body.hdr-dark header .logo{filter:invert(1)}
 
 <footer>
   <img class="logo" src="assets/media/img_024.svg" alt="PSD">
-  <a href="#about">О студии</a><a href="#portfolio">Портфолио</a><a href="#services">Услуги</a><a href="articles/index.html">Статьи</a><a href="#contacts">Контакты</a>
+  <a href="#about">О студии</a><a href="#portfolio">Портфолио</a><a href="#services">Услуги</a><a href="articles/index.html">Статьи</a><a href="#contacts">Контакты</a><a href="#faq">FAQ</a>
   <a href="legal/consent.html" target="_blank">Согласие на обработку данных</a><a href="legal/privacy.html" target="_blank">Политика конфиденциальности</a><a href="legal/terms.html" target="_blank">Пользовательское соглашение</a>
 </footer>
 
@@ -2818,7 +2819,8 @@ try {
     '#about':'nav-about',
     '#portfolio':'nav-portfolio',
     '#services':'nav-services',
-    '#contacts':'nav-contacts'
+    '#contacts':'nav-contacts',
+    '#faq':'faq'
   };
   function scrollToScreen(hash,smooth){
     var anchorId=map[hash];
