@@ -7,5 +7,5 @@ Allow: /
 Disallow: /scratch/
 Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid /
 
-Host: https://krasinskiaquas17-ux.github.io
+Host: https://www.psd-graphics.ru
 Sitemap: https://www.psd-graphics.ru/sitemap.xml
